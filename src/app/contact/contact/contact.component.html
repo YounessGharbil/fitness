@@ -1,0 +1,161 @@
+
+<div class="card">
+    <p-table
+        #dt1
+        [value]="contacts"
+        dataKey="id"
+        [rows]="10"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        [loading]="loading"
+        [paginator]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [globalFilterFields]="['nom', 'pays']"
+        >
+        <ng-template pTemplate="caption">
+            
+            <div class="flex">
+                <span >
+                    <input pInputText  type="text" (input)="dt1.filterGlobal(applyFilterGlobal($event), 'contains')" placeholder="Search keyword" />
+                </span>
+                <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
+            
+            </div>
+            
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="min-width:15rem">
+                    <div class="flex align-items-center">
+                        Nom
+                        <p-columnFilter type="text" field="nom" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th style="min-width:15rem">
+                    <div class="flex align-items-center">
+                        Prénom
+                        <p-columnFilter type="text" field="prenom" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width:15rem">
+                    <div class="flex align-items-center">
+                        Date de naissance
+                        <p-columnFilter type="text" field="dateNaissance" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th style="min-width:15rem">
+                    <div class="flex align-items-center">
+                        Sexe
+                        <p-columnFilter type="text" field="sexe" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width:15rem">
+                    <div class="flex align-items-center">
+                        Adresse
+                        <p-columnFilter type="text" field="adresse" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th style="min-width:15rem">
+                    <div class="flex align-items-center">
+                        Code postal
+                        <p-columnFilter type="text" field="codePostal" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width:15rem">
+                    <div class="flex align-items-center">
+                        Pays
+                        <p-columnFilter type="text" field="pays" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th style="min-width:15rem">
+                    <div class="flex align-items-center">
+                        Ville
+                        <p-columnFilter type="text" field="ville" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width:15rem">
+                    <div class="flex align-items-center">
+                        Tel
+                        <p-columnFilter type="text" field="tel" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th style="min-width:15rem">
+                    <div class="flex align-items-center">
+                        Email
+                        <p-columnFilter type="text" field="email" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-contact>
+            <tr>
+                <td>
+                    {{ contact.nom }}
+                </td>
+
+                <td>
+                    {{ contact.prenom }}
+                </td>
+
+                <td>
+                    {{ contact.dateNaissance }}
+                </td>
+
+                <td>
+                    {{ contact.sexe }}
+                </td>
+
+                <td>
+                    {{ contact.adresse }}
+                </td>
+
+                <td>
+                    {{ contact.codePostal }}
+                </td>
+
+                <td>
+                    {{ contact.pays }}
+                </td>
+
+                <td>
+                    {{ contact.ville }}
+                </td>
+
+                <td>
+                    {{ contact.tel }}
+                </td>
+
+                <td>
+                    {{ contact.email }}
+                </td>
+
+                <td>
+                    <button pButton type="button"  icon="pi pi-pencil" (click)="updateContact(contact)"></button>
+                </td>
+
+                <td>
+                    <button pButton type="button"  icon="pi pi-trash" (click)="confirmDelete(contact.id)"></button>
+                </td>
+           
+                
+            </tr>
+        </ng-template>
+        
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="7">No contacts found.</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="paginatorleft">
+            <p-button (click)="show()" type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+        </ng-template>
+        
+    </p-table>
+</div>
+<p-toast></p-toast>
+<p-confirmDialog  [style]="{width: '50vw'}"  ></p-confirmDialog>

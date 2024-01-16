@@ -1,0 +1,139 @@
+<div class="card">
+  
+    <form>
+      <!-- Nom -->
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-user"></i>
+        </span>
+        <input pInputText [(ngModel)]="newContact.nom" name="nom" placeholder="Nom" />
+      </div>
+  
+      <!-- Prenom -->
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-user"></i>
+        </span>
+        <input pInputText [(ngModel)]="newContact.prenom" name="prenom" placeholder="Prénom" />
+      </div>
+  
+      <!-- Date de Naissance -->
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-calendar"></i>
+        </span>
+        <!-- <input pInputText [(ngModel)]="newContact.dateNaissance" name="dateNaissance" placeholder="Date de Naissance" /> -->
+        <p-calendar [(ngModel)]="dateNaissance" name="dateNaissance" [showIcon]="true" placeholder="Date de naissance"></p-calendar>
+      </div>
+  
+      <!-- Sexe -->
+      <!-- <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-user"></i>
+        </span>
+        <input pInputText [(ngModel)]="newContact.sexe" name="sexe" placeholder="Sexe" />
+      </div> -->
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-user"></i>
+        </span>
+        <div class="p-radio">
+          <input type="radio" id="male" [(ngModel)]="newContact.sexe" name="sexe" value="homme" />
+          <label for="male">Homme</label>
+        </div>
+        <div class="p-radio">
+          <input type="radio" id="female" [(ngModel)]="newContact.sexe" name="sexe" value="femme" />
+          <label for="female">Femme</label>
+        </div>
+      </div>
+  
+      <!-- Adresse -->
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-map-marker"></i>
+        </span>
+        <input pInputText [(ngModel)]="newContact.adresse" name="adresse" placeholder="Adresse" />
+      </div>
+  
+      <!-- Code Postal -->
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-home"></i>
+        </span>
+        <input pInputText [(ngModel)]="newContact.codePostal" name="codePostal" placeholder="Code Postal" />
+      </div>
+  
+      <!-- Pays -->
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-globe"></i>
+        </span>
+        <input pInputText [(ngModel)]="newContact.pays" name="pays" placeholder="Pays" />
+      </div>
+  
+      <!-- Ville -->
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-building"></i>
+        </span>
+        <input pInputText [(ngModel)]="newContact.ville" name="ville" placeholder="Ville" />
+      </div>
+  
+      <!-- Tel -->
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-phone"></i>
+        </span>
+        <input pInputText [(ngModel)]="newContact.tel" name="tel" placeholder="Tel" />
+      </div>
+  
+      <!-- Email -->
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-envelope"></i>
+        </span>
+        <input pInputText [(ngModel)]="newContact.email" name="email" placeholder="Email" />
+      </div>
+  
+      <!-- Button to Save Contact -->
+      <button pButton type="button" label="Save Contact" (click)=" addNewContact()"></button>
+
+    </form>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="card flex flex-column md:flex-row gap-3">
+    <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+            <i class="pi pi-user"></i>
+        </span>
+        <input pInputText placeholder="Username" />
+    </div>
+
+    <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">$</span>
+        <input type="text" pInputText placeholder="Price" />
+        <span class="p-inputgroup-addon">.00</span>
+    </div>
+
+    <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">www</span>
+        <input type="text" pInputText placeholder="Website" />
+    </div>
+</div> -->

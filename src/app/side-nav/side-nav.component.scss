@@ -1,0 +1,27 @@
+
+.nav-items {
+  padding-top: 40px;
+
+  .nav-item {
+    padding: 15px 20px; /* Adjust padding for a more compact layout */
+    cursor: pointer;
+    @media only screen and (max-width: 1300px) {
+      padding: 15px 15px;
+    }
+    &:hover {
+      background-color: rgb(1, 38, 69);
+    }
+
+    fa-icon {
+      margin-right: 10px; /* Adjust icon margin for a more compact layout */
+      font-size: 18px; /* Adjust icon size for a more compact layout */
+    }
+
+    span {
+      display: none;
+      @media only screen and (min-width: 1300px) {
+        display: inline;
+      }
+    }
+  }
+}
