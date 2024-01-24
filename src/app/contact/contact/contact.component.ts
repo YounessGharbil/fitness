@@ -9,6 +9,7 @@ import { UpdateContactComponent } from '../update-contact/update-contact.compone
 import { Subscription } from 'rxjs';
 
 
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -37,20 +38,12 @@ export class ContactComponent implements OnInit,OnDestroy {
 
 
     ngOnInit() {
-       this.contactsSubscription= this.contactService.getContacts().subscribe({
-          next:  (response)=>
-          {
-            console.log(response);
-            this.contacts=response;
-          },
-          error:(err)=>{
-            console.log(err)
-          },
-          complete:()=>{
-            console.log("task complete")
-          }
-        });
+      this.contactService.loadContacts();
+      this.contactsSubscription = this.contactService.contacts$.subscribe(contacts => {
+        this.contacts = contacts;
         this.loading = false;
+      });
+
 
     }
 
@@ -89,11 +82,13 @@ export class ContactComponent implements OnInit,OnDestroy {
       header: ' Update Contact'
     });
   }
+  
   deleteContact(id:number){
     this.deleteContactSubscription=this.contactService.deleteContact(id).subscribe({
       next:  (response)=>
       {
         console.log(response)
+        
       },
       error:(err)=>{
         console.log(err)

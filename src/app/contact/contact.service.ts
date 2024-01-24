@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Contact } from './contact';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 
 @Injectable({
@@ -9,21 +9,49 @@ import { Observable } from 'rxjs';
 })
 export class ContactService implements OnInit {
 
-  private baseURL = `http://localhost:8080/Contact`;
-  contacts:Array<Contact>=new Array();
-  
-
   constructor(private http: HttpClient) { }
+  
   ngOnInit(): void {
     
-   
   }
 
-  createContact(contact:Contact):Observable<any>{
+  private baseURL = `http://localhost:8080/Contact`;
 
-    return this.http.post(`${this.baseURL}`,contact)
+  private contactsSubject = new BehaviorSubject<any>([]);
 
+  contacts$ = this.contactsSubject.asObservable();
+
+  loadContacts(): void {
+
+    this.http.get<any>(`${this.baseURL}`).subscribe({
+      next:  (response)=>
+          {
+            console.log(response);
+            this.contactsSubject.next(response);
+          },
+          error:(err)=>{
+            console.log(err)
+          },
+          complete:()=>{
+            console.log("task complete")
+          }
+    });
   }
+
+  updateContacts(contacts: Contact[]): void {
+    this.contactsSubject.next(contacts);
+  }
+
+  createContact(contact: Contact): Observable<any> {
+    return this.http.post(`${this.baseURL}`, contact).pipe(
+      tap((response) => {
+        const currentContacts = this.contactsSubject.value;
+        const updatedContacts = [...currentContacts, response];
+        this.updateContacts(updatedContacts);
+      })
+    );
+  }
+
 
   updateContact(contact:Contact):Observable<any>{
 
@@ -33,7 +61,13 @@ export class ContactService implements OnInit {
 
   deleteContact(id:number):Observable<any>{
 
-    return this.http.delete(`${this.baseURL}/${id}`);
+    return this.http.delete(`${this.baseURL}/${id}`).pipe(
+      tap(() => {
+        const currentContacts = this.contactsSubject.value;
+        const updatedContacts = currentContacts.filter(contact => contact.id !== id);
+        this.updateContacts(updatedContacts);
+      })
+    );
 
   }
 
@@ -49,28 +83,6 @@ export class ContactService implements OnInit {
 
   }
 
-  getAllContacts():Contact[]{
-
-    return this.contacts ;
-    
-  }
-
-
-
-  private generateUniqueId(): number {
-    // Replace this with a proper unique ID generation logic
-    return Math.floor(Math.random() * 1000);
-  }
-
-  addContact(newContact: Contact): void {
-    // Assign a unique ID to the new contact (you may want to use a more robust method)
-    newContact.id = this.generateUniqueId();
-
-    // Add the new contact to the list
-    console.log("------------"+newContact.id+"--------");
-    this.contacts.push(newContact);
-  }
-
   
-  
+
 }

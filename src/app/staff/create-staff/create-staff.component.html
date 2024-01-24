@@ -1,0 +1,23 @@
+<div class="card">
+  
+    <form>
+
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-user"></i>
+        </span>
+        <input pInputNumber [(ngModel)]="newStaff.contact_id" name="contact_id" placeholder="Contact Id" />
+      </div>
+
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-user"></i>
+        </span>
+        <input pInputText [(ngModel)]="newStaff.role_name" name="role_name" placeholder="Role" />
+      </div>
+  
+      <button pButton type="button" label="Save Staff" (click)=" addNewStaff()"></button>
+
+    </form>
+  </div>
+  

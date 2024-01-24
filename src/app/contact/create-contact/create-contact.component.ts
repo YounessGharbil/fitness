@@ -33,7 +33,10 @@ export class CreateContactComponent implements OnInit,OnDestroy {
     email: ''
   };
 
-  constructor(private contactService: ContactService, public ref: DynamicDialogRef) { }
+  constructor(
+    private contactService: ContactService, 
+    public ref: DynamicDialogRef,
+    ) { }
   
   ngOnInit(): void {
     this.isAddingContact=false
@@ -57,6 +60,8 @@ export class CreateContactComponent implements OnInit,OnDestroy {
       next:  (response)=>
       {
         console.log(response)
+        this.ref.close(this.newContact);
+
       },
       error:(err)=>{
         console.log(err)
@@ -67,7 +72,6 @@ export class CreateContactComponent implements OnInit,OnDestroy {
     });
 
 
-    this.ref.close(this.newContact);
 
   }
 

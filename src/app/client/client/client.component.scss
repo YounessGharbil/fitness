@@ -1,0 +1,88 @@
+.flex {
+    display: flex;
+    align-items: center; 
+  
+    span {
+      margin-right: 10px; 
+    }
+  
+    input {
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      width: 250px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+  
+    button {
+      margin-left: 10px; 
+    }
+  }
+
+.card {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+
+  .p-table {
+    width: 100%;
+    margin-top: 20px;
+
+    .p-datatable-header {
+      background-color: #f2f2f2;
+      border-bottom: 1px solid #ddd;
+
+      .p-column-title {
+        font-weight: bold;
+      }
+
+      .p-paginator {
+        margin-top: 10px;
+      }
+    }
+
+    .p-datatable-caption {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        margin-right: 10px;
+      }
+
+      .p-input-icon-left {
+        position: relative;
+
+        i {
+          position: absolute;
+          right: 10px; 
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        input {
+          padding-right: 30px; 
+        }
+      }
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+  }
+}
+

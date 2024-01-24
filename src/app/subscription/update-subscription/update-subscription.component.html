@@ -1,0 +1,30 @@
+<div class="card">
+  
+    <form>
+
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-user"></i>
+        </span>
+        <input pInputNumber  [(ngModel)]="subscriptionToUpdate.subscribedPackage.id" name="subscribedPackage_id" placeholder="subscribedPackage_id" />
+      </div>
+
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-user"></i>
+        </span>
+        <input pInputNumber  [(ngModel)]="subscriptionToUpdate.discount" name="discount" placeholder="discount" />
+      </div>
+  
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-globe"></i>
+        </span>
+        <input pInputText [(ngModel)]="subscriptionToUpdate.status" name="status" placeholder="status" />
+      </div>
+  
+      <button pButton type="button" label="Save Subscription" (click)="confirmUpdate()"></button>
+
+    </form>
+  </div>
+  

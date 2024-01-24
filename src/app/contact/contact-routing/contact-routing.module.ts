@@ -14,6 +14,5 @@ const routes: Routes = [
     RouterModule.forChild(routes)
 
   ],
-  exports:[RouterModule]
 })
 export class ContactRoutingModule { }
