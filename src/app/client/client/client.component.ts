@@ -7,6 +7,12 @@ import { ClientService } from '../client.service';
 import { Table } from 'primeng/table';
 import { CreateClientComponent } from '../create-client/create-client.component';
 import { UpdateClientComponent } from '../update-client/update-client.component';
+import { Contact } from 'src/app/contact/contact';
+import { ContactCardComponent } from 'src/app/contact/contact-card/contact-card.component';
+import { User } from 'src/app/user/user';
+import { Sub } from 'src/app/subscription/subscription';
+import { UserCardComponent } from 'src/app/user/user-card/user-card.component';
+import { SubscriptionCardComponent } from 'src/app/subscription/subscription-card/subscription-card.component';
 
 @Component({
   selector: 'app-client',
@@ -126,6 +132,39 @@ confirmDelete(id:number) {
           }
       }
   });
+}
+
+displayContactCard(contact:Contact){
+
+  this.ref = this.dialogService.open(ContactCardComponent, { 
+    data: {
+        contact: contact
+    },
+    header: ' Card'
+  });
+
+}
+
+displayUserCard(user:User){
+
+  this.ref = this.dialogService.open(UserCardComponent, { 
+    data: {
+        user: user
+    },
+    header: 'User Card'
+  });
+  
+}
+
+displaySubscriptionCard(sub:Sub){
+
+  this.ref = this.dialogService.open(SubscriptionCardComponent, { 
+    data: {
+      sub: sub
+    },
+    header: 'Subscription Card'
+  });
+  
 }
 
 

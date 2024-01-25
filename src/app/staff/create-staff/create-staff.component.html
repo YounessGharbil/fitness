@@ -1,12 +1,9 @@
 <div class="card">
   
-    <form>
+  <form>
 
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
-          <i class="pi pi-user"></i>
-        </span>
-        <input pInputNumber [(ngModel)]="newStaff.contact_id" name="contact_id" placeholder="Contact Id" />
+      <div class="card flex justify-content-center">
+        <p-autoComplete [(ngModel)]="selectedContact" name="selectedContact" [suggestions]="contactSuggestions" (completeMethod)="search($event)"></p-autoComplete>
       </div>
 
       <div class="p-inputgroup">
@@ -19,5 +16,6 @@
       <button pButton type="button" label="Save Staff" (click)=" addNewStaff()"></button>
 
     </form>
+    
   </div>
   

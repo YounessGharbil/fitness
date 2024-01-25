@@ -1,1 +1,18 @@
-<p>subscription-card works!</p>
+<div class="card">
+    <p-card [style]="{ width: '300px' }">
+      <p>
+        <strong>{{ subscription.subscribedContact_id }}</strong><br />
+        <small>{{ subscription.subscribedPackage_id }}</small><br />
+        <small>{{ subscription.startDate }}</small><br />
+        <small>{{ subscription.endDate }}</small>
+        <small>{{ subscription.status }}</small><br />
+        <small>{{ subscription.discount }}</small><br />
+        <small>{{ subscription.priceAfterDiscount }}</small>
+
+      </p>
+      <ng-template pTemplate="footer">
+        <button pButton type="button" label="Edit" icon="pi pi-pencil" class="p-button-warning" (click)="updateSubscription(subscription)"></button>
+        <button pButton type="button" label="Delete" icon="pi pi-trash" class="p-button-danger" (click)="confirmDelete(subscription.id)"></button>
+      </ng-template>
+    </p-card>
+  </div>

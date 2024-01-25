@@ -1,1 +1,18 @@
-<p>user-card works!</p>
+<div class="card">
+    <p-card [style]="{ width: '300px' }">
+      <!-- <ng-template pTemplate="header">
+        <img alt="Contact" src="https://example.com/contact-image.jpg" style="width: 100%" />
+      </ng-template> -->
+      <p>
+        <strong>user name</strong><br />
+        <small>{{ User.email }}</small><br />
+        <small>{{ User.role }}</small><br />
+ 
+
+      </p>
+      <ng-template pTemplate="footer">
+        <button pButton type="button" label="Edit" icon="pi pi-pencil" class="p-button-warning" (click)="updateUser(User)"></button>
+        <button pButton type="button" label="Delete" icon="pi pi-trash" class="p-button-danger" (click)="confirmDelete(User.id)"></button>
+      </ng-template>
+    </p-card>
+  </div>

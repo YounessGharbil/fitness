@@ -1,8 +1,10 @@
+import { Contact } from "../contact/contact";
+
 export interface Staff {
 
 	id?:number;
 
-    contact?:number;
+    contact?:Contact;
 
 	userAccount?:number;
 

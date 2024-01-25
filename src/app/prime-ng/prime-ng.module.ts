@@ -10,12 +10,16 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 import { CalendarModule } from 'primeng/calendar';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { CardModule } from 'primeng/card';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { DropdownModule } from 'primeng/dropdown';
+
 
 const PRIME_NG_MODULES = [
   TableModule,ButtonModule,DynamicDialogModule,
   InputTextModule,CheckboxModule,RadioButtonModule,
   ProgressSpinnerModule,ConfirmDialogModule,ToastModule,
-  CalendarModule
+  CalendarModule,CardModule,AutoCompleteModule,DropdownModule
   
 ];
 

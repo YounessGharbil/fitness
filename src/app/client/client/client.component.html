@@ -58,15 +58,15 @@
         </ng-template>
         <ng-template pTemplate="body" let-client>
             <tr>
-                <td>
+                <td (click)="displayContactCard(client.contact)">
                     {{ client.contact.id }}
                 </td>
 
-                <td>
+                <td (click)="displayUserCard(client.userAccount)">
                     {{ client.userAccount.id }}
                 </td>
 
-                <td>
+                <td (click)="displaySubscriptionCard(client.subscription)">
                     {{ client.subscription.id }}
                 </td>
 

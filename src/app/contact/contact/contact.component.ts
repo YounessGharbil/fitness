@@ -7,6 +7,7 @@ import { CreateContactComponent } from '../create-contact/create-contact.compone
 import { ConfirmEventType, ConfirmationService, MessageService } from 'primeng/api';
 import { UpdateContactComponent } from '../update-contact/update-contact.component';
 import { Subscription } from 'rxjs';
+import { ContactCardComponent } from '../contact-card/contact-card.component';
 
 
 
@@ -43,8 +44,6 @@ export class ContactComponent implements OnInit,OnDestroy {
         this.contacts = contacts;
         this.loading = false;
       });
-
-
     }
 
     ngOnDestroy(): void {
@@ -75,12 +74,14 @@ export class ContactComponent implements OnInit,OnDestroy {
   }
 
   updateContact(contact:Contact){
+
     this.ref = this.dialogService.open(UpdateContactComponent, { 
       data: {
           contact: contact
       },
       header: ' Update Contact'
     });
+
   }
   
   deleteContact(id:number){
@@ -121,6 +122,17 @@ confirmDelete(id:number) {
           }
       }
   });
+}
+
+displayContactCard(contact:Contact){
+
+  this.ref = this.dialogService.open(ContactCardComponent, { 
+    data: {
+        contact: contact
+    },
+    header: 'Contact Card'
+  });
+
 }
 
 }

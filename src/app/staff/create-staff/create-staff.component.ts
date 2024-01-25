@@ -3,6 +3,8 @@ import { Subscription } from 'rxjs';
 import { Staff } from '../staff';
 import { StaffService } from '../staff.service';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { Contact } from 'src/app/contact/contact';
+import { ContactService } from 'src/app/contact/contact.service';
 
 @Component({
   selector: 'app-create-staff',
@@ -11,29 +13,56 @@ import { DynamicDialogRef } from 'primeng/dynamicdialog';
 })
 export class CreateStaffComponent implements OnInit,OnDestroy {
 
+  allContacts: Contact[];
+
+  contactSuggestions: string[];
+
+  selectedContact:string;
+
   private createStaffSubscription: Subscription;
 
-  
+  private contactsSubscription: Subscription;
+
   newStaff: Staff = { 
-    contact_id: null,
+    contact: null,
     role_name: '',
   };
 
-  constructor(private staffService: StaffService, public ref: DynamicDialogRef) { }
+  constructor(
+    private staffService: StaffService, 
+    public ref: DynamicDialogRef,
+    private contactService: ContactService
+    ) { }
 
 
-  ngOnInit(): void {
+    ngOnInit() {
+      this.contactService.loadContacts();
+      this.contactsSubscription = this.contactService.contacts$.subscribe(contacts => {
+        this.allContacts = contacts;
+        this.contactSuggestions = this.allContacts.map(contact => `${contact.nom} ${contact.prenom}`);
+        console.log(this.contactSuggestions)
+      });
 
-    
-  }
+    }
+
+
   ngOnDestroy(): void {
 
-    this.createStaffSubscription.unsubscribe();
+    if (this.createStaffSubscription) {
+      this.createStaffSubscription.unsubscribe();
+     }
+
+    if (this.contactsSubscription) {
+      this.contactsSubscription.unsubscribe();
+    }
 
   }
 
   addNewStaff() {
-    console.log("im inside add staff")
+
+    const selectedContact = this.allContacts.find(contact => `${contact.nom} ${contact.prenom}` === this.selectedContact);
+
+    this.newStaff.contact = selectedContact;
     
    this.createStaffSubscription= this.staffService.createStaff(this.newStaff).subscribe({
 
@@ -50,8 +79,14 @@ export class CreateStaffComponent implements OnInit,OnDestroy {
         console.log("task complete")
       }
     });
-
-
   }
+
+
+  search(event) {
+    const query = event.query;
+    this.contactSuggestions = this.allContacts
+        .filter(contact => contact.nom.toLowerCase().startsWith(query.toLowerCase()) || contact.prenom.toLowerCase().startsWith(query.toLowerCase()))
+        .map(contact => `${contact.nom} ${contact.prenom}`);
+}
 
 }

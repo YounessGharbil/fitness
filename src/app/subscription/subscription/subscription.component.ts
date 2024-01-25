@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { Table } from 'primeng/table';
 import { CreateSubscriptionComponent } from '../create-subscription/create-subscription.component';
 import { UpdateSubscriptionComponent } from '../update-subscription/update-subscription.component';
+import { SubscriptionCardComponent } from '../subscription-card/subscription-card.component';
 
 @Component({
   selector: 'app-subscription',
@@ -117,6 +118,17 @@ confirmDelete(id:number) {
           }
       }
   });
+}
+
+displaySubscriptionCard(sub:Sub){
+
+  this.ref = this.dialogService.open(SubscriptionCardComponent, { 
+    data: {
+      sub: sub
+    },
+    header: 'Subscription Card'
+  });
+  
 }
 
 
