@@ -18,6 +18,13 @@ export class CreateContactComponent implements OnInit,OnDestroy {
 
   private createContactSubscription: Subscription;
 
+  countries: any[];
+
+  filteredCountries: any[];
+
+  selectedCountry: any;
+
+
 
 
   newContact: Contact = { 
@@ -39,7 +46,13 @@ export class CreateContactComponent implements OnInit,OnDestroy {
     ) { }
   
   ngOnInit(): void {
+
     this.isAddingContact=false
+
+      this.contactService.getCountries().then((countries) => {
+      this.countries = countries;
+  });
+
   }
 
   ngOnDestroy(): void {
@@ -56,6 +69,8 @@ export class CreateContactComponent implements OnInit,OnDestroy {
     
     const formattedDate = this.formatDate(this.dateNaissance);
     this.newContact.dateNaissance = formattedDate;
+    this.newContact.pays=this.selectedCountry.name
+    console.log( this.newContact)
    this.createContactSubscription= this.contactService.createContact(this.newContact).subscribe({
       next:  (response)=>
       {
@@ -70,9 +85,21 @@ export class CreateContactComponent implements OnInit,OnDestroy {
         console.log("task complete")
       }
     });
-
-
-
   }
+
+  
+  filterCountry(event) {
+    let filtered: any[] = [];
+    let query = event.query;
+
+    for (let i = 0; i < this.countries.length; i++) {
+        let country = this.countries[i];
+        if (country.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
+            filtered.push(country);
+        }
+    }
+
+    this.filteredCountries = filtered;
+}
 
 }

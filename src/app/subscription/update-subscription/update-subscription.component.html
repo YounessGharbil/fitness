@@ -1,30 +1,42 @@
 <div class="card">
-  
-    <form>
+  <form>
+    <div>
+      <p-dropdown [disabled]="isPackageDisabled" [options]="allPackages" [(ngModel)]="selectedPackage" name="selectedPackage" optionLabel="packageName"></p-dropdown>
+      <p-toggleButton [(ngModel)]="isPackageDisabled" name="isPackageDisabled" onLabel="No" offLabel="Yes"></p-toggleButton>
+    </div>
 
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
-          <i class="pi pi-user"></i>
-        </span>
-        <input pInputNumber  [(ngModel)]="subscriptionToUpdate.subscribedPackage.id" name="subscribedPackage_id" placeholder="subscribedPackage_id" />
-      </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">
+        <i class="pi pi-user"></i>
+      </span>
+      <input [disabled]="isDiscountDisabled" pInputNumber [(ngModel)]="subscriptionToUpdate.discount" name="discount" placeholder="discount" />
+      <p-toggleButton [(ngModel)]="isDiscountDisabled" name="isDiscountDisabled" onLabel="No" offLabel="Yes"></p-toggleButton>
+    </div>
 
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
-          <i class="pi pi-user"></i>
-        </span>
-        <input pInputNumber  [(ngModel)]="subscriptionToUpdate.discount" name="discount" placeholder="discount" />
-      </div>
-  
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
-          <i class="pi pi-globe"></i>
-        </span>
-        <input pInputText [(ngModel)]="subscriptionToUpdate.status" name="status" placeholder="status" />
-      </div>
-  
-      <button pButton type="button" label="Save Subscription" (click)="confirmUpdate()"></button>
+    <!-- <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">
+        <i class="pi pi-globe"></i>
+      </span>
+      <input [disabled]="isStatusDisabled" pInputText [(ngModel)]="subscriptionToUpdate.status" name="status" placeholder="status" />
+      <p-toggleButton [(ngModel)]="isStatusDisabled" name="isStatusDisabled" onLabel="No" offLabel="Yes"></p-toggleButton>
+    </div> -->
 
-    </form>
-  </div>
-  
+    <div  class="p-inputgroup">
+      <span class="p-inputgroup-addon">
+        <i class="pi pi-user"></i>
+      </span>
+      <div class="p-radio">
+        <input [disabled]="isStatusDisabled" type="radio" id="active" [(ngModel)]="subscriptionToUpdate.status" name="status" value="active" />
+        <label for="active">ACTIVE</label>
+      </div>
+      <div class="p-radio">
+        <input [disabled]="isStatusDisabled" type="radio" id="blocked" [(ngModel)]="subscriptionToUpdate.status" name="status" value="blocked" />
+        <label for="blocked">BLOCKED</label>
+      </div>
+      <p-toggleButton [(ngModel)]="isStatusDisabled" name="isStatusDisabled" onLabel="No" offLabel="Yes"></p-toggleButton>
+
+    </div>
+
+    <button pButton type="button" label="Save Subscription" (click)="confirmUpdate()"></button>
+  </form>
+</div>

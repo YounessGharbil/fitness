@@ -1,34 +1,16 @@
 <div class="card">
   
     <form>
-  
-      <!-- <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
-          <i class="pi pi-user"></i>
-        </span>
-        <input pInputNumber  [(ngModel)]="newSubscription.subscribedContact_id" name="subscribedContact_id" placeholder="subscribedContact_id" />
-      </div> -->
 
       <div class="card flex justify-content-center">
         <p-autoComplete [(ngModel)]="selectedContact" name="selectedContact" [suggestions]="contactSuggestions" (completeMethod)="searchContact($event)"></p-autoComplete>
-      </div>
-
-      <div class="card flex justify-content-center">
-        <p-autoComplete [(ngModel)]="selectedPackage" name="selectedPackage" [suggestions]="packageSuggestions" (completeMethod)="searchPackage($event)"></p-autoComplete>
-      </div>
-
-      <!-- <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
-          <i class="pi pi-user"></i>
-        </span>
-        <input pInputNumber  [(ngModel)]="newSubscription.subscribedPackage_id" name="subscribedPackage_id" placeholder="subscribedPackage_id" />
-      </div> -->
-
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
-          <i class="pi pi-user"></i>
-        </span>
-        <input pInputNumber  [(ngModel)]="newSubscription.discount" name="discount" placeholder="discount" />
+        <p-dropdown [options]="allPackages" [(ngModel)]="selectedPackage" name="selectedPackage" optionLabel="packageName"></p-dropdown>
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">
+            <i class="pi pi-user"></i>
+          </span>
+          <input pInputNumber  [(ngModel)]="newSubscription.discount" name="discount" placeholder="discount" />
+        </div>
       </div>
   
       <button pButton type="button" label="Save Subscription" (click)=" addNewSubscription()"></button>

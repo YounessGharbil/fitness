@@ -7,6 +7,8 @@ import { StaffService } from '../staff.service';
 import { Table } from 'primeng/table';
 import { CreateStaffComponent } from '../create-staff/create-staff.component';
 import { UpdateStaffComponent } from '../update-staff/update-staff.component';
+import { Contact } from 'src/app/contact/contact';
+import { ContactCardComponent } from 'src/app/contact/contact-card/contact-card.component';
 
 @Component({
   selector: 'app-staff',
@@ -120,6 +122,15 @@ confirmDelete(id:number) {
   });
 }
 
+displayContactCard(contact:Contact){
 
+  this.ref = this.dialogService.open(ContactCardComponent, { 
+    data: {
+        contact: contact
+    },
+    header: ' Card'
+  });
+
+}
 
 }

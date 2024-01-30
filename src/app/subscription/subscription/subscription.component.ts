@@ -120,17 +120,4 @@ confirmDelete(id:number) {
   });
 }
 
-displaySubscriptionCard(sub:Sub){
-
-  this.ref = this.dialogService.open(SubscriptionCardComponent, { 
-    data: {
-      sub: sub
-    },
-    header: 'Subscription Card'
-  });
-  
-}
-
-
-
 }

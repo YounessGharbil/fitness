@@ -48,9 +48,9 @@ export class SubscriptionService {
     );
   }
 
-  updateSubscription(subscription:Sub):Observable<any>{
+  updateSubscription(subscription:any):Observable<any>{
 
-    subscription.subscribedPackage_id=subscription.subscribedPackage.id;
+    console.log(subscription.id)
     
     return this.http.put(`${this.baseURL}/${subscription.id}`,subscription)
 

@@ -1,0 +1,35 @@
+.card {
+    // Your existing card styles go here
+
+    .contact-info {
+        color: #2c3e50; // Field name color
+
+        .field {
+            font-weight: bold;
+            color: #e74c3c; // Field name color
+        }
+
+        .data {
+            strong {
+                color: #3498db; // Data color for strong (name)
+            }
+
+            small {
+                color: #27ae60; // Data color for other details
+                display: block;
+            }
+        }
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+
+        button {
+            width: 45%; // Adjust button width as needed
+        }
+    }
+}
+
+// Add any additional styles for card, header, footer, icons, etc., as needed

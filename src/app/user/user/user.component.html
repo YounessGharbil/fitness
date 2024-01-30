@@ -1,5 +1,5 @@
-
 <div class="card">
+
     <p-table
         #dt1
         [value]="users"
@@ -12,6 +12,7 @@
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [globalFilterFields]="[]"
         >
+
         <ng-template pTemplate="caption">
             
             <div class="flex">
@@ -23,20 +24,21 @@
             </div>
             
         </ng-template>
+
         <ng-template pTemplate="header">
             <tr>
 
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
                         Contact
-                        <p-columnFilter type="numeric" field="contact" display="menu"></p-columnFilter>
+                        <p-columnFilter type="text" field="contact" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        Role_ID
-                        <p-columnFilter type="numeric" field="role" display="menu"></p-columnFilter>
+                        Role
+                        <p-columnFilter type="text" field="role" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
@@ -49,20 +51,21 @@
     
             </tr>
         </ng-template>
+
         <ng-template pTemplate="body" let-user>
             <tr>
-                <td>
-                    {{ user.contact.id }}
+
+                <td (click)="displayContactCard(user.contact)">
+                    {{ user.contact.nom }} {{ user.contact.prenom }}
                 </td>
 
                 <td>
-                    {{ user.role.id }}
+                    {{ user.role.rolename }}
                 </td>
 
                 <td>
                     {{ user.email}}
                 </td>
-
 
                 <td>
                     <button pButton type="button"  icon="pi pi-pencil" (click)="updateUser(user)"></button>
@@ -71,8 +74,7 @@
                 <td>
                     <button pButton type="button"  icon="pi pi-trash" (click)="confirmDelete(user.id)"></button>
                 </td>
-           
-                
+                    
             </tr>
         </ng-template>
         
@@ -81,6 +83,7 @@
                 <td colspan="7">No users found.</td>
             </tr>
         </ng-template>
+
         <ng-template pTemplate="paginatorleft">
             <p-button (click)="show()" type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
         </ng-template>

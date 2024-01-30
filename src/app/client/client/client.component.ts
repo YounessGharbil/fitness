@@ -13,6 +13,7 @@ import { User } from 'src/app/user/user';
 import { Sub } from 'src/app/subscription/subscription';
 import { UserCardComponent } from 'src/app/user/user-card/user-card.component';
 import { SubscriptionCardComponent } from 'src/app/subscription/subscription-card/subscription-card.component';
+import { ClientCardComponent } from '../client-card/client-card.component';
 
 @Component({
   selector: 'app-client',
@@ -163,6 +164,17 @@ displaySubscriptionCard(sub:Sub){
       sub: sub
     },
     header: 'Subscription Card'
+  });
+  
+}
+
+displayClientCard(client:Client){
+
+  this.ref = this.dialogService.open(ClientCardComponent, { 
+    data: {
+      client: client
+    },
+    header: 'Client Card'
   });
   
 }

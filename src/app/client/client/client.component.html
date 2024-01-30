@@ -28,22 +28,22 @@
 
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        Contact_ID
-                        <p-columnFilter type="numeric" field="contact" display="menu"></p-columnFilter>
+                        Contact
+                        <p-columnFilter type="text" field="contact" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        UserAccount_ID
-                        <p-columnFilter type="numeric" field="userAccount" display="menu"></p-columnFilter>
+                        UserAccount
+                        <p-columnFilter type="text" field="userAccount" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        Subscription_ID
-                        <p-columnFilter type="numeric" field="subscription" display="menu"></p-columnFilter>
+                        Subscription
+                        <p-columnFilter type="text" field="subscription" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
@@ -57,17 +57,18 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-client>
-            <tr>
-                <td (click)="displayContactCard(client.contact)">
-                    {{ client.contact.id }}
+            <tr (click)="displayClientCard(client)">
+                <td >
+                    {{ client.contact.nom }} {{ client.contact.prenom }}
+
                 </td>
 
-                <td (click)="displayUserCard(client.userAccount)">
-                    {{ client.userAccount.id }}
+                <td>
+                    {{ client.userAccount.email }}
                 </td>
 
-                <td (click)="displaySubscriptionCard(client.subscription)">
-                    {{ client.subscription.id }}
+                <td>
+                    {{ client.subscription.status }}
                 </td>
 
                 <td>

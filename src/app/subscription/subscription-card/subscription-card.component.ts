@@ -19,8 +19,6 @@ export class SubscriptionCardComponent implements OnInit {
 
   private deleteSubSubscription: Subscription;
 
-
-
   constructor(
     private dialogConfig: DynamicDialogConfig,
     private subscriptionService: SubscriptionService,
@@ -28,9 +26,6 @@ export class SubscriptionCardComponent implements OnInit {
     private messageService: MessageService,
     private confirmationService: ConfirmationService
     ) {}
-
-
-
 
   ngOnInit(): void {
 
@@ -89,8 +84,5 @@ confirmDelete(id:number) {
       }
   });
 }
-
-
-
 
 }

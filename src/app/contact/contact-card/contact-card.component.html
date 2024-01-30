@@ -1,22 +1,39 @@
 <div class="card">
-    <p-card [style]="{ width: '300px' }">
+  <p-card [style]="{ width: '300px' }">
       <!-- <ng-template pTemplate="header">
-        <img alt="Contact" src="https://example.com/contact-image.jpg" style="width: 100%" />
+          <img alt="Contact" src="https://example.com/contact-image.jpg" style="width: 100%" />
       </ng-template> -->
-      <p>
-        <strong>{{ contact.prenom }} {{ contact.nom }}</strong><br />
-        <small>{{ contact.dateNaissance }}</small><br />
-        <small>{{ contact.sexe }}</small><br />
-        <small>{{ contact.adresse }}</small>
-        <small>{{ contact.pays }}</small><br />
-        <small>{{ contact.ville }}</small><br />
-        <small>{{ contact.tel }}</small>
-        <small>{{ contact.email }}</small>
+      <div class="contact-info">
+          <div class="field">Full Name:</div><div class="data"><strong>{{ contact.prenom }} {{ contact.nom }}</strong></div>
 
-      </p>
+
+          <div class="field">Date of Birth:</div>
+          <div class="data"><small>{{ contact.dateNaissance }}</small></div>
+
+          <div class="field">Sex:</div>
+          <div class="data"><small>{{ contact.sexe }}</small></div>
+
+          <div class="field">Address:</div>
+          <div class="data"><small>{{ contact.adresse }}</small></div>
+
+          <div class="field">Country:</div>
+          <div class="data"><small>{{ contact.pays }}</small></div>
+
+          <div class="field">City:</div>
+          <div class="data"><small>{{ contact.ville }}</small></div>
+
+          <div class="field">Tel:</div>
+          <div class="data"><small>{{ contact.tel }}</small></div>
+
+          <div class="field">Email:</div>
+          <div class="data"><small>{{ contact.email }}</small></div>
+      </div>
+
       <ng-template pTemplate="footer">
-        <button pButton type="button" label="Edit" icon="pi pi-pencil" class="p-button-warning" (click)="updateContact(contact)"></button>
-        <button pButton type="button" label="Delete" icon="pi pi-trash" class="p-button-danger" (click)="confirmDelete(contact.id)"></button>
+          <div class="button-container">
+              <button pButton type="button" label="Edit" icon="pi pi-pencil" class="p-button-warning" (click)="updateContact(contact)"></button>
+              <button pButton type="button" label="Delete" icon="pi pi-trash" class="p-button-danger" (click)="confirmDelete(contact.id)"></button>
+          </div>
       </ng-template>
-    </p-card>
-  </div>
+  </p-card>
+</div>

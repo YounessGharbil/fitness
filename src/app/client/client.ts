@@ -13,6 +13,6 @@ export interface Client {
 	
     observations?:string[];
 	
-	userAccount?:number;
+	userAccount?:any;
 
 }

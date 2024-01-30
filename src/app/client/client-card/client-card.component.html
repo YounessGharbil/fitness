@@ -1,1 +1,72 @@
-<p>client-card works!</p>
+<div class="card">
+    <p-tabView styleClass="tabview-custom">
+        <p-tabPanel>
+            <ng-template pTemplate="header">
+                <span>Contact</span>
+            </ng-template>
+            <div class="info-section">
+                <div class="field">Full Name:</div>
+                <div class="data">{{ client.contact.nom }} {{ client.contact.prenom }}</div>
+
+                <div class="field">Date of Birth:</div>
+                <div class="data">{{ client.contact.dateNaissance }}</div>
+
+                <div class="field">Sex:</div>
+                <div class="data">{{ client.contact.sexe }}</div>
+
+                <div class="field">Address:</div>
+                <div class="data">{{ client.contact.adresse }}</div>
+
+                <div class="field">City:</div>
+                <div class="data">{{ client.contact.ville }}</div>
+
+                <div class="field">Tel:</div>
+                <div class="data">{{ client.contact.tel }}</div>
+
+                <div class="field">Email:</div>
+                <div class="data">{{ client.contact.email }}</div>
+            </div>
+        </p-tabPanel>
+
+        <p-tabPanel>
+            <ng-template pTemplate="header">
+                <span>Subscription</span>
+            </ng-template>
+            <div class="info-section">
+                <div class="field">Package:</div>
+                <div class="data">{{ client.subscription.subscribedPackage.packageName }} </div>
+
+                <div class="field">Start Date:</div>
+                <div class="data">{{ client.subscription.startDate }}</div>
+
+                <div class="field">End Date:</div>
+                <div class="data">{{ client.subscription.endDate }}</div>
+
+                <div class="field">Discount:</div>
+                <div class="data">{{ client.subscription.discount }}</div>
+
+                <div class="field">Price After Discount:</div>
+                <div class="data">{{ client.subscription.priceAfterDiscount }}</div>
+
+                <div class="field">Status:</div>
+                <div class="data">{{ client.subscription.status }}</div>
+            </div>
+        </p-tabPanel>
+
+        <p-tabPanel>
+            <ng-template pTemplate="header">
+                <span>User Account</span>
+            </ng-template>
+            <div class="info-section">
+
+                <div class="field">Email:</div>
+                <div class="data">{{ client.contact.email }}</div>
+
+                <div class="field">Role:</div>
+                <div class="data">{{ client.userAccount.role.rolename }}</div>
+
+            </div>
+        </p-tabPanel>
+    </p-tabView>
+</div>
+

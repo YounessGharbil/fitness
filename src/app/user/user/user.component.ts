@@ -7,6 +7,8 @@ import { UserService } from '../user.service';
 import { Table } from 'primeng/table';
 import { CreateUserComponent } from '../create-user/create-user.component';
 import { UpdateUserComponent } from '../update-user/update-user.component';
+import { ContactCardComponent } from 'src/app/contact/contact-card/contact-card.component';
+import { Contact } from 'src/app/contact/contact';
 
 @Component({
   selector: 'app-user',
@@ -127,6 +129,17 @@ confirmDelete(id:number) {
           }
       }
   });
+}
+
+displayContactCard(contact:Contact){
+
+  this.ref = this.dialogService.open(ContactCardComponent, { 
+    data: {
+        contact: contact
+    },
+    header: ' Card'
+  });
+
 }
 
 }

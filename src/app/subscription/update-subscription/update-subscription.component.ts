@@ -1,9 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ConfirmEventType, ConfirmationService, MessageService } from 'primeng/api';
 import { Sub } from '../subscription';
 import { Subscription } from 'rxjs';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { SubscriptionService } from '../subscription.service';
+import { Package } from 'src/app/package/package';
+import { PackageService } from 'src/app/package/package.service';
 
 @Component({
   selector: 'app-update-subscription',
@@ -11,35 +13,73 @@ import { SubscriptionService } from '../subscription.service';
   styleUrls: ['./update-subscription.component.scss']
 })
 export class UpdateSubscriptionComponent implements OnInit,OnDestroy {
-
   
   subscriptionToUpdate: Sub;
 
-   private updateSubSubscription: Subscription;
+  private updateSubSubscription: Subscription;
 
+  allPackages: Package[];
+
+  selectedPackage:Package;
+
+  private packagesSubscription: Subscription;
+
+  isDiscountDisabled: boolean = true;
+  isPackageDisabled: boolean = true;
+  isStatusDisabled: boolean = true;
 
   constructor(private dialogConfig: DynamicDialogConfig,
               private subscriptionService: SubscriptionService,
               public ref: DynamicDialogRef,
               private messageService: MessageService,
-              private confirmationService: ConfirmationService
-
+              private confirmationService: ConfirmationService,
+              private packageService: PackageService
               ) {
 
   }
 
   ngOnInit(): void {
+
     this.subscriptionToUpdate=this.dialogConfig.data.sub;
-    console.log(this.subscriptionToUpdate)
+    this.packageService.loadPackages();
+    this.packagesSubscription = this.packageService.packages$.subscribe(packages => {
+    this.allPackages = packages;
+
+    });
   }
+  
   ngOnDestroy(): void {
 
-    this.updateSubSubscription.unsubscribe();
+    if (this.updateSubSubscription) {
+      this.updateSubSubscription.unsubscribe();
+    }
 
+    if (this.packagesSubscription) {
+      this.packagesSubscription.unsubscribe();
+    }
+    
   }
 
   updateSubscription(){
-    this.updateSubSubscription= this.subscriptionService.updateSubscription(this.subscriptionToUpdate).subscribe({
+
+    const updatePayload = {};
+
+    if (this.subscriptionToUpdate.discount !== null && this.subscriptionToUpdate.discount !== undefined  && !this.isDiscountDisabled ) {
+      updatePayload['discount'] = this.subscriptionToUpdate.discount;
+    }
+
+    if (this.subscriptionToUpdate.status !== null && this.subscriptionToUpdate.status !== undefined && !this.isStatusDisabled ) {
+      updatePayload['status'] = this.subscriptionToUpdate.status;
+    }
+
+    if (this.selectedPackage !== null && this.selectedPackage !== undefined && !this.isPackageDisabled) {
+      this.subscriptionToUpdate.subscribedPackage_id = this.selectedPackage.id;
+      updatePayload['subscribedPackage_id'] = this.subscriptionToUpdate.subscribedPackage_id;
+    }
+
+    updatePayload['id'] = this.subscriptionToUpdate.id;
+
+    this.updateSubSubscription= this.subscriptionService.updateSubscription(updatePayload).subscribe({
       next:  (response)=>
       {
         console.log(response)
@@ -76,7 +116,6 @@ export class UpdateSubscriptionComponent implements OnInit,OnDestroy {
         }
     });
   }
-
 
 
 }

@@ -28,8 +28,8 @@
 
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        Contact_ID
-                        <p-columnFilter type="numeric" field="contact" display="menu"></p-columnFilter>
+                        Contact
+                        <p-columnFilter type="text" field="contact.nom" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
@@ -44,8 +44,9 @@
         </ng-template>
         <ng-template pTemplate="body" let-staff>
             <tr>
-                <td>
-                    {{ staff.contact.id }}
+                <td (click)="displayContactCard(staff.contact)">
+                    {{ staff.contact.nom }}{{ staff.contact.prenom }}
+
                 </td>
 
                 <td>

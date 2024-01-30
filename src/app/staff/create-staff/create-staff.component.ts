@@ -5,6 +5,8 @@ import { StaffService } from '../staff.service';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Contact } from 'src/app/contact/contact';
 import { ContactService } from 'src/app/contact/contact.service';
+import { Role } from 'src/app/role/role';
+import { RoleService } from 'src/app/role/role.service';
 
 @Component({
   selector: 'app-create-staff',
@@ -14,14 +16,20 @@ import { ContactService } from 'src/app/contact/contact.service';
 export class CreateStaffComponent implements OnInit,OnDestroy {
 
   allContacts: Contact[];
+  allRoles: Role[];
+
 
   contactSuggestions: string[];
 
   selectedContact:string;
+  selectedRole:Role;
+
 
   private createStaffSubscription: Subscription;
 
   private contactsSubscription: Subscription;
+  private rolesSubscription: Subscription;
+
 
   newStaff: Staff = { 
     contact: null,
@@ -31,7 +39,9 @@ export class CreateStaffComponent implements OnInit,OnDestroy {
   constructor(
     private staffService: StaffService, 
     public ref: DynamicDialogRef,
-    private contactService: ContactService
+    private contactService: ContactService,
+    private roleService: RoleService
+
     ) { }
 
 
@@ -42,6 +52,13 @@ export class CreateStaffComponent implements OnInit,OnDestroy {
         this.contactSuggestions = this.allContacts.map(contact => `${contact.nom} ${contact.prenom}`);
         console.log(this.contactSuggestions)
       });
+
+      this.roleService.loadRoles();
+      this.rolesSubscription = this.roleService.roles$.subscribe(roles => {
+      this.allRoles = roles;
+
+      });
+      console.log( this.allRoles)
 
     }
 
@@ -56,6 +73,10 @@ export class CreateStaffComponent implements OnInit,OnDestroy {
       this.contactsSubscription.unsubscribe();
     }
 
+    if (this.rolesSubscription) {
+      this.rolesSubscription.unsubscribe();
+    }
+
   }
 
   addNewStaff() {
@@ -63,6 +84,9 @@ export class CreateStaffComponent implements OnInit,OnDestroy {
     const selectedContact = this.allContacts.find(contact => `${contact.nom} ${contact.prenom}` === this.selectedContact);
 
     this.newStaff.contact = selectedContact;
+
+    this.newStaff.role = this.selectedRole.rolename;
+
     
    this.createStaffSubscription= this.staffService.createStaff(this.newStaff).subscribe({
 

@@ -124,15 +124,15 @@ confirmDelete(id:number) {
   });
 }
 
-displayContactCard(contact:Contact){
+// displayContactCard(contact:Contact){
 
-  this.ref = this.dialogService.open(ContactCardComponent, { 
-    data: {
-        contact: contact
-    },
-    header: 'Contact Card'
-  });
+//   this.ref = this.dialogService.open(ContactCardComponent, { 
+//     data: {
+//         contact: contact
+//     },
+//     header: 'Contact Card'
+//   });
 
-}
+// }
 
 }

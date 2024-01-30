@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Contact } from '../contact';
 import { ContactService } from '../contact.service';
 import { DialogService, DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './contact-card.component.html',
   styleUrls: ['./contact-card.component.scss']
 })
-export class ContactCardComponent implements OnInit {
+export class ContactCardComponent implements OnInit,OnDestroy {
 
   contact: Contact;
 
@@ -28,6 +28,11 @@ export class ContactCardComponent implements OnInit {
     private messageService: MessageService,
     private confirmationService: ConfirmationService
     ) {}
+  ngOnDestroy(): void {
+    if(this.deleteContactSubscription){
+      this.deleteContactSubscription.unsubscribe()
+    }
+  }
 
 
 

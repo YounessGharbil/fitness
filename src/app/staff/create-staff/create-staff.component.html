@@ -4,13 +4,8 @@
 
       <div class="card flex justify-content-center">
         <p-autoComplete [(ngModel)]="selectedContact" name="selectedContact" [suggestions]="contactSuggestions" (completeMethod)="search($event)"></p-autoComplete>
-      </div>
+        <p-dropdown [options]="allRoles" [(ngModel)]="selectedRole" name="selectedRole" optionLabel="rolename"></p-dropdown>
 
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
-          <i class="pi pi-user"></i>
-        </span>
-        <input pInputText [(ngModel)]="newStaff.role_name" name="role_name" placeholder="Role" />
       </div>
   
       <button pButton type="button" label="Save Staff" (click)=" addNewStaff()"></button>
