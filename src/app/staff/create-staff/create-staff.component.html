@@ -1,16 +1,10 @@
 <div class="card">
-  
   <form>
+    <div class="form-group">
+      <p-autoComplete [(ngModel)]="selectedContact" name="selectedContact" [suggestions]="contactSuggestions" (completeMethod)="search($event)" placeholder="Select Contact"></p-autoComplete>
+      <p-dropdown [options]="allRoles" [(ngModel)]="selectedRole" name="selectedRole" optionLabel="rolename" placeholder="Select Role"></p-dropdown>
+    </div>
 
-      <div class="card flex justify-content-center">
-        <p-autoComplete [(ngModel)]="selectedContact" name="selectedContact" [suggestions]="contactSuggestions" (completeMethod)="search($event)"></p-autoComplete>
-        <p-dropdown [options]="allRoles" [(ngModel)]="selectedRole" name="selectedRole" optionLabel="rolename"></p-dropdown>
-
-      </div>
-  
-      <button pButton type="button" label="Save Staff" (click)=" addNewStaff()"></button>
-
-    </form>
-    
-  </div>
-  
+    <button pButton type="button" label="Save Staff" (click)="addNewStaff()"></button>
+  </form>
+</div>

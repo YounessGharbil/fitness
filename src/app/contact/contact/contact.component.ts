@@ -7,7 +7,6 @@ import { CreateContactComponent } from '../create-contact/create-contact.compone
 import { ConfirmEventType, ConfirmationService, MessageService } from 'primeng/api';
 import { UpdateContactComponent } from '../update-contact/update-contact.component';
 import { Subscription } from 'rxjs';
-import { ContactCardComponent } from '../contact-card/contact-card.component';
 
 
 

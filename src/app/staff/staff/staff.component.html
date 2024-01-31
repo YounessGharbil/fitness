@@ -10,7 +10,7 @@
         [loading]="loading"
         [paginator]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-        [globalFilterFields]="[]"
+        [globalFilterFields]="['contact.prenom','contact.nom']"
         >
         <ng-template pTemplate="caption">
             
@@ -45,7 +45,7 @@
         <ng-template pTemplate="body" let-staff>
             <tr>
                 <td (click)="displayContactCard(staff.contact)">
-                    {{ staff.contact.nom }}{{ staff.contact.prenom }}
+                    {{ staff.contact.nom }} {{ staff.contact.prenom }}
 
                 </td>
 

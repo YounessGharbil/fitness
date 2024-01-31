@@ -33,7 +33,7 @@ export class CreateStaffComponent implements OnInit,OnDestroy {
 
   newStaff: Staff = { 
     contact: null,
-    role_name: '',
+    rolename: '',
   };
 
   constructor(
@@ -85,7 +85,7 @@ export class CreateStaffComponent implements OnInit,OnDestroy {
 
     this.newStaff.contact = selectedContact;
 
-    this.newStaff.role = this.selectedRole.rolename;
+    this.newStaff.rolename = this.selectedRole.rolename;
 
     
    this.createStaffSubscription= this.staffService.createStaff(this.newStaff).subscribe({

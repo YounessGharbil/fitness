@@ -1,20 +1,15 @@
 <div class="card">
-  
-    <form>
-
-      <div class="card flex justify-content-center">
-        <p-autoComplete [(ngModel)]="selectedContact" name="selectedContact" [suggestions]="contactSuggestions" (completeMethod)="searchContact($event)"></p-autoComplete>
-        <p-dropdown [options]="allPackages" [(ngModel)]="selectedPackage" name="selectedPackage" optionLabel="packageName"></p-dropdown>
-        <div class="p-inputgroup">
-          <span class="p-inputgroup-addon">
-            <i class="pi pi-user"></i>
-          </span>
-          <input pInputNumber  [(ngModel)]="newSubscription.discount" name="discount" placeholder="discount" />
-        </div>
+  <form>
+    <div class="form-group">
+      <p-autoComplete [(ngModel)]="selectedContact" name="selectedContact" [suggestions]="contactSuggestions" (completeMethod)="searchContact($event)" placeholder="Select Contact"></p-autoComplete>
+      
+      <p-dropdown [options]="allPackages" [(ngModel)]="selectedPackage" name="selectedPackage" optionLabel="packageName" placeholder="Select Package"></p-dropdown>
+      
+      <div class="input-group">
+        <input pInputNumber  [(ngModel)]="newSubscription.discount" name="discount" placeholder="Discount" />
       </div>
-  
-      <button pButton type="button" label="Save Subscription" (click)=" addNewSubscription()"></button>
+    </div>
 
-    </form>
-  </div>
-  
+    <button pButton type="button" label="Save Subscription" (click)="addNewSubscription()"></button>
+  </form>
+</div>

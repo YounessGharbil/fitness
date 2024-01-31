@@ -14,6 +14,6 @@ export interface Staff {
 
 	contact_id?:string;
 
-	role_name?:string;
+	rolename?:string;
 
 }

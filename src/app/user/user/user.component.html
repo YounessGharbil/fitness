@@ -10,7 +10,7 @@
         [loading]="loading"
         [paginator]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-        [globalFilterFields]="[]"
+        [globalFilterFields]="['role.rolename','contact.nom','contact.prenom']"
         >
 
         <ng-template pTemplate="caption">
