@@ -39,6 +39,7 @@ export class SubscriptionService {
   }
 
   createSubscription(sub: Sub): Observable<any> {
+    console.log(sub)
     return this.http.post(`${this.baseURL}`, sub).pipe(
       tap((response) => {
         const currentSubscriptions = this.subscriptionsSubject.value;

@@ -1,0 +1,22 @@
+<p-toast></p-toast>
+<ng-container *ngIf="numberOfTranches < 10">
+  <div *ngFor="let index of getTranchesArray()">
+    <div class="payment-tranche">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-calendar"></i>
+        </span>
+        <p-calendar [(ngModel)]="dueDates[index]" name="dueDate{{ index }}" [showIcon]="true" placeholder="Due Date"></p-calendar>
+      </div>
+  
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-money-bill"></i>
+        </span>
+        <input [(ngModel)]="amounts[index]" name="amount{{ index }}" pInputNumber placeholder="Amount" />
+      </div>
+    </div>
+  </div>
+  <p-button (click)="setTranches()" type="button" icon="pi pi-check" styleClass="p-button-text"></p-button>
+</ng-container>
+

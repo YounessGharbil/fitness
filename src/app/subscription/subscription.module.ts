@@ -7,6 +7,7 @@ import { SubscriptionCardComponent } from './subscription-card/subscription-card
 import { FormsModule } from '@angular/forms';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { SubscriptionRoutingModule } from './subscription-routing/subscription-routing.module';
+import { PaymentTrancheComponent } from './payment-tranche/payment-tranche.component';
 
 
 
@@ -15,7 +16,8 @@ import { SubscriptionRoutingModule } from './subscription-routing/subscription-r
     SubscriptionComponent,
     CreateSubscriptionComponent,
     UpdateSubscriptionComponent,
-    SubscriptionCardComponent
+    SubscriptionCardComponent,
+    PaymentTrancheComponent
   ],
   imports: [
     CommonModule,

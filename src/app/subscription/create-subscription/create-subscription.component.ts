@@ -7,6 +7,8 @@ import { Contact } from 'src/app/contact/contact';
 import { ContactService } from 'src/app/contact/contact.service';
 import { Package } from 'src/app/package/package';
 import { PackageService } from 'src/app/package/package.service';
+import { PaymentTrancheService } from '../payment-tranche.service';
+import { PaymentMode } from '../payment-mode';
 
 @Component({
   selector: 'app-create-subscription',
@@ -14,6 +16,9 @@ import { PackageService } from 'src/app/package/package.service';
   styleUrls: ['./create-subscription.component.scss']
 })
 export class CreateSubscriptionComponent implements OnInit,OnDestroy {
+  
+  numberOfTranches:number;
+  paymentMode:PaymentMode={paymentTranches:null};
 
   allContacts: Contact[];
   allPackages: Package[];
@@ -35,13 +40,17 @@ export class CreateSubscriptionComponent implements OnInit,OnDestroy {
     subscribedContact_id: null,
     subscribedPackage_id: null,
     discount: null,
+    paymentMode: {
+        paymentTranches: []
+    }
   };
 
   constructor(
     private subscriptionService: SubscriptionService, 
     public ref: DynamicDialogRef,
     private contactService: ContactService,
-    private packageService: PackageService
+    private packageService: PackageService,
+    private paymentTrancheService:PaymentTrancheService
     ) { }
 
 
@@ -76,7 +85,6 @@ export class CreateSubscriptionComponent implements OnInit,OnDestroy {
       this.contactsSubscription.unsubscribe();
     }
 
-
   }
 
   addNewSubscription() {
@@ -84,9 +92,13 @@ export class CreateSubscriptionComponent implements OnInit,OnDestroy {
     const selectedContact = this.allContacts.find(contact => `${contact.nom} ${contact.prenom}` === this.selectedContact);
 
     this.newSubscription.subscribedContact_id = selectedContact.id;
+
     this.newSubscription.subscribedPackage_id = this.selectedPackage.id;
 
-    
+    this.paymentMode.paymentTranches= this.paymentTrancheService.getTranches();
+
+    this.newSubscription.paymentMode=this.paymentMode;
+
    this.createSubSubscription= this.subscriptionService.createSubscription(this.newSubscription).subscribe({
       next:  (response)=>
       {

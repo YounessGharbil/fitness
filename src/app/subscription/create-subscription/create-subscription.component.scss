@@ -1,61 +1,22 @@
-.card {
-  max-width: 400px;
-  margin: auto;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background-color: #fff;
+/* Style the input group containing the discount input */
+.input-group {
+  margin-bottom: 30px;
+  margin-top: 30px;
 
-  form {
-    display: flex;
-    flex-direction: column;
+}
 
-    .form-group {
-      margin-bottom: 15px;
+/* Style the discount input */
+.input-group input[name="discount"],
+.input-group input[name="numberOfTranches"] {
+  width: 100%; /* Make the inputs take up full width */
+  padding: 10px; /* Add padding */
+  border: 1px solid #ccc; /* Add border */
+  border-radius: 5px; /* Add border radius */
+  font-size: 16px; /* Adjust font size */
+}
 
-      p-autoComplete,
-      p-dropdown,
-      .input-group {
-        margin-bottom: 15px;
-      }
-
-      .input-group {
-        display: flex;
-        align-items: center;
-
-        input {
-          flex: 1;
-          box-sizing: border-box;
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          font-size: 14px;
-          margin-left: 5px;
-        }
-
-        .input-group-addon {
-          background-color: #f0f0f0;
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          margin-right: 5px;
-        }
-      }
-    }
-
-    button {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background-color 0.3s;
-
-      &:hover {
-        background-color: #0056b3;
-      }
-    }
-  }
+/* Optionally, you can add hover styles to enhance interactivity */
+.input-group input[name="discount"]:hover,
+.input-group input[name="numberOfTranches"]:hover {
+  border-color: #007bff; /* Change border color on hover */
 }

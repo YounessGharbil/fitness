@@ -1,5 +1,6 @@
 import { Contact } from "../contact/contact";
 import { Package } from "../package/package";
+import { PaymentMode } from "./payment-mode";
 
 export interface Sub {
       id?:number;
@@ -21,5 +22,7 @@ export interface Sub {
       subscribedPackage?:Package;
 
       subscribedContact?:Contact;
+
+      paymentMode:PaymentMode;
 
 }

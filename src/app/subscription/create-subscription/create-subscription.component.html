@@ -8,6 +8,13 @@
       <div class="input-group">
         <input pInputNumber  [(ngModel)]="newSubscription.discount" name="discount" placeholder="Discount" />
       </div>
+
+      <div class="input-group">
+        <input pInputNumber  [(ngModel)]="numberOfTranches" name="numberOfTranches" placeholder="numberOfTranches" />
+      </div>
+
+      <app-payment-tranche [numberOfTranches]="numberOfTranches"></app-payment-tranche>
+      
     </div>
 
     <button pButton type="button" label="Save Subscription" (click)="addNewSubscription()"></button>

@@ -60,7 +60,6 @@ export class CreateContactComponent implements OnInit,OnDestroy {
   }
 
   private formatDate(date: Date): string {
-    // Implement your custom date formatting logic here
     return date.toISOString().split('T')[0];
   }
 
