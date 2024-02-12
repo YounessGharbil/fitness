@@ -1,8 +1,8 @@
 <div class="card">
   <form>
     <div class="form-group">
-      <p-autoComplete [(ngModel)]="selectedContact" name="selectedContact" [suggestions]="contactSuggestions" (completeMethod)="search($event)" placeholder="Select Contact"></p-autoComplete>
-      <p-dropdown [options]="allRoles" [(ngModel)]="selectedRole" name="selectedRole" optionLabel="rolename" placeholder="Select Role"></p-dropdown>
+      <p-autoComplete pTooltip="Enter Contact" [(ngModel)]="selectedContact" name="selectedContact" [suggestions]="contactSuggestions" (completeMethod)="search($event)" placeholder="Select Contact"></p-autoComplete>
+      <p-dropdown pTooltip="Select role" [options]="allRoles" [(ngModel)]="selectedRole" name="selectedRole" optionLabel="rolename" placeholder="Select Role"></p-dropdown>
     </div>
 
     <button pButton type="button" label="Save Staff" (click)="addNewStaff()"></button>

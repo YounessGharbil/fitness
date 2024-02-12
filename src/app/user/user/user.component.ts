@@ -137,7 +137,12 @@ displayContactCard(contact:Contact){
     data: {
         contact: contact
     },
-    header: ' Card'
+    header: ' Card', width: '30vw',
+    height:'50vw',
+    modal:true,
+    contentStyle: { overflow: 'auto' },
+    baseZIndex: 10000,
+    maximizable: true
   });
 
 }

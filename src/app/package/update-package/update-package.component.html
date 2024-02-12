@@ -30,13 +30,6 @@
         <input pInputNumber  [(ngModel)]="packageToUpdate.durationInMonths" name="durationInMonths" placeholder="durée en mois" />
       </div>
   
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
-          <i class="pi pi-globe"></i>
-        </span>
-        <input pInputText [(ngModel)]="packageToUpdate.paymentType" name="paymentType" placeholder="Type de payment" />
-      </div>
-  
       <button pButton type="button" label="Save Package" (click)=" confirmUpdate()"></button>
 
     </form>

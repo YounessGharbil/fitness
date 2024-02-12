@@ -3,6 +3,7 @@ import { DialogService, DynamicDialogConfig, DynamicDialogRef } from 'primeng/dy
 import { ClientService } from '../client.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Client } from '../client';
+import { PaymentTranche } from 'src/app/subscription/payment-tranche';
 
 @Component({
   selector: 'app-client-card',
@@ -12,6 +13,7 @@ import { Client } from '../client';
 export class ClientCardComponent implements OnInit {
 
   client: Client;
+  tranches:PaymentTranche[];
 
   ref: DynamicDialogRef;
   
@@ -24,7 +26,7 @@ export class ClientCardComponent implements OnInit {
   ngOnInit(): void {
 
         this.client=this.dialogConfig.data.client;
-        console.log(this.client)
+        this.tranches=this.client.subscription.paymentMode.paymentTranches;
 
   }
 

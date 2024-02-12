@@ -6,6 +6,8 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { SubscriptionService } from '../subscription.service';
 import { Package } from 'src/app/package/package';
 import { PackageService } from 'src/app/package/package.service';
+import { PaymentTrancheService } from '../payment-tranche.service';
+import { PaymentMode } from '../payment-mode';
 
 @Component({
   selector: 'app-update-subscription',
@@ -13,6 +15,8 @@ import { PackageService } from 'src/app/package/package.service';
   styleUrls: ['./update-subscription.component.scss']
 })
 export class UpdateSubscriptionComponent implements OnInit,OnDestroy {
+
+  paymentMode:PaymentMode={paymentTranches:null};
   
   subscriptionToUpdate: Sub;
 
@@ -24,16 +28,21 @@ export class UpdateSubscriptionComponent implements OnInit,OnDestroy {
 
   private packagesSubscription: Subscription;
 
+  numberOfTranches:number;
+
   isDiscountDisabled: boolean = true;
   isPackageDisabled: boolean = true;
   isStatusDisabled: boolean = true;
+  isNumberOfTranchesDisabled: boolean = true;
+
 
   constructor(private dialogConfig: DynamicDialogConfig,
               private subscriptionService: SubscriptionService,
               public ref: DynamicDialogRef,
               private messageService: MessageService,
               private confirmationService: ConfirmationService,
-              private packageService: PackageService
+              private packageService: PackageService,
+              private paymentTrancheService:PaymentTrancheService
               ) {
 
   }
@@ -75,6 +84,11 @@ export class UpdateSubscriptionComponent implements OnInit,OnDestroy {
     if (this.selectedPackage !== null && this.selectedPackage !== undefined && !this.isPackageDisabled) {
       this.subscriptionToUpdate.subscribedPackage_id = this.selectedPackage.id;
       updatePayload['subscribedPackage_id'] = this.subscriptionToUpdate.subscribedPackage_id;
+    }
+
+    if (this.numberOfTranches !== null && this.numberOfTranches !== undefined && !this.isNumberOfTranchesDisabled) {
+      this.paymentMode.paymentTranches= this.paymentTrancheService.getTranches();
+      updatePayload['paymentMode']=this.paymentMode;
     }
 
     updatePayload['id'] = this.subscriptionToUpdate.id;

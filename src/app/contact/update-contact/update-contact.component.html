@@ -1,6 +1,5 @@
 <div class="card">  
     <form>
-      <!-- Nom -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-user"></i>
@@ -8,7 +7,6 @@
         <input pInputText [(ngModel)]="contactToUpdate.nom" name="nom" placeholder="Nom" />
       </div>
   
-      <!-- Prenom -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-user"></i>
@@ -16,7 +14,6 @@
         <input pInputText [(ngModel)]="contactToUpdate.prenom" name="prenom" placeholder="Prenom" />
       </div>
   
-      <!-- Date de Naissance -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-calendar"></i>
@@ -24,7 +21,6 @@
         <input pInputText [(ngModel)]="contactToUpdate.dateNaissance" name="dateNaissance" placeholder="Date de Naissance" />
       </div>
   
-      <!-- Sexe -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-user"></i>
@@ -32,7 +28,6 @@
         <input pInputText [(ngModel)]="contactToUpdate.sexe" name="sexe" placeholder="Sexe" />
       </div>
   
-      <!-- Adresse -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-map-marker"></i>
@@ -40,7 +35,6 @@
         <input pInputText [(ngModel)]="contactToUpdate.adresse" name="adresse" placeholder="Adresse" />
       </div>
   
-      <!-- Code Postal -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-home"></i>
@@ -48,15 +42,6 @@
         <input pInputText [(ngModel)]="contactToUpdate.codePostal" name="codePostal" placeholder="Code Postal" />
       </div>
   
-      <!-- Pays -->
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
-          <i class="pi pi-globe"></i>
-        </span>
-        <input pInputText [(ngModel)]="contactToUpdate.pays" name="pays" placeholder="Pays" />
-      </div>
-  
-      <!-- Ville -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-building"></i>
@@ -64,7 +49,6 @@
         <input pInputText [(ngModel)]="contactToUpdate.ville" name="ville" placeholder="Ville" />
       </div>
   
-      <!-- Tel -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-phone"></i>
@@ -72,7 +56,6 @@
         <input pInputText [(ngModel)]="contactToUpdate.tel" name="tel" placeholder="Tel" />
       </div>
   
-      <!-- Email -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-envelope"></i>
@@ -80,7 +63,6 @@
         <input pInputText [(ngModel)]="contactToUpdate.email" name="email" placeholder="Email" />
       </div>
   
-      <!-- Button to Save Contact -->
       <button pButton type="button" label="Save Contact" (click)=" confirmUpdate()"></button>
 
     </form>

@@ -12,6 +12,6 @@ export interface PaymentTranche {
 
     dueDate:string;
 
-    isTranchePaid?:boolean;
+    tranchePaid?:boolean;
 
 }

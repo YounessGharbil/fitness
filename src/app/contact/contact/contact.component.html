@@ -11,6 +11,7 @@
         [paginator]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [globalFilterFields]="['nom', 'prenom','sexe']"
+        [tableStyle]="{ 'min-width': '75rem' }"
         >
         <ng-template pTemplate="caption">
             
@@ -66,12 +67,6 @@
 
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        Pays
-                        <p-columnFilter type="text" field="pays" display="menu"></p-columnFilter>
-                    </div>
-                </th>
-                <th style="min-width:15rem">
-                    <div class="flex align-items-center">
                         Ville
                         <p-columnFilter type="text" field="ville" display="menu"></p-columnFilter>
                     </div>
@@ -116,10 +111,6 @@
 
                 <td>
                     {{ contact.codePostal }}
-                </td>
-
-                <td>
-                    {{ contact.pays }}
                 </td>
 
                 <td>

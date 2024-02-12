@@ -6,7 +6,6 @@ export interface Contact {
 	sexe:string;
 	adresse:string;
 	codePostal:string;
-	pays:string;
 	ville:string;
 	tel:string;
 	email:string;

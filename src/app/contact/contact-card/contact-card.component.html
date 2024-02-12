@@ -1,32 +1,27 @@
 <div class="card">
-  <p-card [style]="{ width: '300px' }">
-      <!-- <ng-template pTemplate="header">
-          <img alt="Contact" src="https://example.com/contact-image.jpg" style="width: 100%" />
-      </ng-template> -->
+  <p-card >
+      
       <div class="contact-info">
           <div class="field">Full Name:</div><div class="data"><strong>{{ contact.prenom }} {{ contact.nom }}</strong></div>
 
 
           <div class="field">Date of Birth:</div>
-          <div class="data"><small>{{ contact.dateNaissance }}</small></div>
+          <div class="data">{{ contact.dateNaissance }}</div>
 
           <div class="field">Sex:</div>
-          <div class="data"><small>{{ contact.sexe }}</small></div>
+          <div class="data">{{ contact.sexe }}</div>
 
           <div class="field">Address:</div>
-          <div class="data"><small>{{ contact.adresse }}</small></div>
-
-          <div class="field">Country:</div>
-          <div class="data"><small>{{ contact.pays }}</small></div>
+          <div class="data">{{ contact.adresse }}</div>
 
           <div class="field">City:</div>
-          <div class="data"><small>{{ contact.ville }}</small></div>
+          <div class="data">{{ contact.ville }}</div>
 
           <div class="field">Tel:</div>
-          <div class="data"><small>{{ contact.tel }}</small></div>
+          <div class="data">{{ contact.tel }}</div>
 
           <div class="field">Email:</div>
-          <div class="data"><small>{{ contact.email }}</small></div>
+          <div class="data">{{ contact.email }}</div>
       </div>
 
       <ng-template pTemplate="footer">

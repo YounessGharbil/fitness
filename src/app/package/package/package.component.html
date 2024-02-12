@@ -49,13 +49,6 @@
                         <p-columnFilter type="numeric" field="durationInMonths" display="menu"></p-columnFilter>
                     </div>
                 </th>
-
-                <th style="min-width:15rem">
-                    <div class="flex align-items-center">
-                        Type de payment
-                        <p-columnFilter type="text" field="paymentType" display="menu"></p-columnFilter>
-                    </div>
-                </th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-pack>
@@ -74,10 +67,6 @@
 
                 <td>
                     {{ pack.durationInMonths }}
-                </td>
-
-                <td>
-                    {{ pack.paymentType }}
                 </td>
 
                 <td>

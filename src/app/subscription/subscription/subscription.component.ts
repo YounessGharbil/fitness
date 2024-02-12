@@ -67,7 +67,15 @@ return event.target.value;
 
 show() {
 this.ref = this.dialogService.open(CreateSubscriptionComponent, { 
-    header: 'Create Subscription'
+    header: 'Create Subscription',
+    width: '50vw',
+    height:'50vw',
+    modal:true,
+    contentStyle: { overflow: 'auto' },
+    baseZIndex: 10000,
+    maximizable: true
+
+
 });
 }
 
@@ -77,7 +85,13 @@ updateSubscription(sub:Sub){
     data: {
         sub: sub
     },
-    header: ' Update Subscription'
+    header: ' Update Subscription',
+    width: '50vw',
+    height:'50vw',
+    modal:true,
+    contentStyle: { overflow: 'auto' },
+    baseZIndex: 10000,
+    maximizable: true
   });
 }
 

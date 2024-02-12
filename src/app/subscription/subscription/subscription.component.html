@@ -100,7 +100,12 @@
                 </td>
 
                 <td>
-                    {{ sub.status }}
+                    <ng-container *ngIf="sub.status === 'active'; else blockedTag">
+                        <p-tag severity="success" value="Active"></p-tag>
+                    </ng-container>
+                    <ng-template #blockedTag>
+                        <p-tag severity="danger" value="blocked"></p-tag>
+                    </ng-template>
                 </td>
 
                 <td>

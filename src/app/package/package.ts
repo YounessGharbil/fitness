@@ -10,6 +10,4 @@ export interface Package {
     
     durationInMonths:number;
     
-    paymentType:string;
-
 }

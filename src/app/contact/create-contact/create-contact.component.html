@@ -1,101 +1,81 @@
 <div class="card">
   
     <form>
-      <!-- Nom -->
+
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-user"></i>
         </span>
-        <input pInputText [(ngModel)]="newContact.nom" name="nom" placeholder="Nom" />
+        <input pInputText pTooltip="Enter your lastname" [(ngModel)]="newContact.nom" name="nom" placeholder="Nom" />
       </div>
   
-      <!-- Prenom -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-user"></i>
         </span>
-        <input pInputText [(ngModel)]="newContact.prenom" name="prenom" placeholder="Prénom" />
+        <input pInputText pTooltip="Enter your firstname" [(ngModel)]="newContact.prenom" name="prenom" placeholder="Prénom" />
       </div>
   
-      <!-- Date de Naissance -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-calendar"></i>
         </span>
-        <!-- <input pInputText [(ngModel)]="newContact.dateNaissance" name="dateNaissance" placeholder="Date de Naissance" /> -->
-        <p-calendar [(ngModel)]="dateNaissance" name="dateNaissance" [showIcon]="true" placeholder="Date de naissance"></p-calendar>
+        <p-calendar pTooltip="Enter your birthday" [(ngModel)]="dateNaissance" name="dateNaissance" [showIcon]="true" placeholder="Date de naissance"></p-calendar>
       </div>
   
-      <!-- Sexe -->
-      <!-- <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
-          <i class="pi pi-user"></i>
-        </span>
-        <input pInputText [(ngModel)]="newContact.sexe" name="sexe" placeholder="Sexe" />
-      </div> -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-user"></i>
         </span>
+
         <div class="p-radio">
           <input type="radio" id="male" [(ngModel)]="newContact.sexe" name="sexe" value="homme" />
           <label for="male">Homme</label>
         </div>
+
         <div class="p-radio">
           <input type="radio" id="female" [(ngModel)]="newContact.sexe" name="sexe" value="femme" />
           <label for="female">Femme</label>
         </div>
       </div>
   
-      <!-- Adresse -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-map-marker"></i>
         </span>
-        <input pInputText [(ngModel)]="newContact.adresse" name="adresse" placeholder="Adresse" />
+        <input pInputText pTooltip="Enter your address" [(ngModel)]="newContact.adresse" name="adresse" placeholder="Adresse" />
       </div>
   
-      <!-- Code Postal -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-home"></i>
         </span>
-        <input pInputText [(ngModel)]="newContact.codePostal" name="codePostal" placeholder="Code Postal" />
-      </div>
-  
-
-
-      <div class="card flex justify-content-center">
-        <p-autoComplete placeholder="Pays" [(ngModel)]="selectedCountry" name="pays" [dropdown]="true" [suggestions]="filteredCountries" (completeMethod)="filterCountry($event)" field="name"></p-autoComplete>
+        <input pInputText pTooltip="Enter your zip code" [(ngModel)]="newContact.codePostal" name="codePostal" placeholder="Code Postal" />
       </div>
       
-  
-      <!-- Ville -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-building"></i>
         </span>
-        <input pInputText [(ngModel)]="newContact.ville" name="ville" placeholder="Ville" />
+        <input pInputText pTooltip="Enter your city" [(ngModel)]="newContact.ville" name="ville" placeholder="Ville" />
       </div>
   
-      <!-- Tel -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-phone"></i>
         </span>
-        <input pInputText [(ngModel)]="newContact.tel" name="tel" placeholder="Tel" />
+        <input pInputText pTooltip="Enter your phone number" [(ngModel)]="newContact.tel" name="tel" placeholder="Tel" />
       </div>
   
-      <!-- Email -->
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-envelope"></i>
         </span>
-        <input pInputText [(ngModel)]="newContact.email" name="email" placeholder="Email" />
+        <input pInputText pTooltip="Enter your email" [(ngModel)]="newContact.email" name="email" placeholder="Email" />
       </div>
   
-      <!-- Button to Save Contact -->
       <button pButton type="button" label="Save Contact" (click)=" addNewContact()"></button>
 
     </form>
+
   </div>

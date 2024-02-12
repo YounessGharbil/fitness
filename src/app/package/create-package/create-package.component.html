@@ -6,35 +6,28 @@
         <span class="p-inputgroup-addon">
           <i class="pi pi-inbox"></i>
         </span>
-        <input pInputText [(ngModel)]="newPackage.packageName" name="packageName" placeholder="Nom de package" />
+        <input pInputText pTooltip="Enter package name" [(ngModel)]="newPackage.packageName" name="packageName" placeholder="Nom de package" />
       </div>
   
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-dollar"></i>
         </span>
-        <input pInputNumber  [(ngModel)]="newPackage.price" name="price" placeholder="Prix" />
+        <input pInputNumber pTooltip="Enter price" [(ngModel)]="newPackage.price" name="price" placeholder="Prix" />
       </div>
   
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-book"></i>
         </span>
-        <input pInputText [(ngModel)]="newPackage.description" name="description" placeholder="Description" />
+        <input pInputText pTooltip="Enter description" [(ngModel)]="newPackage.description" name="description" placeholder="Description" />
       </div>
   
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-stopwatch"></i>
         </span>
-        <input pInputNumber  [(ngModel)]="newPackage.durationInMonths" name="durationInMonths" placeholder="durée en mois" />
-      </div>
-  
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
-          <i class="pi pi-credit-card"></i>
-        </span>
-        <input pInputText [(ngModel)]="newPackage.paymentType" name="paymentType" placeholder="Type de payment" />
+        <input pInputNumber pTooltip="Enter duration In Months"  [(ngModel)]="newPackage.durationInMonths" name="durationInMonths" placeholder="durée en mois" />
       </div>
   
       <button pButton type="button" label="Save Package" (click)=" addNewPackage()"></button>

@@ -21,7 +21,6 @@ export class CreatePackageComponent implements OnInit,OnDestroy {
     price: null,
     description: '',
     durationInMonths: null,
-    paymentType: '',
   };
 
   constructor(private packageService: PackageService, public ref: DynamicDialogRef) { }

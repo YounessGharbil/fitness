@@ -15,6 +15,10 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { DropdownModule } from 'primeng/dropdown';
 import { TabViewModule } from 'primeng/tabview';
 import { ToggleButtonModule } from 'primeng/togglebutton';
+import { TooltipModule } from 'primeng/tooltip';
+import { TagModule } from 'primeng/tag';
+
+
 
 
 
@@ -23,7 +27,7 @@ const PRIME_NG_MODULES = [
   InputTextModule,CheckboxModule,RadioButtonModule,
   ProgressSpinnerModule,ConfirmDialogModule,ToastModule,
   CalendarModule,CardModule,AutoCompleteModule,DropdownModule,
-  TabViewModule,ToggleButtonModule
+  TabViewModule,ToggleButtonModule,TooltipModule,TagModule
   
 ];
 

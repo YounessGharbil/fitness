@@ -9,6 +9,12 @@ import {
   faChartBar,
   faContactBook,
   faHand,
+  faUser,
+  faUsers,
+  faUsersGear,
+  faMasksTheater,
+  faIdCard
+  
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -26,5 +32,11 @@ export class SideNavComponent {
   faChartBar = faChartBar;
   faContactBook = faContactBook;
   faHand = faHand;
+  faUser=faUser;
+  faUsers=faUsers;
+  faUsersGear=faUsersGear
+  faMasksTheater=faMasksTheater
+  faIdCard=faIdCard
+
 
 }

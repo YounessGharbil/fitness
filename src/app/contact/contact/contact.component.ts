@@ -68,7 +68,13 @@ export class ContactComponent implements OnInit,OnDestroy {
 
     show() {
       this.ref = this.dialogService.open(CreateContactComponent, { 
-          header: 'Create Contact'
+          header: 'Create Contact',
+          width: '30vw',
+          height:'50vw',
+          modal:true,
+          contentStyle: { overflow: 'auto' },
+          baseZIndex: 10000,
+          maximizable: true
       });
   }
 
@@ -78,7 +84,13 @@ export class ContactComponent implements OnInit,OnDestroy {
       data: {
           contact: contact
       },
-      header: ' Update Contact'
+      header: 'Create Contact',
+          width: '30vw',
+          height:'50vw',
+          modal:true,
+          contentStyle: { overflow: 'auto' },
+          baseZIndex: 10000,
+          maximizable: true
     });
 
   }
