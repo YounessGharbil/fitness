@@ -46,10 +46,6 @@ export class ClientComponent implements OnInit,OnDestroy  {
        this.clientsSubscription= this.clientService.getClients().subscribe({
           next:  (response)=>
           {
-            console.log("hhhhhhh");
-            console.log(response);
-            console.log("hhhhhhh");
-
             this.clients=response;
           },
           error:(err)=>{
@@ -178,11 +174,10 @@ displayClientCard(client:Client){
       client: client
     },
     header: 'Client Card',
-    width: '50vw',
+    width: '70vw',
     height:'50vw',
     modal:true,
     contentStyle: { overflow: 'auto' },
-    baseZIndex: 10000,
     maximizable: true
   });
   

@@ -64,7 +64,12 @@ applyFilterGlobal(event: any) {
 
 show() {
   this.ref = this.dialogService.open(CreatePackageComponent, { 
-      header: 'Create Package'
+      header: 'Create Package',
+      width: '70vw',
+      height:'50vw',
+      modal:true,
+      contentStyle: { overflow: 'auto' },
+      maximizable: true
   });
 }
 
@@ -73,7 +78,12 @@ updatePackage(pack:Package){
     data: {
         package: pack
     },
-    header: ' Update Package'
+    header: ' Update Package',
+    width: '70vw',
+    height:'50vw',
+    modal:true,
+    contentStyle: { overflow: 'auto' },
+    maximizable: true
   });
 }
 

@@ -1,8 +1,8 @@
-<div class="card">
 
+<div class="card">
     <p-table
         #dt1
-        [value]="users"
+        [value]="payments"
         dataKey="id"
         [rows]="10"
         [showCurrentPageReport]="true"
@@ -10,13 +10,12 @@
         [loading]="loading"
         [paginator]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-        [globalFilterFields]="['role.rolename','contact.nom','contact.prenom']"
+        [globalFilterFields]="[]"
         [resizableColumns]="true" 
         columnResizeMode="expand" 
-        styleClass="p-datatable-gridlines" 
+        styleClass="p-datatable-gridlines"
         [tableStyle]="{'min-width': '140rem'}"
         >
-
         <ng-template pTemplate="caption">
             
             <div class="flex">
@@ -28,71 +27,67 @@
             </div>
             
         </ng-template>
-
         <ng-template pTemplate="header">
             <tr>
 
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        Contact
-                        <p-columnFilter type="text" field="contact" display="menu"></p-columnFilter>
+                        paymentMethod
+                        <p-columnFilter type="text" field="paymentMethod" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        Role
-                        <p-columnFilter type="text" field="role" display="menu"></p-columnFilter>
+                        paymentDate
+                        <p-columnFilter type="text" field="paymentDate" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        Email
-                        <p-columnFilter type="text" field="email" display="menu"></p-columnFilter>
+                        amount
+                        <p-columnFilter type="numeric" field="amount" display="menu"></p-columnFilter>
                     </div>
                 </th>
-    
+
             </tr>
         </ng-template>
+        <ng-template pTemplate="body" let-payment>
+            <tr >
+                <td >
+                    {{ payment.paymentMethod }} 
 
-        <ng-template pTemplate="body" let-user>
-            <tr>
-
-                <td (click)="displayContactCard(user.contact)">
-                    {{ user.contact.nom }} {{ user.contact.prenom }}
                 </td>
 
                 <td>
-                    {{ user.role.rolename }}
+                    {{ payment.paymentDate }}
                 </td>
 
                 <td>
-                    {{ user.email}}
+                    {{ payment.amount }}
                 </td>
 
                 <td>
-                    <button pButton type="button"  icon="pi pi-pencil" (click)="updateUser(user)"></button>
+                    <button pButton type="button"  icon="pi pi-pencil" (click)="updatePayment(payment)"></button>
                 </td>
 
                 <td>
-                    <button pButton type="button"  icon="pi pi-trash" (click)="confirmDelete(user.id)"></button>
+                    <button pButton type="button"  icon="pi pi-trash" (click)="confirmDelete(payment.id)"></button>
                 </td>
-                    
+           
+                
             </tr>
         </ng-template>
         
         <ng-template pTemplate="emptymessage">
             <tr>
-                <td colspan="7">No users found.</td>
+                <td colspan="7">No payments found.</td>
             </tr>
         </ng-template>
-
         <ng-template pTemplate="paginatorleft">
             <p-button (click)="show()" type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
         </ng-template>
         
     </p-table>
 </div>
-<p-toast></p-toast>
-<p-confirmDialog  [style]="{width: '50vw'}"  ></p-confirmDialog>

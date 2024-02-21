@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'role', loadChildren: () => import('./role/role.module').then(m => m.RoleModule) },
   { path: 'package', loadChildren: () => import('./package/package.module').then(m => m.PackageModule) },
   { path: 'subscription', loadChildren: () => import('./subscription/subscription.module').then(m => m.SubscriptionModule) },
+  { path: 'payment', loadChildren: () => import('./payment/payment.module').then(m => m.PaymentModule) },
 
 ];
 

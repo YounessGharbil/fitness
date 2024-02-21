@@ -69,11 +69,10 @@ export class ContactComponent implements OnInit,OnDestroy {
     show() {
       this.ref = this.dialogService.open(CreateContactComponent, { 
           header: 'Create Contact',
-          width: '30vw',
+          width: '70vw',
           height:'50vw',
           modal:true,
           contentStyle: { overflow: 'auto' },
-          baseZIndex: 10000,
           maximizable: true
       });
   }
@@ -85,12 +84,11 @@ export class ContactComponent implements OnInit,OnDestroy {
           contact: contact
       },
       header: 'Create Contact',
-          width: '30vw',
-          height:'50vw',
-          modal:true,
-          contentStyle: { overflow: 'auto' },
-          baseZIndex: 10000,
-          maximizable: true
+      width: '70vw',
+      height:'50vw',
+      modal:true,
+      contentStyle: { overflow: 'auto' },
+      maximizable: true
     });
 
   }

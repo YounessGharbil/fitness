@@ -68,7 +68,12 @@ export class RoleComponent implements OnInit,OnDestroy {
 
     show() {
       this.ref = this.dialogService.open(CreateRoleComponent, { 
-          header: 'Create Role'
+          header: 'Create Role',
+          width: '70vw',
+          height:'50vw',
+          modal:true,
+          contentStyle: { overflow: 'auto' },
+          maximizable: true
       });
   }
 
@@ -77,7 +82,12 @@ export class RoleComponent implements OnInit,OnDestroy {
       data: {
           Role: Role
       },
-      header: ' Update Role'
+      header: ' Update Role',
+      width: '70vw',
+      height:'50vw',
+      modal:true,
+      contentStyle: { overflow: 'auto' },
+      maximizable: true
     });
   }
   

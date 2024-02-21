@@ -1,0 +1,26 @@
+<div class="card">
+    <form>
+      <div class="p-fluid p-formgrid p-grid">
+
+        <div class="p-field p-col">
+          <label for="amount">Amount</label>
+          {{payment.amount}}
+        </div>
+  
+        <div class="p-field p-col">
+          <p-dropdown [options]="paymentMethods" name="paymentMethod" [(ngModel)]="payment.paymentMethod" 
+          optionLabel="label" placeholder="Select Payment Method" (ngModelChange)="onPaymentMethodChange($event)"></p-dropdown>
+        </div>
+
+        <app-cash-payment [payment]="payment" *ngIf="selectedPaymentMetohd === 'CASH'"></app-cash-payment>
+
+        <app-check-payment [payment]="payment" *ngIf="selectedPaymentMetohd === 'CHECK'"></app-check-payment>
+
+        <app-card-payment [payment]="payment" *ngIf="selectedPaymentMetohd === 'CARD'"></app-card-payment>
+       
+      </div>
+
+    </form>
+  </div>
+
+  

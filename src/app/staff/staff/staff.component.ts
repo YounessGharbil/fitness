@@ -71,11 +71,10 @@ export class StaffComponent implements OnInit,OnDestroy {
     show() {
       this.ref = this.dialogService.open(CreateStaffComponent, { 
           header: 'Create Staff', 
-          width: '30vw',
-          height:'20vw',
+          width: '70vw',
+          height:'50vw',
           modal:true,
           contentStyle: { overflow: 'auto' },
-          baseZIndex: 10000,
           maximizable: true
       });
   }
@@ -85,11 +84,11 @@ export class StaffComponent implements OnInit,OnDestroy {
       data: {
           Staff: Staff
       },
-      header: ' Update Staff', width: '30vw',
+      header: ' Update Staff', 
+      width: '70vw',
       height:'50vw',
       modal:true,
       contentStyle: { overflow: 'auto' },
-      baseZIndex: 10000,
       maximizable: true
     });
   }
@@ -139,11 +138,11 @@ displayContactCard(contact:Contact){
     data: {
         contact: contact
     },
-    header: ' Card', width: '30vw',
+    header: ' Card',
+    width: '70vw',
     height:'50vw',
     modal:true,
     contentStyle: { overflow: 'auto' },
-    baseZIndex: 10000,
     maximizable: true
   });
 

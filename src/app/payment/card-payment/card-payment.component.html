@@ -1,0 +1,25 @@
+<div class="p-inputgroup">
+    <span class="p-inputgroup-addon">
+      <i class="pi pi-book"></i>
+    </span>
+    <input pInputText pTooltip="Enter cardNumber" [(ngModel)]="cardPayment.cardNumber" name="cardNumber" placeholder="cardNumber" />
+</div>
+
+<div class="p-inputgroup">
+    <span class="p-inputgroup-addon">
+      <i class="pi pi-book"></i>
+    </span>
+    <input pInputText pTooltip="Enter cardCVV" [(ngModel)]="cardPayment.cardCVV" name="cardCVV" placeholder="cardCVV" />
+  
+</div>
+
+<div class="p-inputgroup">
+    <span class="p-inputgroup-addon">
+      <i class="pi pi-book"></i>
+    </span>
+    <input pInputText pTooltip="Enter cardExpirationDate" [(ngModel)]="cardPayment.cardExpirationDate" name="cardExpirationDate" placeholder="cardExpirationDate" />
+</div>
+
+
+
+<button pButton type="button" label="Create Payment" (click)="createCardPayment()"></button>

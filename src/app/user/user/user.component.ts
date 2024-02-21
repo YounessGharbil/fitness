@@ -79,7 +79,12 @@ export class UserComponent implements OnInit,OnDestroy {
 
     show() {
       this.ref = this.dialogService.open(CreateUserComponent, { 
-          header: 'Create User'
+          header: 'Create User',
+          width: '70vw',
+          height:'50vw',
+          modal:true,
+          contentStyle: { overflow: 'auto' },
+          maximizable: true
       });
   }
 
@@ -137,11 +142,11 @@ displayContactCard(contact:Contact){
     data: {
         contact: contact
     },
-    header: ' Card', width: '30vw',
+    header: ' Card', 
+    width: '70vw',
     height:'50vw',
     modal:true,
     contentStyle: { overflow: 'auto' },
-    baseZIndex: 10000,
     maximizable: true
   });
 

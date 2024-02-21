@@ -11,6 +11,10 @@
         [paginator]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [globalFilterFields]="['rolename']"
+        [resizableColumns]="true" 
+        columnResizeMode="expand" 
+        styleClass="p-datatable-gridlines" 
+        [tableStyle]="{'min-width': '140rem'}"
         >
         <ng-template pTemplate="caption">
             
@@ -25,7 +29,7 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-                <th style="min-width:15rem">
+                <th style="min-width:80rem">
                     <div class="flex align-items-center">
                         Role Name
                         <p-columnFilter type="text" field="rolename" display="menu"></p-columnFilter>

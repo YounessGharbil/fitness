@@ -1,0 +1,8 @@
+<div class="p-inputgroup">
+    <span class="p-inputgroup-addon">
+      <i class="pi pi-book"></i>
+    </span>
+    <input pInputNumber pTooltip="Enter Check Number" [(ngModel)]="cardPayment.checkNumber" name="checkNumber" placeholder="Check Number" />
+</div>
+
+<button pButton type="button" label="Create Payment" (click)="createCheckPayment()"></button>

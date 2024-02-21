@@ -9,6 +9,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { ContactModule } from './contact/contact.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule  } from '@angular/platform-browser/animations';
+import { PaymentModule } from './payment/payment.module';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { NoopAnimationsModule  } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FontAwesomeModule,
     ContactModule,
+    PaymentModule
   ],
   providers: [],
   bootstrap: [AppComponent]

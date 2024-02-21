@@ -11,6 +11,10 @@
         [paginator]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [globalFilterFields]="['contact.nom','contact.prenom','subscription.status']"
+        [resizableColumns]="true" 
+        columnResizeMode="expand" 
+        styleClass="p-datatable-gridlines" 
+        [tableStyle]="{'min-width': '140rem'}"
         >
         <ng-template pTemplate="caption">
             
