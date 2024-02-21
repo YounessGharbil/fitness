@@ -6,7 +6,7 @@
         dataKey="id"
         [rows]="10"
         [showCurrentPageReport]="true"
-        [rowsPerPageOptions]="[10, 25, 50]"
+        [rowsPerPageOptions]="[5, 10, 20]"
         [loading]="loading"
         [paginator]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
@@ -29,53 +29,53 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-                <th style="min-width:15rem">
+                <th style="min-width:7rem">
                     <div class="flex align-items-center">
                         Nom
                         <p-columnFilter type="text" field="nom" display="menu"></p-columnFilter>
                     </div>
                 </th>
-                <th style="min-width:15rem">
+                <th style="min-width:7rem">
                     <div class="flex align-items-center">
                         Prénom
                         <p-columnFilter type="text" field="prenom" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th style="min-width:15rem">
+                <th style="min-width:10rem">
                     <div class="flex align-items-center">
                         Date de naissance
                         <p-columnFilter type="text" field="dateNaissance" display="menu"></p-columnFilter>
                     </div>
                 </th>
-                <th style="min-width:15rem">
+                <th style="min-width:7rem">
                     <div class="flex align-items-center">
                         Sexe
                         <p-columnFilter type="text" field="sexe" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th style="min-width:15rem">
+                <th style="min-width:12rem">
                     <div class="flex align-items-center">
                         Adresse
                         <p-columnFilter type="text" field="adresse" display="menu"></p-columnFilter>
                     </div>
                 </th>
-                <th style="min-width:15rem">
+                <th style="min-width:6rem">
                     <div class="flex align-items-center">
                         Code postal
                         <p-columnFilter type="text" field="codePostal" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th style="min-width:15rem">
+                <th style="min-width:7rem">
                     <div class="flex align-items-center">
                         Ville
                         <p-columnFilter type="text" field="ville" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th style="min-width:15rem">
+                <th style="min-width:9rem">
                     <div class="flex align-items-center">
                         Tel
                         <p-columnFilter type="text" field="tel" display="menu"></p-columnFilter>
