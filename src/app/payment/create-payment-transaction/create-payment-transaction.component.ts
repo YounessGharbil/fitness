@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Payment } from '../payment';
-import { PaymentService } from '../payment.service';
 import { PayMethod } from '../PayMethod';
 import { PaymentTranche } from 'src/app/subscription/payment-tranche';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { ConfirmationService, MessageService } from 'primeng/api';
 import { PaymentMode } from 'src/app/subscription/payment-mode';
+import { Client } from 'src/app/client/client';
 
 @Component({
   selector: 'app-create-payment-transaction',
@@ -18,6 +17,7 @@ export class CreatePaymentTransactionComponent implements OnInit {
   paymentMode:PaymentMode;
   paymentTranche:PaymentTranche=null;
   subscriptionid:number;
+  client:Client;
 
 
   ngOnInit(): void {
@@ -29,7 +29,10 @@ export class CreatePaymentTransactionComponent implements OnInit {
     this.payment.amount=this.paymentTranche.amount
 
     this.payment.paymentTranche=this.paymentTranche
+
     this.payment.subscriptionid=this.dialogConfig.data.subscriptionid
+    
+    this.client=this.dialogConfig.data.client
 
   }
 
@@ -49,11 +52,9 @@ export class CreatePaymentTransactionComponent implements OnInit {
   ];
 
   constructor(
-              private paymentService: PaymentService,
               private dialogConfig: DynamicDialogConfig,
               public ref: DynamicDialogRef,
-              private messageService: MessageService,
-              private confirmationService: ConfirmationService,
+    
     ) { }
 
   

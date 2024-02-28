@@ -1,0 +1,30 @@
+<div class="card">
+  
+    <form>
+  
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-id-card"></i>
+        </span>
+        <input pInputNumber [(ngModel)]="newObservation.clientId" name="clientId" placeholder="Client Id" />
+      </div>
+
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-id-card"></i>
+        </span>
+        <input pInputText [(ngModel)]="newObservation.observationType" name="observationType" placeholder="Observation Type" />
+      </div>
+
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-id-card"></i>
+        </span>
+        <input pInputText [(ngModel)]="newObservation.content" name="content" placeholder="Content" />
+      </div>
+  
+      <button pButton type="button" label="Save Observation" (click)=" addNewObservation()"></button>
+
+    </form>
+  </div>
+  

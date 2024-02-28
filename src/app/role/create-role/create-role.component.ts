@@ -11,10 +11,7 @@ import { DynamicDialogRef } from 'primeng/dynamicdialog';
 })
 export class CreateRoleComponent implements OnInit,OnDestroy {
 
-
   private createRoleSubscription: Subscription;
-
-
 
   newRole: Role = { 
 

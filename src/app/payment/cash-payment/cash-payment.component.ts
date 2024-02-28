@@ -1,9 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnInit } from '@angular/core';
 import { CashPayment } from '../cash-payment';
 import { PayMethod } from '../PayMethod';
 import { Payment } from '../payment';
 import { PaymentService } from '../payment.service';
-import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { InvoiceComponent } from '../invoice/invoice.component';
+import { Client } from 'src/app/client/client';
 
 @Component({
   selector: 'app-cash-payment',
@@ -12,14 +14,19 @@ import { DynamicDialogRef } from 'primeng/dynamicdialog';
 })
 export class CashPaymentComponent implements OnInit {
 
-  constructor(private paymentService:PaymentService,
+  constructor(
+              private paymentService:PaymentService,
               public ref: DynamicDialogRef,
+              private dialogService: DialogService,
               ){
 
   }
 
   @Input()
   payment:Payment;
+
+  @Input()
+  client:Client;
 
 
   ngOnInit(): void {
@@ -29,6 +36,9 @@ export class CashPaymentComponent implements OnInit {
     this.cashPayment.paymentTranche=this.payment.paymentTranche;
     this.cashPayment.subscriptionid=this.payment.subscriptionid;
 
+    console.log("++++++++++++++++++++++++++++++++")
+    console.log(this.client)
+    console.log("++++++++++++++++++++++++++++++++")
   }
 
   cashPayment: CashPayment = {
@@ -41,6 +51,7 @@ export class CashPaymentComponent implements OnInit {
   };
 
   createCashPayment(){
+
     this.paymentService.createCashPayment(this.cashPayment).subscribe({
       next:  (response)=>
       {
@@ -52,9 +63,23 @@ export class CashPaymentComponent implements OnInit {
         console.log(err)
       },
       complete:()=>{
-        console.log("task complete")
+
+          this.ref = this.dialogService.open(InvoiceComponent, { 
+          data: {
+            payment: this.cashPayment,
+            client:this.client
+
+          },
+          header: ' invoice ',
+          width: '70vw',
+          height:'50vw',
+          modal:true,
+          contentStyle: { overflow: 'auto' },
+          maximizable: true
+        });
       }
     })
+
   }
 
 }

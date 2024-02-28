@@ -11,12 +11,13 @@
           <p-dropdown [options]="paymentMethods" name="paymentMethod" [(ngModel)]="payment.paymentMethod" 
           optionLabel="label" placeholder="Select Payment Method" (ngModelChange)="onPaymentMethodChange($event)"></p-dropdown>
         </div>
+        <div *ngIf="selectedPaymentMetohd === 'CASH'">
+          <app-cash-payment [client]="client"  [payment]="payment" ></app-cash-payment>
+        </div>
 
-        <app-cash-payment [payment]="payment" *ngIf="selectedPaymentMetohd === 'CASH'"></app-cash-payment>
+        <app-check-payment [client]="client" [payment]="payment" *ngIf="selectedPaymentMetohd === 'CHECK'"></app-check-payment>
 
-        <app-check-payment [payment]="payment" *ngIf="selectedPaymentMetohd === 'CHECK'"></app-check-payment>
-
-        <app-card-payment [payment]="payment" *ngIf="selectedPaymentMetohd === 'CARD'"></app-card-payment>
+        <app-card-payment [client]="client" [payment]="payment" *ngIf="selectedPaymentMetohd === 'CARD'"></app-card-payment>
        
       </div>
 

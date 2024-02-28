@@ -7,6 +7,7 @@ import { PaymentTranche } from 'src/app/subscription/payment-tranche';
 import { CreatePaymentTransactionComponent } from 'src/app/payment/create-payment-transaction/create-payment-transaction.component';
 import { PaymentService } from 'src/app/payment/payment.service';
 import { Payment } from 'src/app/payment/payment';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-client-card',
@@ -20,6 +21,8 @@ export class ClientCardComponent implements OnInit {
   tranches:PaymentTranche[];
   payments:Payment[];
 
+  // private paymentsSubject:any;
+  // private payments$:any;
 
   ref: DynamicDialogRef;
   
@@ -32,18 +35,10 @@ export class ClientCardComponent implements OnInit {
   ngOnInit(): void {
 
         this.client=this.dialogConfig.data.client;
-        // this.paymentService.setPayments(this.client.subscription.payments);
         this.tranches=this.client.subscription.paymentMode.paymentTranches;
         this.payments=this.client.subscription.payments;
-
-
-        // this.paymentService.payments$.subscribe(payments => {
-        //   console.log("87878878778")
-        //   console.log(payments)
-        //   console.log("87878878778")
-
-        //   this.payments = payments;
-        // });
+        // this.paymentsSubject==new BehaviorSubject<Payment[]>(this.payments);
+        // this.payments$=this.paymentsSubject.asObservable();
 
   }
 
@@ -52,7 +47,8 @@ export class ClientCardComponent implements OnInit {
     this.ref = this.dialogService.open(CreatePaymentTransactionComponent, { 
       data: {
         paymentTranche: paymentTranche,
-        subscriptionid:this.client.subscription.id
+        subscriptionid:this.client.subscription.id,
+        client:this.client
     },
     header: 'Create Payment Transaction',
     width: '50vw',

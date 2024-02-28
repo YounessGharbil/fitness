@@ -8,6 +8,7 @@ import { CheckPaymentComponent } from './check-payment/check-payment.component';
 import { CardPaymentComponent } from './card-payment/card-payment.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentRoutingModule } from './payment-routing/payment-routing.module';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 
 
@@ -18,7 +19,8 @@ import { PaymentRoutingModule } from './payment-routing/payment-routing.module';
     CashPaymentComponent,
     CheckPaymentComponent,
     CardPaymentComponent,
-    PaymentComponent
+    PaymentComponent,
+    InvoiceComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,7 @@ import { PaymentRoutingModule } from './payment-routing/payment-routing.module';
     PrimeNgModule,
     PaymentRoutingModule
   ],
+  providers: [Location],
 
 })
 export class PaymentModule { }

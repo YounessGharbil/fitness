@@ -1,10 +1,12 @@
 .card {
-  max-width: 400px;
+  max-width: 50rem;
   margin: 0 auto;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
+  height: 45rem;
+
 }
 
 .form-group {
@@ -32,7 +34,8 @@ input[type='text'] {
 }
 
 button {
-  width: 100%;
+  margin-top: 5%;
+  width: 25%;
   background-color: #007bff;
   color: #ffffff;
   border: none;

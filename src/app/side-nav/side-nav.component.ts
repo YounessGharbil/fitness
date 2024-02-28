@@ -13,7 +13,8 @@ import {
   faUsers,
   faUsersGear,
   faMasksTheater,
-  faIdCard
+  faIdCard,
+  faFileEdit
   
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -37,6 +38,7 @@ export class SideNavComponent {
   faUsersGear=faUsersGear
   faMasksTheater=faMasksTheater
   faIdCard=faIdCard
+  faFileEdit=faFileEdit
 
 
 }

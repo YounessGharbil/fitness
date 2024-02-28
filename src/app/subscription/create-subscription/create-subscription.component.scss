@@ -1,22 +1,38 @@
-/* Style the input group containing the discount input */
 .input-group {
-  margin-bottom: 30px;
-  margin-top: 30px;
-
+  margin-bottom: 15px;
 }
 
-/* Style the discount input */
 .input-group input[name="discount"],
 .input-group input[name="numberOfTranches"] {
-  width: 100%; /* Make the inputs take up full width */
-  padding: 10px; /* Add padding */
-  border: 1px solid #ccc; /* Add border */
-  border-radius: 5px; /* Add border radius */
-  font-size: 16px; /* Adjust font size */
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  font-size: 16px; 
 }
 
-/* Optionally, you can add hover styles to enhance interactivity */
 .input-group input[name="discount"]:hover,
 .input-group input[name="numberOfTranches"]:hover {
-  border-color: #007bff; /* Change border color on hover */
+  border-color: #007bff;
+}
+
+.card {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  height: 45rem;
+}
+
+button {
+  margin-top: 5%;
+  width: 25%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  cursor: pointer;
 }

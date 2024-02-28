@@ -11,6 +11,8 @@ const routes: Routes = [
   { path: 'package', loadChildren: () => import('./package/package.module').then(m => m.PackageModule) },
   { path: 'subscription', loadChildren: () => import('./subscription/subscription.module').then(m => m.SubscriptionModule) },
   { path: 'payment', loadChildren: () => import('./payment/payment.module').then(m => m.PaymentModule) },
+  { path: 'observation', loadChildren: () => import('./observation/observation.module').then(m => m.ObservationModule) },
+
 
 ];
 

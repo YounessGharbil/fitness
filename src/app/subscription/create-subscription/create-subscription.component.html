@@ -4,7 +4,8 @@
       
       <div class="input-group">
         <p-autoComplete  pTooltip="Enter Contact" [(ngModel)]="selectedContact" name="selectedContact" [suggestions]="contactSuggestions" (completeMethod)="searchContact($event)" placeholder="Select Contact"></p-autoComplete>
-      </div><div class="input-group">
+      </div>
+      <div class="input-group">
         <p-dropdown  pTooltip="Select package" [options]="allPackages" [(ngModel)]="selectedPackage" name="selectedPackage" optionLabel="packageName" placeholder="Select Package"></p-dropdown>
       </div>
       <div class="input-group">

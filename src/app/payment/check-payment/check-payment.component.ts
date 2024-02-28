@@ -3,7 +3,9 @@ import { CheckPayment } from '../check-payment';
 import { PayMethod } from '../PayMethod';
 import { Payment } from '../payment';
 import { PaymentService } from '../payment.service';
-import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { InvoiceComponent } from '../invoice/invoice.component';
+import { Client } from 'src/app/client/client';
 
 @Component({
   selector: 'app-check-payment',
@@ -12,23 +14,32 @@ import { DynamicDialogRef } from 'primeng/dynamicdialog';
 })
 export class CheckPaymentComponent implements OnInit {
 
-  constructor(private paymentService:PaymentService,public ref: DynamicDialogRef){
-
+  constructor(private paymentService:PaymentService,
+              public ref: DynamicDialogRef,
+              private dialogService: DialogService,         
+              ){
   }
 
   @Input()
   payment:Payment;
 
+  @Input()
+  client:Client;
+
   ngOnInit(): void {
 
-    this.cardPayment.paymentDate = new Date().toISOString();
-    this.cardPayment.amount=this.payment.amount;
-    this.cardPayment.paymentTranche=this.payment.paymentTranche;
-    this.cardPayment.subscriptionid=this.payment.subscriptionid
-    
+    this.checkPayment.paymentDate = new Date().toISOString();
+    this.checkPayment.amount=this.payment.amount;
+    this.checkPayment.paymentTranche=this.payment.paymentTranche;
+    this.checkPayment.subscriptionid=this.payment.subscriptionid
+
+    console.log("++++++++++++++++++++++++++++++++")
+    console.log(this.client)
+    console.log("++++++++++++++++++++++++++++++++")
+  
   }
 
-  cardPayment:CheckPayment = {
+  checkPayment:CheckPayment = {
 
     paymentTranche: null,
     paymentMethod: PayMethod.CHECK,
@@ -40,18 +51,29 @@ export class CheckPaymentComponent implements OnInit {
   };
 
   createCheckPayment(){
-    this.paymentService.createCheckPayment(this.cardPayment).subscribe({
+    this.paymentService.createCheckPayment(this.checkPayment).subscribe({
       next:  (response)=>
       {
         console.log(response)
-        this.ref.close(this.cardPayment);
+        this.ref.close(this.checkPayment);
 
       },
       error:(err)=>{
         console.log(err)
       },
       complete:()=>{
-        console.log("task complete")
+        this.ref = this.dialogService.open(InvoiceComponent, { 
+          data: {
+              payment:this.checkPayment,
+              client:this.client
+          },
+          header: ' invoice ',
+          width: '70vw',
+          height:'50vw',
+          modal:true,
+          contentStyle: { overflow: 'auto' },
+          maximizable: true
+        });
       }
     })
   }

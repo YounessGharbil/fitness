@@ -17,7 +17,9 @@ export class UpdatePackageComponent implements OnInit,OnDestroy {
    private updatePackageSubscription: Subscription;
 
 
-  constructor(private dialogConfig: DynamicDialogConfig,
+  constructor(
+              
+              private dialogConfig: DynamicDialogConfig,
               private packageService: PackageService,
               public ref: DynamicDialogRef,
               private messageService: MessageService,

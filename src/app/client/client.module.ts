@@ -15,7 +15,7 @@ import { ClientRoutingModule } from './client-routing/client-routing.module';
     ClientComponent,
     CreateClientComponent,
     UpdateClientComponent,
-    ClientCardComponent
+    ClientCardComponent,
   ],
   imports: [
     CommonModule,

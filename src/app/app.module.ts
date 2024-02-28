@@ -10,6 +10,7 @@ import { ContactModule } from './contact/contact.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule  } from '@angular/platform-browser/animations';
 import { PaymentModule } from './payment/payment.module';
+import { ObservationModule } from './observation/observation.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { PaymentModule } from './payment/payment.module';
     AppRoutingModule,
     FontAwesomeModule,
     ContactModule,
-    PaymentModule
+    PaymentModule,
+    ObservationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
