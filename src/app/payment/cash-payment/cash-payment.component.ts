@@ -35,10 +35,6 @@ export class CashPaymentComponent implements OnInit {
     this.cashPayment.amount=this.payment.amount;
     this.cashPayment.paymentTranche=this.payment.paymentTranche;
     this.cashPayment.subscriptionid=this.payment.subscriptionid;
-
-    console.log("++++++++++++++++++++++++++++++++")
-    console.log(this.client)
-    console.log("++++++++++++++++++++++++++++++++")
   }
 
   cashPayment: CashPayment = {

@@ -69,12 +69,12 @@
                 </td>
 
                 <td>
-                    <button pButton type="button"  icon="pi pi-pencil" (click)="updatePayment(payment)"></button>
+                    <button pButton type="button"  icon="pi pi-download" (click)="printInvoice(payment)"></button>
                 </td>
 
-                <td>
+                <!-- <td>
                     <button pButton type="button"  icon="pi pi-trash" (click)="confirmDelete(payment.id)"></button>
-                </td>
+                </td> -->
            
                 
             </tr>
@@ -85,9 +85,9 @@
                 <td colspan="7">No payments found.</td>
             </tr>
         </ng-template>
-        <ng-template pTemplate="paginatorleft">
+        <!-- <ng-template pTemplate="paginatorleft">
             <p-button (click)="show()" type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
-        </ng-template>
+        </ng-template> -->
         
     </p-table>
 </div>

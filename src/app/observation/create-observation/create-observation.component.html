@@ -16,12 +16,19 @@
         <input pInputText [(ngModel)]="newObservation.observationType" name="observationType" placeholder="Observation Type" />
       </div>
 
-      <div class="p-inputgroup">
+      <!-- <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-id-card"></i>
         </span>
         <input pInputText [(ngModel)]="newObservation.content" name="content" placeholder="Content" />
+      </div> -->
+
+      <div class="p-inputgroup">
+        
+        <textarea rows="5" cols="30" pInputTextarea [(ngModel)]="newObservation.content" name="content" placeholder="Content"></textarea>
       </div>
+
+
   
       <button pButton type="button" label="Save Observation" (click)=" addNewObservation()"></button>
 

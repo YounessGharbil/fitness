@@ -2,10 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PaymentService } from '../payment.service';
 import { SubscriptionService } from 'src/app/subscription/subscription.service';
 import { Payment } from '../payment';
-import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Subscription } from 'rxjs';
 import { Table } from 'primeng/table';
 import { ConfirmEventType, ConfirmationService, MessageService } from 'primeng/api';
+import { InvoiceComponent } from '../invoice/invoice.component';
 
 @Component({
   selector: 'app-payment',
@@ -20,12 +21,12 @@ export class PaymentComponent implements OnInit,OnDestroy {
 
   ref: DynamicDialogRef;
 
+
   private paymentssSubscription: Subscription;
 
-
   constructor(private paymentService:PaymentService,
-              private messageService: MessageService,
-              private confirmationService: ConfirmationService){
+              private dialogService: DialogService,
+             ){
 
   }
   ngOnDestroy(): void {
@@ -38,6 +39,7 @@ export class PaymentComponent implements OnInit,OnDestroy {
     this.paymentService.gePayments().subscribe({
       next:(response)=>{
         this.payments=response
+        console.log( this.payments)
       },
       error:(err)=>{
         console.log(err)
@@ -58,40 +60,23 @@ applyFilterGlobal(event: any) {
   return event.target.value;
 }
 
-show() {
-  
-}
+printInvoice(payment:Payment){
+  console.log("*/*/**/*/*/******************")
+  console.log(payment)
+  console.log("*/*/**/*/*/******************")
 
-updatePayment(payment:Payment){
-  
-}
-
-deletePayment(id:number){
-
-}
-
-confirmDelete(id:number) {
-  this.confirmationService.confirm({
-      message: 'Do you want to delete this record?',
-      header: 'Delete Confirmation',
-      icon: 'pi pi-info-circle',
-      accept: () => {
-          this.deletePayment(id);
-          this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted' });
-      },
-      reject: (type) => {
-          switch (type) {
-              case ConfirmEventType.REJECT:
-                  this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected' });
-      
-                  break;
-              case ConfirmEventType.CANCEL:
-                  this.messageService.add({ severity: 'warn', summary: 'Cancelled', detail: 'You have cancelled' });
-      
-                  break;
-          }
-      }
+  this.ref = this.dialogService.open(InvoiceComponent, { 
+    data: {
+      payment: payment,
+    },
+    header: ' invoice ',
+    width: '70vw',
+    height:'50vw',
+    modal:true,
+    contentStyle: { overflow: 'auto' },
+    maximizable: true
   });
+
 }
 
 }

@@ -141,22 +141,33 @@
 
         <p-tabPanel>
             <ng-template pTemplate="header">
+                <span>Observations</span>
+            </ng-template>
+            <div class="info-section">
+                <div class="card" *ngIf="observations && observations.length > 0">
+                    <div class="field">Last Observation Type:</div>
+                    <div class="data">
+                        {{ observations[observations.length - 1].observationType }}
+                    </div>
+                    <div class="field">Last Observation Content:</div>
+                    <div class="data">
+                        {{ observations[observations.length - 1].content }}
+                    </div>
+                </div>
+                <div *ngIf="observations && observations.length === 0">
+                    No observations available.
+                </div>
+            </div>
+        </p-tabPanel>      
+
+        <p-tabPanel>
+            <ng-template pTemplate="header">
                 <span>Visites</span>
             </ng-template>
             <div class="info-section">
 
             </div>
-        </p-tabPanel>
-
-        <p-tabPanel>
-            <ng-template pTemplate="header">
-                <span>Observations</span>
-            </ng-template>
-            <div class="info-section">
-              
-
-            </div>
-        </p-tabPanel>
+        </p-tabPanel>  
 
     </p-tabView>
 </div>

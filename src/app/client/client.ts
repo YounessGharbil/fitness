@@ -1,4 +1,5 @@
 import { Contact } from "../contact/contact";
+import { Observation } from "../observation/observation";
 import { Sub } from "../subscription/subscription";
 
 export interface Client {
@@ -11,7 +12,7 @@ export interface Client {
 	
 	subscription?:Sub;
 	
-    observations?:string[];
+    observations?:Observation[];
 	
 	userAccount?:any;
 

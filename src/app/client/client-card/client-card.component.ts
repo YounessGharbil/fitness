@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogService, DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { ClientService } from '../client.service';
-import { ConfirmationService, MessageService } from 'primeng/api';
 import { Client } from '../client';
 import { PaymentTranche } from 'src/app/subscription/payment-tranche';
 import { CreatePaymentTransactionComponent } from 'src/app/payment/create-payment-transaction/create-payment-transaction.component';
 import { PaymentService } from 'src/app/payment/payment.service';
 import { Payment } from 'src/app/payment/payment';
-import { BehaviorSubject } from 'rxjs';
+import { Observation } from 'src/app/observation/observation';
 
 @Component({
   selector: 'app-client-card',
@@ -20,6 +18,7 @@ export class ClientCardComponent implements OnInit {
 
   tranches:PaymentTranche[];
   payments:Payment[];
+  observations:Observation[];
 
   // private paymentsSubject:any;
   // private payments$:any;
@@ -37,6 +36,7 @@ export class ClientCardComponent implements OnInit {
         this.client=this.dialogConfig.data.client;
         this.tranches=this.client.subscription.paymentMode.paymentTranches;
         this.payments=this.client.subscription.payments;
+        this.observations=this.client.observations;
         // this.paymentsSubject==new BehaviorSubject<Payment[]>(this.payments);
         // this.payments$=this.paymentsSubject.asObservable();
 

@@ -47,6 +47,7 @@ export class ClientComponent implements OnInit,OnDestroy  {
           next:  (response)=>
           {
             this.clients=response;
+            console.log( this.clients)
           },
           error:(err)=>{
             console.log(err)

@@ -28,7 +28,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
     PrimeNgModule,
     PaymentRoutingModule
   ],
-  providers: [Location],
+  providers: [],
 
 })
 export class PaymentModule { }

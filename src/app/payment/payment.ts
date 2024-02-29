@@ -1,4 +1,5 @@
 import { PaymentTranche } from "../subscription/payment-tranche";
+import { Sub } from "../subscription/subscription";
 import { PayMethod } from "./PayMethod";
 
 export interface Payment {
@@ -14,5 +15,7 @@ export interface Payment {
     paymentDate:string;
 
     subscriptionid:number;
+
+    subscription?:Sub;
 
 }

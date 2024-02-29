@@ -78,16 +78,7 @@
                 <td>
                     {{ client.gymid }}
                 </td>
-
-                <td>
-                    <button pButton type="button"  icon="pi pi-pencil" (click)="updateClient(client)"></button>
-                </td>
-
-                <td>
-                    <button pButton type="button"  icon="pi pi-trash" (click)="confirmDelete(client.id)"></button>
-                </td>
-           
-                
+                  
             </tr>
         </ng-template>
         
@@ -95,9 +86,6 @@
             <tr>
                 <td colspan="7">No contacts found.</td>
             </tr>
-        </ng-template>
-        <ng-template pTemplate="paginatorleft">
-            <p-button (click)="show()" type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
         </ng-template>
         
     </p-table>

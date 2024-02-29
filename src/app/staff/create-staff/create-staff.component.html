@@ -1,12 +1,12 @@
 <div class="card">
   <form>
-    <div class="form-group">
+    <span class="p-fluid">
       <p-autoComplete pTooltip="Enter Contact" [(ngModel)]="selectedContact" name="selectedContact" [suggestions]="contactSuggestions" (completeMethod)="search($event)" placeholder="Select Contact"></p-autoComplete>
-    </div>
+    </span>
 
-    <div class="form-group">
+    <span class="p-fluid">
       <p-dropdown pTooltip="Select role" [options]="allRoles" [(ngModel)]="selectedRole" name="selectedRole" optionLabel="rolename" placeholder="Select Role"></p-dropdown>
-    </div>
+    </span>
 
     <button pButton type="button" label="Save Staff" (click)="addNewStaff()"></button>
   </form>
