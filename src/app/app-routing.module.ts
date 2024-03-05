@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  { path: '', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
   { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
   { path: 'contact', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
   { path: 'staff', loadChildren: () => import('./staff/staff.module').then(m => m.StaffModule) },

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 
 import {
   faDashboard,
@@ -23,7 +23,7 @@ import {
   templateUrl: './side-nav.component.html',
   styleUrls: ['./side-nav.component.scss']
 })
-export class SideNavComponent {
+export class SideNavComponent  {
 
   faDashboard = faDashboard;
   faLocation = faLocation;
@@ -39,6 +39,5 @@ export class SideNavComponent {
   faMasksTheater=faMasksTheater
   faIdCard=faIdCard
   faFileEdit=faFileEdit
-
-
+  
 }

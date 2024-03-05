@@ -1,31 +1,31 @@
 .sidenav-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
+  align-items: center; 
   padding-top: 40px;
 
   .app-logo {
-    width: 100px; /* Adjust width as needed */
+    width: 80%;
     height: auto;
-    margin-bottom: 20px; /* Adjust margin as needed */
+    margin-bottom: 20px;
   }
 
   .nav-items {
     padding-top: 40px;
   
     .nav-item {
-      padding: 15px 20px; /* Adjust padding for a more compact layout */
+      padding: 15px 20px;
       cursor: pointer;
       @media only screen and (max-width: 1300px) {
         padding: 15px 15px;
       }
       &:hover {
-        background-color: rgb(1, 38, 69);
+        background-color: rgb(168, 168, 168);
       }
   
       fa-icon {
-        margin-right: 10px; /* Adjust icon margin for a more compact layout */
-        font-size: 18px; /* Adjust icon size for a more compact layout */
+        margin-right: 10px; 
+        font-size: 18px; 
       }
   
       span {

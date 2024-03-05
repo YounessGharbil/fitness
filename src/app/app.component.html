@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="isUserAuthenticated" class="container">
     <!-- <div class="header">
       <app-header></app-header>
     </div> -->
@@ -10,4 +10,7 @@
         <router-outlet></router-outlet>
       </div>
     </div>
+  </div>
+  <div *ngIf="!isUserAuthenticated">
+    <app-login></app-login>
   </div>

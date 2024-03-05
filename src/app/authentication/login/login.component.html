@@ -1,0 +1,16 @@
+<div *ngIf="!isUserAuthenticated" class="login-container">
+    <div class="login-form">
+      <h2>Login</h2>
+      <form>
+        <div class="p-field">
+          <label for="userEmail">Email</label>
+          <input type="text"  [(ngModel)]="authenticationRequest.email" name="email" pInputText>
+        </div>
+        <div class="p-field">
+          <label for="password">Password</label>
+          <input type="password"  [(ngModel)]="authenticationRequest.password" name="password" pPassword>
+        </div>
+        <button type="submit" (click)="login()" pButton label="Login"></button>
+      </form>
+    </div>
+  </div>

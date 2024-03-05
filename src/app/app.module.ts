@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule  } from '@angular/platform-browser/animations';
 import { PaymentModule } from './payment/payment.module';
 import { ObservationModule } from './observation/observation.module';
+import { PrimeNgModule } from './prime-ng/prime-ng.module';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 
 @NgModule({
@@ -27,7 +29,10 @@ import { ObservationModule } from './observation/observation.module';
     FontAwesomeModule,
     ContactModule,
     PaymentModule,
-    ObservationModule
+    ObservationModule,
+    AuthenticationModule,
+    PrimeNgModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
