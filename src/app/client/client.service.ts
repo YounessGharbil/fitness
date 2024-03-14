@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Client } from './client';
 
 @Injectable({
@@ -9,12 +9,33 @@ import { Client } from './client';
 export class ClientService implements OnInit{
 
   private baseURL = `http://localhost:8080/Client`;
+
+  private clientsSubject = new BehaviorSubject<any>([]);
+
+  clients$ = this.clientsSubject.asObservable();
   
   constructor(private http: HttpClient) { }
   
   ngOnInit(): void {
     
    
+  }
+
+  loadClients(): void {
+
+    this.http.get<any>(`${this.baseURL}`).subscribe({
+      next:  (response)=>
+          {
+            console.log(response);
+            this.clientsSubject.next(response);
+          },
+          error:(err)=>{
+            console.log(err)
+          },
+          complete:()=>{
+            console.log("task complete")
+          }
+    });
   }
 
   createClient(client:Client):Observable<any>{

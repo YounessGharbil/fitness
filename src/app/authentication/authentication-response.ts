@@ -1,6 +1,8 @@
+import { User } from "../user/user";
+
 export interface AuthenticationResponse {
+    
     token:string;
-    userEmail:string;
-    userRole:string;
+    userAccount:User;
 
 }

@@ -42,7 +42,7 @@
 
             </div>
         </p-tabPanel>
-
+<!-- 
         <p-tabPanel>
             <ng-template pTemplate="header">
                 <span>Subscription</span>
@@ -75,7 +75,84 @@
                     
                 </div>
             </div>
+        </p-tabPanel> -->
+        <p-tabPanel>
+            <ng-template pTemplate="header">
+                <span>Subscription</span>
+            </ng-template>
+        
+            <div class="subscription-section">
+                <div class="left-section">
+                    <button pButton type="button" class="update-button" (click)="updateSubscription()">update subscription</button>
+                    <div class="info-section">
+                        <div class="field">Package:</div>
+                        <div class="data">{{ client.subscription.subscribedPackage.packageName }}</div>
+                        <div class="field">Start Date:</div>
+                        <div class="data">{{ client.subscription.startDate }}</div>
+        
+                        <div class="field">End Date:</div>
+                        <div class="data">{{ client.subscription.endDate }}</div>
+        
+                        <div class="field">Discount:</div>
+                        <div class="data">{{ client.subscription.discount }}</div>
+        
+                        <div class="field">Price After Discount:</div>
+                        <div class="data">{{ client.subscription.priceAfterDiscount }}</div>
+        
+                        <div class="field">Status:</div>
+                        <div class="data">
+                            
+                                <ng-container *ngIf="client.subscription.status === 'active'; else blockedTag">
+                                    <p-tag severity="success" value="Active"></p-tag>
+                                </ng-container>
+                                <ng-template #blockedTag>
+                                    <p-tag severity="danger" value="blocked"></p-tag>
+                                </ng-template>
+                            
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="right-section">
+                    <button pButton type="button" class="show-events-button" (click)="showSubscriptionEvents()">Subscription Events</button>
+        
+                    <div class="subscription-events">
+
+
+                        <div class="card">
+                            <p-table
+                                [value]="subscriptionEvents"
+                                [paginator]="true"
+                                [rows]="5"
+                                [showCurrentPageReport]="true"
+                                [tableStyle]="{ 'min-width': '45rem' }"
+                                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                                [rowsPerPageOptions]="[5]"
+                            >
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th style="width:20%">eventType</th>
+                                        <th style="width:20%">eventDate</th>
+                                        <th style="width:20%">startDate</th>
+                                        <th style="width:20%">endDate</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-event>
+                                    <tr>
+                                        <td>{{ event.eventType }}</td>
+                                        <td>{{ event.eventTimestamp}}</td>
+                                        <td>{{ event.startDate }}</td>
+                                        <td>{{ event.endDate }}</td>
+                                    </tr>
+                                </ng-template>
+                                
+                            </p-table>
+                        </div>                    
+                    </div>
+                </div>
+            </div>
         </p-tabPanel>
+        
 
         <p-tabPanel>
             <ng-template pTemplate="header">
@@ -115,7 +192,7 @@
             </ng-template>
             <div class="info-section">
                 
-                <div class="card">
+                <!-- <div class="card">
                     <p-table [value]="client.subscription.payments" [tableStyle]="{'min-width': '60rem'}">
                         <ng-template pTemplate="header">
                             <tr>
@@ -134,15 +211,53 @@
                             </tr>
                         </ng-template>
                     </p-table>
-                </div>
+                </div> -->
+
+                <div class="card">
+                    <p-table
+                        [value]="client.subscription.payments"
+                        [paginator]="true"
+                        [rows]="5"
+                        [showCurrentPageReport]="true"
+                        [tableStyle]="{ 'min-width': '82rem' }"
+                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                        [rowsPerPageOptions]="[5]"
+                    >
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th style="width:20%">paymentMethod</th>
+                                <th style="width:20%">amount</th>
+                                <th style="width:20%">paymentDate</th>
+                                
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-payment>
+                            <tr>
+                                <td>{{payment.paymentMethod}}</td>
+                                <td>{{payment.amount}}</td>
+                                <td>{{payment.paymentDate}}</td>
+                
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div> 
 
             </div>
         </p-tabPanel>
 
-        <p-tabPanel>
+        <!-- <p-tabPanel>
             <ng-template pTemplate="header">
                 <span>Observations</span>
             </ng-template>
+
+            <div class="header">
+                <button pButton type="button" icon="pi pi-plus" class="add-button" (click)="addObservation()"></button>
+            </div>
+
+            <div class="header">
+                <button pButton type="button" icon="pi pi-list" class="show-events-button" (click)="showSubscriptionEvents()">Subscription Events</button>
+            </div>
+            
             <div class="info-section">
                 <div class="card" *ngIf="observations && observations.length > 0">
                     <div class="field">Last Observation Type:</div>
@@ -158,7 +273,67 @@
                     No observations available.
                 </div>
             </div>
-        </p-tabPanel>      
+        </p-tabPanel>   -->
+        
+        <p-tabPanel>
+            <ng-template pTemplate="header">
+                <span>Observations</span>
+            </ng-template>
+        
+            <div class="observation-section">
+                <div class="left-section">
+                    <button pButton type="button" icon="pi pi-plus" class="add-button" (click)="addObservation()"></button>
+                    <div class="info-section">
+                        <div class="card" *ngIf="observations && observations.length > 0">
+                            <div class="field">Last Observation Type:</div>
+                            <div class="data">
+                                {{ observations[observations.length - 1].observationType }}
+                            </div>
+                            <div class="field">Last Observation Content:</div>
+                            <div class="data">
+                                {{ observations[observations.length - 1].content }}
+                            </div>
+                        </div>
+                        <div *ngIf="observations && observations.length === 0">
+                            No observations available.
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="right-section">
+                    <button pButton type="button" icon="pi pi-list" class="show-observations" (click)="showSubscriptionEvents()">All Observations</button>
+                    <div class="observations">
+                        <div class="card">
+                            <p-table
+                                [value]="observations"
+                                [paginator]="true"
+                                [rows]="5"
+                                [showCurrentPageReport]="true"
+                                [tableStyle]="{ 'min-width': '45rem' }"
+                                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                                [rowsPerPageOptions]="[5]"
+                            >
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th style="width:20%">observationType</th>
+                                        <th style="width:20%">content</th>
+                                        
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-event>
+                                    <tr>
+                                        <td>{{ event.observationType }}</td>
+                                        <td>{{ event.content}}</td>
+                        
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </p-tabPanel>
+        
 
         <p-tabPanel>
             <ng-template pTemplate="header">

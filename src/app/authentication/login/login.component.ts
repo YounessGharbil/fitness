@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit,OnDestroy {
 
   isUserAuthenticated:boolean;
 
-  constructor(private authenticationService:AuthenticationService){
+  constructor(private authenticationService:AuthenticationService,private router:Router){
 
   }
 
@@ -31,13 +31,13 @@ export class LoginComponent implements OnInit,OnDestroy {
     
   };
 
-  login(){
+  login() {
     this.authenticationService.authenticate(this.authenticationRequest).subscribe({
-      next:  (response)=>
-      {
-        console.log(response)
-        location.reload();
-
+      next: (response) => {
+        console.log(response);
+        this.router.navigate(['/dashboard']).then(() => {
+          window.location.reload();
+        });
       }
     });
   }

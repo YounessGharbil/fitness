@@ -19,6 +19,13 @@ export class CreatePaymentTransactionComponent implements OnInit {
   subscriptionid:number;
   client:Client;
 
+  constructor(
+    private dialogConfig: DynamicDialogConfig,
+    public ref: DynamicDialogRef,
+        ) { }
+
+
+
 
   ngOnInit(): void {
 
@@ -50,14 +57,6 @@ export class CreatePaymentTransactionComponent implements OnInit {
     { label: 'Check', value: PayMethod.CHECK },
     { label: 'Card', value: PayMethod.CARD }
   ];
-
-  constructor(
-              private dialogConfig: DynamicDialogConfig,
-              public ref: DynamicDialogRef,
-    
-    ) { }
-
-  
 
 
   onPaymentMethodChange(event: any): void {

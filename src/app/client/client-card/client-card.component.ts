@@ -6,6 +6,7 @@ import { CreatePaymentTransactionComponent } from 'src/app/payment/create-paymen
 import { PaymentService } from 'src/app/payment/payment.service';
 import { Payment } from 'src/app/payment/payment';
 import { Observation } from 'src/app/observation/observation';
+import { CreateObservationComponent } from 'src/app/observation/create-observation/create-observation.component';
 
 @Component({
   selector: 'app-client-card',
@@ -19,6 +20,7 @@ export class ClientCardComponent implements OnInit {
   tranches:PaymentTranche[];
   payments:Payment[];
   observations:Observation[];
+  subscriptionEvents:any[];
 
   // private paymentsSubject:any;
   // private payments$:any;
@@ -37,6 +39,9 @@ export class ClientCardComponent implements OnInit {
         this.tranches=this.client.subscription.paymentMode.paymentTranches;
         this.payments=this.client.subscription.payments;
         this.observations=this.client.observations;
+        this.subscriptionEvents=this.client.subscription.subscriptionEvents
+
+
         // this.paymentsSubject==new BehaviorSubject<Payment[]>(this.payments);
         // this.payments$=this.paymentsSubject.asObservable();
 
@@ -67,6 +72,29 @@ export class ClientCardComponent implements OnInit {
   updatePaymentTranchesList(paymentTrancheToRemove: PaymentTranche) {
     this.tranches = this.tranches.filter(tranche => tranche !== paymentTrancheToRemove);
     this.paymentService.updatePaymentTranches(this.tranches);
+  }
+
+  addObservation(){
+
+    this.ref = this.dialogService.open(CreateObservationComponent, { 
+      data: {
+        client:this.client
+    },
+      header: 'Create Observation',
+      width: '70vw',
+      height:'50vw',
+      modal:true,
+      contentStyle: { overflow: 'auto' },
+      maximizable: true
+    });
+    
+  }
+
+  showSubscriptionEvents(){
+    console.log(this.client.observations)
+  }
+  updateSubscription(){
+
   }
 
 }

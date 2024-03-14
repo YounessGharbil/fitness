@@ -4,6 +4,7 @@ import { Payment } from "../payment/payment";
 import { PaymentMode } from "./payment-mode";
 
 export interface Sub {
+
       id?:number;
 	 
       discount?:number;
@@ -27,5 +28,7 @@ export interface Sub {
       paymentMode:PaymentMode;
 
       payments?:Array<Payment>;
+
+      subscriptionEvents?:Array<any>;
 
 }

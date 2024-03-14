@@ -31,7 +31,6 @@ export class PaymentTrancheComponent implements OnInit {
               ){}
   
    ngOnInit() {
-    console.log('hhhh'+this.packagePrice)
     this.calculatePriceAfterDiscount();
   }
 
@@ -48,8 +47,6 @@ export class PaymentTrancheComponent implements OnInit {
       paymentMode:null
     }));
 
-  
-    // Set tranches in the service
     this.paymentTrancheService.setTranches(tranches);
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
 

@@ -16,8 +16,12 @@ export class CreateRoleComponent implements OnInit,OnDestroy {
   newRole: Role = { 
 
     rolename: '',
+    authorities:[]
    
   };
+
+  selectedAuthorities: string[] = [];
+
 
   constructor(private roleService: RoleService, public ref: DynamicDialogRef) { }
   
@@ -31,7 +35,9 @@ export class CreateRoleComponent implements OnInit,OnDestroy {
 
 
   addNewRole() {
-       this.createRoleSubscription= this.roleService.createRole(this.newRole).subscribe({
+      this.newRole.authorities=this.selectedAuthorities
+      
+      this.createRoleSubscription= this.roleService.createRole(this.newRole).subscribe({
       next:  (response)=>
       {
         console.log(response)

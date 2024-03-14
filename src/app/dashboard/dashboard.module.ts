@@ -8,6 +8,8 @@ import { SalesByMonthComponent } from './sales-by-month/sales-by-month.component
 import { SalesByCategoryComponent } from './sales-by-category/sales-by-category.component';
 import { LastTransactionsComponent } from './last-transactions/last-transactions.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ChartModule } from 'primeng/chart';
+
 
 
 
@@ -24,7 +26,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ChartModule
   ]
 })
 export class DashboardModule { }

@@ -1,37 +1,26 @@
 <div class="card">
   
     <form>
-  
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
-          <i class="pi pi-id-card"></i>
-        </span>
-        <input pInputNumber [(ngModel)]="newObservation.clientId" name="clientId" placeholder="Client Id" />
+
+      <div class="input-group">
+        <span class="p-fluid">
+          <p-autoComplete pTooltip="Enter Client" [(ngModel)]="selectedClient" name="selectedClient" [suggestions]="clientSuggestions" (completeMethod)="search($event)" placeholder="Select Client"></p-autoComplete>
+        </span>  
       </div>
 
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
-          <i class="pi pi-id-card"></i>
+      <div style="margin-top: 1rem;" class="input-group">
+        <span class="p-fluid">
+          <p-dropdown [options]="observationTypes" [(ngModel)]="selectedObservationType" name="selectedObservationType" optionLabel="name" placeholder="Select Observation Type"></p-dropdown>
         </span>
-        <input pInputText [(ngModel)]="newObservation.observationType" name="observationType" placeholder="Observation Type" />
       </div>
 
-      <!-- <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
-          <i class="pi pi-id-card"></i>
-        </span>
-        <input pInputText [(ngModel)]="newObservation.content" name="content" placeholder="Content" />
-      </div> -->
-
-      <div class="p-inputgroup">
-        
-        <textarea rows="5" cols="30" pInputTextarea [(ngModel)]="newObservation.content" name="content" placeholder="Content"></textarea>
+      <div style="margin-top: 1rem;" class="p-inputgroup">
+        <textarea rows="5" cols="100" pInputTextarea [(ngModel)]="newObservation.content" name="content" placeholder="Content"></textarea>
       </div>
 
-
-  
       <button pButton type="button" label="Save Observation" (click)=" addNewObservation()"></button>
 
     </form>
+    
   </div>
   

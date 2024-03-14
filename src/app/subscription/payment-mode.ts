@@ -11,4 +11,6 @@ export interface PaymentMode {
 
     paymentTranches:Array<PaymentTranche>;
 
+    subscriptionPaid?:boolean;
+
 }

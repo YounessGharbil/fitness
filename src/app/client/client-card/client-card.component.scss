@@ -6,13 +6,56 @@
         gap: 10px;
 
         .field {
-            color: #3498db; // Field name color
+            color: #3498db; 
             font-weight: bold;
         }
 
         .data {
-            color: #000000; // Data color
+            color: #000000; 
         }
     }
+}
+
+.observation-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.subscription-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+// .left-section,
+// .right-section {
+//     width: 25%; 
+// }
+
+.left-section{
+    width: 40%; 
+}
+
+
+.right-section {
+    width: 58%; 
+}
+
+.info-section,
+.observations {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+}
+
+.add-button,
+.show-observations {
+    margin-top: 1rem;
+}
+
+.subscription-events {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    width: 100%;
 }
 

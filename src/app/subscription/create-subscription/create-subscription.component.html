@@ -1,15 +1,20 @@
 <div class="card">
   <form>
     <div class="form-group">
-      
-      <span class="p-fluid">
-        <p-autoComplete  pTooltip="Enter Contact" [(ngModel)]="selectedContact" name="selectedContact" [suggestions]="contactSuggestions" (completeMethod)="searchContact($event)" placeholder="Select Contact"></p-autoComplete>
-      </span>
-      <span class="p-fluid">
-        <p-dropdown  pTooltip="Select package" [options]="allPackages" [(ngModel)]="selectedPackage" name="selectedPackage" optionLabel="packageName" placeholder="Select Package"></p-dropdown>
-      </span>
       <div class="input-group">
-        <input pInputNumber  pTooltip="Enter discount" [(ngModel)]="newSubscription.discount" name="discount" placeholder="Discount" style="width: 100px;" />
+        <span class="p-fluid">
+          <p-autoComplete  pTooltip="Enter Contact" [(ngModel)]="selectedContact" name="selectedContact" [suggestions]="contactSuggestions" (completeMethod)="searchContact($event)" placeholder="Select Contact"></p-autoComplete>
+        </span>
+      </div>
+
+      <div class="input-group">
+        <span class="p-fluid">
+          <p-dropdown  pTooltip="Select package" [options]="allPackages" [(ngModel)]="selectedPackage" name="selectedPackage" optionLabel="packageName" placeholder="Select Package"></p-dropdown>
+        </span>
+      </div>
+
+      <div  class="input-group">
+        <input  pInputNumber  pTooltip="Enter discount" [(ngModel)]="newSubscription.discount" name="discount" placeholder="Discount" style="width: 100px;" />
       </div>
 
       <div class="input-group">

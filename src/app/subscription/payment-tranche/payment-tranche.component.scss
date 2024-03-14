@@ -1,9 +1,17 @@
-.payment-tranche .p-inputgroup {
-    margin-right: 10px; /* Adjust margin between input groups */
-    margin-bottom: 3px;
+.payment-tranche {
+  .input-group-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    .p-inputgroup {
+      margin-right: 10px;
+      width: calc(50% - 5px); // Adjust width as needed
+    }
+
+    .p-inputgroup:last-child {
+      margin-right: 0;
+    }
   }
-  
-  .payment-tranche .p-inputgroup .p-inputtext {
-    width: 200px; /* Adjust width of the input text */
-  }
-  
+}

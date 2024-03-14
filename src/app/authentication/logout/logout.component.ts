@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LogoutComponent implements OnInit,OnDestroy {
 
-  constructor(private authenticationService:AuthenticationService){
+  constructor(private authenticationService:AuthenticationService,private router:Router){
 
   }
 
@@ -22,7 +22,9 @@ export class LogoutComponent implements OnInit,OnDestroy {
 
   logout(){
     this.authenticationService.clearLocalStorage();
-    location.reload();
+    this.router.navigate(['/login']).then(() =>{
+      window.location.reload();
+    });
   }
 
 }

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable, OnInit } from '@angular/core';
 import { AuthenticationRequest } from './authentication-request';
-import { Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { AuthenticationResponse } from './authentication-response';
 
@@ -22,18 +22,32 @@ export class AuthenticationService implements OnInit {
 
   private readonly TOKEN_KEY = '__auth_token__';
 
+  private authenticatedUserSubject: BehaviorSubject<AuthenticationResponse | null> = new BehaviorSubject<AuthenticationResponse | null>(null);
+  public authenticatedUser$: Observable<AuthenticationResponse | null> = this.authenticatedUserSubject.asObservable();
+
 
 
   authenticate(authReq:AuthenticationRequest ):Observable<any>{
     return this.http.post(`${this.baseURL}`,authReq).pipe(
       tap(response=>{
         localStorage.setItem(this.TOKEN_KEY, response.token);
+        localStorage.setItem('Authenticated_User_Email',response.userAccount.email)
+        localStorage.setItem('Authenticated_User_Role',response.userAccount.role.rolename)
+        localStorage.setItem('Authenticated_User_FirstName',response.userAccount.contact.prenom)
+        localStorage.setItem('Authenticated_User_LastName',response.userAccount.contact.nom)
+
+        this.authenticatedUserSubject.next(response.userAccount); 
+
+
       })
     );
    }
 
-   public getAuthenticatedUser(): AuthenticationResponse {
-    return this.authenticatedUser;
+  //  public getAuthenticatedUser(): AuthenticationResponse {
+  //   return this.authenticatedUser;
+  // }
+  public getAuthenticatedUser(): Observable<AuthenticationResponse | null> {
+    return this.authenticatedUser$;
   }
    
    clearLocalStorage() {
@@ -45,8 +59,8 @@ export class AuthenticationService implements OnInit {
     if (this.authenticatedUser) {
       
        headers.set('Authorization', `Bearer ${this.authenticatedUser.token}`);
-       headers.set('userEmail', `${this.authenticatedUser.userEmail}`);
-       headers.set('userRole', `${this.authenticatedUser.userRole}`);
+       headers.set('userEmail', `${this.authenticatedUser.userAccount.email}`);
+       headers.set('userRole', `${this.authenticatedUser.userAccount.role}`);
        return headers;
 
     }

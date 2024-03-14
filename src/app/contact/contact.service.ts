@@ -36,6 +36,7 @@ export class ContactService implements OnInit {
             console.log("task complete")
           }
     });
+    
   }
 
   updateContacts(contacts: Contact[]): void {
