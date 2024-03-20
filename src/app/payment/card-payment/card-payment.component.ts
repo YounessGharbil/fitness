@@ -35,10 +35,7 @@ export class CardPaymentComponent implements OnInit {
     this.cardPayment.amount=this.payment.amount;
     this.cardPayment.paymentTranche=this.payment.paymentTranche;
     this.cardPayment.subscriptionid=this.payment.subscriptionid
-
-    console.log("++++++++++++++++++++++++++++++++")
-    console.log(this.client)
-    console.log("++++++++++++++++++++++++++++++++")
+    this.cardPayment.paymentHandler=this.payment.paymentHandler
 
   }
 
@@ -50,7 +47,8 @@ export class CardPaymentComponent implements OnInit {
     cardCVV:null,
     cardNumber:null,
     cardExpirationDate:null,
-    subscriptionid:null
+    subscriptionid:null,
+    paymentHandler:''
   };
 
   createCardPayment(){

@@ -37,6 +37,13 @@
                     </div>
                 </th>
 
+                <th style="min-width:10rem">
+                    <div class="flex align-items-center">
+                        Created By
+                        <p-columnFilter type="text" field="createdBy" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
                 <th style="min-width:30rem">
                     <div class="flex align-items-center">
                         Observation Type
@@ -57,6 +64,9 @@
             <tr>
                 <td>
                     {{ observation.client.contact.prenom }} {{ observation.client.contact.nom }}
+                </td>
+                <td>
+                    {{ observation.createdBy }}
                 </td>
                 <td>
                     {{ observation.observationType }}

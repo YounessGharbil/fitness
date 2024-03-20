@@ -35,6 +35,8 @@ export class CashPaymentComponent implements OnInit {
     this.cashPayment.amount=this.payment.amount;
     this.cashPayment.paymentTranche=this.payment.paymentTranche;
     this.cashPayment.subscriptionid=this.payment.subscriptionid;
+    this.cashPayment.paymentHandler=this.payment.paymentHandler
+
   }
 
   cashPayment: CashPayment = {
@@ -42,7 +44,8 @@ export class CashPaymentComponent implements OnInit {
     paymentMethod: PayMethod.CASH,
     amount: null,
     paymentDate: null,
-    subscriptionid:null
+    subscriptionid:null,
+    paymentHandler:''
 
   };
 

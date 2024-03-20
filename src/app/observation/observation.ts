@@ -7,5 +7,6 @@ export interface Observation {
     clientId?: number;
     observationType:string;
     content:string;
+    createdBy:string;
 
 }

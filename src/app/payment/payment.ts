@@ -13,6 +13,8 @@ export interface Payment {
     amount:number;
     
     paymentDate:string;
+    
+    paymentHandler:string;
 
     subscriptionid:number;
 

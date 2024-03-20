@@ -61,10 +61,6 @@ applyFilterGlobal(event: any) {
 }
 
 printInvoice(payment:Payment){
-  console.log("*/*/**/*/*/******************")
-  console.log(payment)
-  console.log("*/*/**/*/*/******************")
-
   this.ref = this.dialogService.open(InvoiceComponent, { 
     data: {
       payment: payment,

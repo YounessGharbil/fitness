@@ -31,12 +31,9 @@ export class CheckPaymentComponent implements OnInit {
     this.checkPayment.paymentDate = new Date().toISOString();
     this.checkPayment.amount=this.payment.amount;
     this.checkPayment.paymentTranche=this.payment.paymentTranche;
-    this.checkPayment.subscriptionid=this.payment.subscriptionid
+    this.checkPayment.subscriptionid=this.payment.subscriptionid;
+    this.checkPayment.paymentHandler=this.payment.paymentHandler
 
-    console.log("++++++++++++++++++++++++++++++++")
-    console.log(this.client)
-    console.log("++++++++++++++++++++++++++++++++")
-  
   }
 
   checkPayment:CheckPayment = {
@@ -46,7 +43,8 @@ export class CheckPaymentComponent implements OnInit {
     amount: null,
     paymentDate: null,
     checkNumber:null,
-    subscriptionid:null
+    subscriptionid:null,
+    paymentHandler:''
     
   };
 

@@ -19,6 +19,7 @@ export class CreatePaymentTransactionComponent implements OnInit {
   subscriptionid:number;
   client:Client;
 
+
   constructor(
     private dialogConfig: DynamicDialogConfig,
     public ref: DynamicDialogRef,
@@ -41,6 +42,8 @@ export class CreatePaymentTransactionComponent implements OnInit {
     
     this.client=this.dialogConfig.data.client
 
+    this.payment.paymentHandler= `${localStorage.getItem("Authenticated_User_LastName")} ${localStorage.getItem("Authenticated_User_FirstName")}`
+
   }
 
 
@@ -49,7 +52,8 @@ export class CreatePaymentTransactionComponent implements OnInit {
     paymentMethod: null,
     amount: this.paymentTranche ? this.paymentTranche.amount : null,
     paymentDate: null,
-    subscriptionid:null
+    subscriptionid:null,
+    paymentHandler:''
   };
   
   paymentMethods: { label: string, value: PayMethod }[] = [

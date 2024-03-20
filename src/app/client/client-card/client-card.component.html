@@ -285,6 +285,11 @@
                     <button pButton type="button" icon="pi pi-plus" class="add-button" (click)="addObservation()"></button>
                     <div class="info-section">
                         <div class="card" *ngIf="observations && observations.length > 0">
+                            <div class="field"> Observation Created By:</div>
+                            <div class="data">
+                                {{ observations[observations.length - 1].createdBy }}
+                            </div>
+
                             <div class="field">Last Observation Type:</div>
                             <div class="data">
                                 {{ observations[observations.length - 1].observationType }}
@@ -315,13 +320,15 @@
                             >
                                 <ng-template pTemplate="header">
                                     <tr>
-                                        <th style="width:20%">observationType</th>
-                                        <th style="width:20%">content</th>
+                                        <th style="width:15%">created By</th>
+                                        <th style="width:15%">observationType</th>
+                                        <th style="width:15%">content</th>
                                         
                                     </tr>
                                 </ng-template>
                                 <ng-template pTemplate="body" let-event>
                                     <tr>
+                                        <td>{{ event.createdBy }}</td>
                                         <td>{{ event.observationType }}</td>
                                         <td>{{ event.content}}</td>
                         

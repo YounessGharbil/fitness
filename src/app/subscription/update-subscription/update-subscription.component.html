@@ -4,16 +4,18 @@
       <span style="width: 80%;" class="p-fluid">
         <p-dropdown pTooltip="Select Package" [disabled]="isPackageDisabled" [options]="allPackages" [(ngModel)]="selectedPackage" name="selectedPackage" optionLabel="packageName"></p-dropdown>
       </span>
-      <p-toggleButton [(ngModel)]="isPackageDisabled" name="isPackageDisabled" onLabel="No" offLabel="Yes"></p-toggleButton>
+      <p-inputSwitch [(ngModel)]="isPackageDisabled" name="isPackageDisabled"></p-inputSwitch>
+
     </div>
 
-    <div class="p-inputgroup">
-      <input pTooltip="Enter Discount" [disabled]="isDiscountDisabled" pInputNumber [(ngModel)]="subscriptionToUpdate.discount" name="discount" placeholder="Discount" />
-      <p-toggleButton [(ngModel)]="isDiscountDisabled" name="isDiscountDisabled" onLabel="No" offLabel="Yes"></p-toggleButton>
+    <div  class="input-group">
+      <input style="width: 25%;" [disabled]="isDiscountDisabled" pInputNumber pTooltip="Enter Discount" [(ngModel)]="subscriptionToUpdate.discount" name="discount" placeholder="Discount" />
+      <p-inputSwitch [(ngModel)]="isDiscountDisabled" name="isDiscountDisabled"></p-inputSwitch>
+
     </div>
 
-    <div class="p-inputgroup">
-      <div class="p-radio">
+    <div  class="p-inputgroup">
+      <div  class="p-radio">
         <input [disabled]="isStatusDisabled" type="radio" id="active" [(ngModel)]="subscriptionToUpdate.status" name="status" value="active" />
         <label for="active">ACTIVE</label>
       </div>
@@ -21,12 +23,14 @@
         <input [disabled]="isStatusDisabled" type="radio" id="blocked" [(ngModel)]="subscriptionToUpdate.status" name="status" value="blocked" />
         <label for="blocked">BLOCKED</label>
       </div>
-      <p-toggleButton [(ngModel)]="isStatusDisabled" name="isStatusDisabled" onLabel="No" offLabel="Yes"></p-toggleButton>
+      <p-inputSwitch [(ngModel)]="isStatusDisabled" name="isStatusDisabled"></p-inputSwitch>
+
     </div>
 
     <div  class="input-group">
-      <input style="width: 80%;" [disabled]="isNumberOfTranchesDisabled" pInputNumber pTooltip="Enter number Of Tranches" [(ngModel)]="numberOfTranches" name="numberOfTranches" placeholder="Number of Tranches" />
-      <p-toggleButton [(ngModel)]="isNumberOfTranchesDisabled" name="isNumberOfTranchesDisabled" onLabel="No" offLabel="Yes"></p-toggleButton>
+      <input style="width: 25%;" [disabled]="isNumberOfTranchesDisabled" pInputNumber pTooltip="Enter number Of Tranches" [(ngModel)]="numberOfTranches" name="numberOfTranches" placeholder="Number of Tranches" />
+      <p-inputSwitch [(ngModel)]="isNumberOfTranchesDisabled" name="isNumberOfTranchesDisabled"></p-inputSwitch>
+
     </div>
 
     <app-payment-tranche [numberOfTranches]="numberOfTranches"></app-payment-tranche>

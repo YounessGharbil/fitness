@@ -9,19 +9,22 @@ import { DynamicDialogRef } from 'primeng/dynamicdialog';
   templateUrl: './create-role.component.html',
   styleUrls: ['./create-role.component.scss']
 })
-export class CreateRoleComponent implements OnInit,OnDestroy {
-
+export class CreateRoleComponent implements OnInit, OnDestroy {
   private createRoleSubscription: Subscription;
 
-  newRole: Role = { 
-
+  newRole: Role = {
     rolename: '',
-    authorities:[]
-   
+    authorities: []
   };
 
   selectedAuthorities: string[] = [];
 
+  authorities: { value: string, label: string, id: string }[] = [
+    { value: 'CONTACTS_MANAGEMENT', label: 'Contacts Management', id: 'contacts' },
+    { value: 'CLIENTS_MANAGEMENT', label: 'Clients Management', id: 'clients' },
+    { value: 'SUBSCRIPTIONS_MANAGEMENT', label: 'Subscriptions Management', id: 'sub' },
+    { value: 'PAYMENTS_MANAGEMENT', label: 'Payments Management', id: 'pay' }
+  ];
 
   constructor(private roleService: RoleService, public ref: DynamicDialogRef) { }
   
@@ -29,29 +32,25 @@ export class CreateRoleComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.createRoleSubscription.unsubscribe();
+    if (this.createRoleSubscription) {
+      this.createRoleSubscription.unsubscribe();
+    }
   }
 
-
-
   addNewRole() {
-      this.newRole.authorities=this.selectedAuthorities
+    this.newRole.authorities = this.selectedAuthorities;
       
-      this.createRoleSubscription= this.roleService.createRole(this.newRole).subscribe({
-      next:  (response)=>
-      {
+    this.createRoleSubscription = this.roleService.createRole(this.newRole).subscribe({
+      next: (response) => {
         console.log(response)
         this.ref.close(this.newRole);
       },
-      error:(err)=>{
+      error: (err) => {
         console.log(err)
       },
-      complete:()=>{
+      complete: () => {
         console.log("task complete")
       }
     });
-
   }
-
-
 }

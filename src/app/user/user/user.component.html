@@ -59,7 +59,7 @@
         <ng-template pTemplate="body" let-user>
             <tr>
 
-                <td (click)="displayContactCard(user.contact)">
+                <td >
                     {{ user.contact.nom }} {{ user.contact.prenom }}
                 </td>
 
@@ -88,9 +88,9 @@
             </tr>
         </ng-template>
 
-        <ng-template pTemplate="paginatorleft">
+        <!-- <ng-template pTemplate="paginatorleft">
             <p-button (click)="show()" type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
-        </ng-template>
+        </ng-template> -->
         
     </p-table>
 </div>

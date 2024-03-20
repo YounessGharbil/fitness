@@ -1,60 +1,55 @@
-.card {
-    max-width: 50rem;
-    margin: auto;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    background-color: #fff;
-    height: 45rem;
-
+.role-card {
+  max-width: 50rem;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
   
-    h2 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 20px;
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  
+    .input-group {
+      margin-bottom: 15px;
+  
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+      }
     }
   
-    form {
+    .checkbox {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
   
-      .p-inputgroup {
-        margin-bottom: 15px;
+    button {
+      margin-top: 20px;
+      width: 25%;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
   
-        input {
-          width: 100%;
-          box-sizing: border-box;
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          font-size: 14px;
-        }
-  
-        .p-inputgroup-addon {
-          background-color: #f0f0f0;
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          margin-right: 5px;
-        }
-      }
-  
-      button {
-        margin-top: 5%;
-        width: 25%;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s;
-  
-        &:hover {
-          background-color: #0056b3;
-        }
+      &:hover {
+        background-color: #0056b3;
       }
     }
   }
-  
+}

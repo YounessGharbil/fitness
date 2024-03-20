@@ -1,30 +1,15 @@
-<div class="card">
-  
-    <form>
-  
-      <div class="p-inputgroup">
-        <input pInputText [(ngModel)]="newRole.rolename" name="rolename" placeholder="Role Name" />
-      </div>
+<div class="role-card">
+  <h2>Add New Role</h2>
+  <form>
+    <div class="input-group">
+      <input pInputText [(ngModel)]="newRole.rolename" name="rolename" placeholder="Role Name" />
+    </div>
 
-        <div class="flex align-items-center gap-1">
-            <p-checkbox name="group1" value="CONTACTS_MANAGEMENT" [(ngModel)]="selectedAuthorities" inputId="contacts"></p-checkbox>
-            <label for="contacts">CONTACTS_MANAGEMENT</label>
-        </div>
-        <div class="flex align-items-center gap-1">
-            <p-checkbox name="group1" value="CLIENTS_MANAGEMENT" [(ngModel)]="selectedAuthorities" inputId="clients"></p-checkbox>
-            <label for="clients">CLIENTS_MANAGEMENT</label>
-        </div>
-        <div class="flex align-items-center gap-1">
-            <p-checkbox name="group1" value="SUBSCRIPTIONS_MANAGEMENT" [(ngModel)]="selectedAuthorities" inputId="sub"></p-checkbox>
-            <label for="sub">SUBSCRIPTIONS_MANAGEMENT</label>
-        </div>
-        <div class="flex align-items-center gap-1">
-          <p-checkbox name="group1" value="PAYMENTS_MANAGEMENT" [(ngModel)]="selectedAuthorities" inputId="pay"></p-checkbox>
-          <label for="pay">PAYMENTS_MANAGEMENT</label>
-      </div>
-  
-      <button pButton type="button" label="Save Role" (click)=" addNewRole()"></button>
+    <div *ngFor="let authority of authorities" class="checkbox">
+      <p-checkbox name="group1" [value]="authority.value" [(ngModel)]="selectedAuthorities" [inputId]="authority.id"></p-checkbox>
+      <label [for]="authority.id">{{ authority.label }}</label>
+    </div>
 
-    </form>
-  </div>
-  
+    <button pButton type="button" label="Save Role" (click)="addNewRole()"></button>
+  </form>
+</div>

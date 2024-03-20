@@ -28,6 +28,11 @@ export class AuthenticationService implements OnInit {
 
 
   authenticate(authReq:AuthenticationRequest ):Observable<any>{
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('__auth_token__')}`
+    });
+
     return this.http.post(`${this.baseURL}`,authReq).pipe(
       tap(response=>{
         localStorage.setItem(this.TOKEN_KEY, response.token);
@@ -35,6 +40,9 @@ export class AuthenticationService implements OnInit {
         localStorage.setItem('Authenticated_User_Role',response.userAccount.role.rolename)
         localStorage.setItem('Authenticated_User_FirstName',response.userAccount.contact.prenom)
         localStorage.setItem('Authenticated_User_LastName',response.userAccount.contact.nom)
+
+        this.authenticatedUser=response.userAccount;
+        localStorage.setItem('Authenticated_User',JSON.stringify(this.authenticatedUser))
 
         this.authenticatedUserSubject.next(response.userAccount); 
 
@@ -56,15 +64,11 @@ export class AuthenticationService implements OnInit {
   }
 
   addHeaders(headers: HttpHeaders) {
-    if (this.authenticatedUser) {
       
        headers.set('Authorization', `Bearer ${this.authenticatedUser.token}`);
-       headers.set('userEmail', `${this.authenticatedUser.userAccount.email}`);
-       headers.set('userRole', `${this.authenticatedUser.userAccount.role}`);
+
        return headers;
 
-    }
-    return headers;
   }
 
 }

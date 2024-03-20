@@ -7,12 +7,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './header/header.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { ContactModule } from './contact/contact.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule  } from '@angular/platform-browser/animations';
 import { PaymentModule } from './payment/payment.module';
 import { ObservationModule } from './observation/observation.module';
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { AuthInterceptor } from './authentication/auth.interceptor';
 
 
 @NgModule({
@@ -34,7 +35,13 @@ import { AuthenticationModule } from './authentication/authentication.module';
     PrimeNgModule,
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

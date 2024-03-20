@@ -13,13 +13,6 @@ export class DashboardHomeComponent implements OnInit {
   }
   authenticationResponse:any;
   ngOnInit(): void {
-    // console.log("1111111111111111")
-    // this.authenticationService.getAuthenticatedUser().subscribe({
-    //   next:user=>{
-    //     console.log(user)
-    //   }
-    // })
-    // console.log("1111111111111111")
     this.authenticationResponse=localStorage.getItem('Authenticated_User');
     console.log(this.authenticationResponse)
   }

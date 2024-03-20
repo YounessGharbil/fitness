@@ -1,1 +1,50 @@
-<p>invoice works!</p>
+<div id="pdf-content" class="invoice-container">
+    <div class="invoice-header">
+      <img src="assets/images/logo.png" alt="Company Logo" class="logo">
+      <div class="line-break"></div>
+      <div class="client-info">
+        <h2>Client Information</h2>
+        <p><strong>Name:</strong> {{contact.nom}} {{contact.prenom}}</p>
+        <p><strong>Email:</strong> {{contact.email}}</p>
+        <p><strong>Address:</strong> {{contact.adresse}}  {{contact.ville}}</p>
+        <p><strong>Phone:</strong> {{contact.tel}}</p>
+      </div>
+    </div>
+    <hr>
+    <div class="invoice-body">
+      <div class="invoice-details">
+        <h2>Invoice Details</h2>
+        <p><strong>Invoice Number:</strong> INV-001</p>
+        <p><strong>Date:</strong> {{payment.paymentDate}}</p>
+      </div>
+      <table class="invoice-table">
+        <thead>
+          <tr>
+            <th>Package Name</th>
+            <th>Payment Tranche Id</th>
+            <th>Payment Method</th>
+            <th>Price(DH)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{subscription.subscribedPackage.packageName}}</td>
+            <td>{{payment.paymentTranche.id}}</td>
+            <td>{{payment.paymentMethod}}</td>
+            <td>{{this.payment.amount}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <hr>
+    <div class="invoice-footer">
+      <p><strong>Total:</strong>{{this.payment.amount}}DH</p>
+      <div class="company-info">
+        <p>Fake Company Name</p>
+        <p>123 Business Street, Citytown</p>
+        <p>Email: info@fakecompany.com</p>
+        <p>Phone: 555-123-4567</p>
+      </div>
+    </div>
+  </div>
+  

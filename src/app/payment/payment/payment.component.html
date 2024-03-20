@@ -30,24 +30,38 @@
         <ng-template pTemplate="header">
             <tr>
 
-                <th style="min-width:30rem">
+                <th style="min-width:15rem">
+                    <div class="flex align-items-center">
+                        client
+                        <p-columnFilter type="text" field="subscription.subscribedContact" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width:15rem">
                     <div class="flex align-items-center">
                         paymentMethod
                         <p-columnFilter type="text" field="paymentMethod" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th style="min-width:30rem">
+                <th style="min-width:15rem">
                     <div class="flex align-items-center">
                         paymentDate
                         <p-columnFilter type="text" field="paymentDate" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th style="min-width:30rem">
+                <th style="min-width:15rem">
                     <div class="flex align-items-center">
                         amount
                         <p-columnFilter type="numeric" field="amount" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width:15rem">
+                    <div class="flex align-items-center">
+                        payment handler
+                        <p-columnFilter type="text" field="paymentHandler" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
@@ -55,6 +69,13 @@
         </ng-template>
         <ng-template pTemplate="body" let-payment>
             <tr >
+                <td >
+                    {{ payment.subscription.subscribedContact.nom }} 
+
+                    {{ payment.subscription.subscribedContact.prenom }} 
+
+                </td>
+
                 <td >
                     {{ payment.paymentMethod }} 
 
@@ -66,6 +87,10 @@
 
                 <td>
                     {{ payment.amount }}
+                </td>
+
+                <td>
+                    {{ payment.paymentHandler }}
                 </td>
 
                 <td>

@@ -14,11 +14,11 @@
       </div>
 
       <div  class="input-group">
-        <input  pInputNumber  pTooltip="Enter discount" [(ngModel)]="newSubscription.discount" name="discount" placeholder="Discount" style="width: 100px;" />
+        <input  pInputNumber  pTooltip="Enter discount" [(ngModel)]="newSubscription.discount" name="discount" placeholder="Discount" style="width: 50%;" />
       </div>
 
       <div class="input-group">
-        <input pInputNumber  pTooltip="Enter number Of Tranches"  [(ngModel)]="numberOfTranches" name="numberOfTranches" placeholder="numberOfTranches" style="width: 200px;" />
+        <input pInputNumber  pTooltip="Enter number Of Tranches"  [(ngModel)]="numberOfTranches" name="numberOfTranches" placeholder="numberOfTranches" style="width: 50%;" />
       </div>
 
       <app-payment-tranche [numberOfTranches]="numberOfTranches" [packagePrice]="selectedPackage?.price" [discount]="newSubscription.discount" ></app-payment-tranche>

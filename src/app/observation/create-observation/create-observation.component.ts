@@ -25,6 +25,8 @@ export class CreateObservationComponent implements OnInit,OnDestroy {
 
   selectedClient:string;
 
+  createdBy:string
+
   private clientsSubscription: Subscription;
 
 
@@ -32,7 +34,8 @@ export class CreateObservationComponent implements OnInit,OnDestroy {
     
     clientId:null,
     observationType:null,
-    content:''
+    content:'',
+    createdBy:''
 
   };
 
@@ -45,6 +48,8 @@ export class CreateObservationComponent implements OnInit,OnDestroy {
               { }
  
   ngOnInit(): void {
+   this.createdBy= `${localStorage.getItem("Authenticated_User_LastName")} ${localStorage.getItem("Authenticated_User_FirstName")}`
+
     this.observationTypes = [
       { name: 'Delayed Payment', value: 'Delayed Payment' },
       { name: 'Violation of Gym Rules', value: 'Violation of Gym Rules' },
@@ -83,6 +88,7 @@ export class CreateObservationComponent implements OnInit,OnDestroy {
       this.newObservation.clientId = selectedClient.id;
     
     this.newObservation.observationType=this.selectedObservationType.value
+    this.newObservation.createdBy=this.createdBy
     this.createObservationSubscription= this.observationService.createObservation(this.newObservation).subscribe({
    next:  (response)=>
    {
