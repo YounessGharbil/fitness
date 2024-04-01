@@ -3,28 +3,36 @@
     <div class="form-group">
       <div class="input-group">
         <span class="p-fluid">
-          <p-autoComplete  pTooltip="Enter Contact" [(ngModel)]="selectedContact" name="selectedContact" [suggestions]="contactSuggestions" (completeMethod)="searchContact($event)" placeholder="Select Contact"></p-autoComplete>
+          <p-autoComplete  pTooltip="Saisissez le nom du contact" [(ngModel)]="selectedContact" name="selectedContact" [suggestions]="contactSuggestions" (completeMethod)="searchContact($event)" placeholder="Saisissez le nom du contact"></p-autoComplete>
         </span>
       </div>
 
       <div class="input-group">
         <span class="p-fluid">
-          <p-dropdown  pTooltip="Select package" [options]="allPackages" [(ngModel)]="selectedPackage" name="selectedPackage" optionLabel="packageName" placeholder="Select Package"></p-dropdown>
+          <p-dropdown  pTooltip="Sélectionnez le forfait" [options]="allPackages" [(ngModel)]="selectedPackage" name="selectedPackage" optionLabel="packageName" placeholder="Sélectionnez le forfait"></p-dropdown>
         </span>
       </div>
 
       <div  class="input-group">
-        <input  pInputNumber  pTooltip="Enter discount" [(ngModel)]="newSubscription.discount" name="discount" placeholder="Discount" style="width: 50%;" />
+        <input  pInputNumber  pTooltip="Entrez la remise" [(ngModel)]="newSubscription.discount" name="discount" placeholder="Entrez la remise" style="width: 50%;" />
       </div>
 
       <div class="input-group">
-        <input pInputNumber  pTooltip="Enter number Of Tranches"  [(ngModel)]="numberOfTranches" name="numberOfTranches" placeholder="numberOfTranches" style="width: 50%;" />
+        <input pInputNumber  pTooltip="Saisissez le nombre de tranches"  [(ngModel)]="numberOfTranches" name="numberOfTranches" placeholder="Saisissez le nombre de tranches" style="width: 50%;" />
       </div>
 
-      <app-payment-tranche [numberOfTranches]="numberOfTranches" [packagePrice]="selectedPackage?.price" [discount]="newSubscription.discount" ></app-payment-tranche>
+      <app-payment-tranche  
+      [numberOfTranches]="numberOfTranches" [packagePrice]="selectedPackage?.price" 
+      [discount]="newSubscription.discount" (eventEmitter)="enableSaveSubscription($event)" >
+      </app-payment-tranche>
       
     </div>
 
-    <button pButton type="button" label="Save Subscription" (click)="addNewSubscription()"></button>
+    <button  
+    [disabled]="saveDisabled"
+    pButton type="button" label="Sauvegarder" 
+    (click)="addNewSubscription()">
+  
+  </button>
   </form>
 </div>

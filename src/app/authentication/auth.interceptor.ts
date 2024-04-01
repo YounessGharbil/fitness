@@ -16,9 +16,6 @@ export class AuthInterceptor implements HttpInterceptor {
 
 
     if (request.url.includes('/Auth') ) {
-      console.log('------------------')
-      console.log('spoted')
-      console.log('------------------')
       return next.handle(request);
     }
 

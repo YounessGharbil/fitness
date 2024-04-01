@@ -1,5 +1,6 @@
-<div class="sidenav-container">
+<!-- <div class="sidenav-container">
   <img src="assets/images/logo.png" alt="App Logo" class="app-logo">
+
 <div class="nav-items">
 
     <div routerLink="/dashboard"  class="nav-item">
@@ -51,4 +52,147 @@
       <span>Observations</span>
     </div>
   </div>
+</div> -->
+
+
+<!-- 
+<div class="card flex justify-content-center">
+  <p-sidebar [(visible)]="sidebarVisible">
+    <ng-template pTemplate="content">
+      <img src="assets/images/logo.png" alt="App Logo" class="app-logo">
+      <div class="nav-items">
+        <div routerLink="/dashboard" class="nav-item">
+          <fa-icon [icon]="faDashboard"></fa-icon>
+          <span>Dashboard</span>
+        </div>
+        <div>
+          <p-accordion>
+            <p-accordionTab header="User Management">
+              <div style="color: blue;" routerLink="/contact" class="nav-item">
+                <fa-icon [icon]="faContactBook"></fa-icon>
+                <span>Contacts</span>
+              </div>
+              <div style="color: blue;" routerLink="/staff" class="nav-item">
+                <fa-icon [icon]="faUsersGear"></fa-icon>
+                <span>Staff</span>
+              </div>
+              <div style="color: blue;" routerLink="/user" class="nav-item">
+                <fa-icon [icon]="faUser"></fa-icon>
+                <span>Users</span>
+              </div>
+              <div style="color: blue;" routerLink="/role" class="nav-item">
+                <fa-icon [icon]="faMasksTheater"></fa-icon>
+                <span>Roles</span>
+              </div>
+            </p-accordionTab>
+          </p-accordion>
+        </div>
+        <div routerLink="/client" class="nav-item">
+          <fa-icon [icon]="faUsers"></fa-icon>
+          <span>Clients</span>
+        </div>
+        <div routerLink="/package" class="nav-item">
+          <fa-icon [icon]="faBox"></fa-icon>
+          <span>Packages</span>
+        </div>
+        <div routerLink="/subscription" class="nav-item">
+          <fa-icon [icon]="faIdCard"></fa-icon>
+          <span>Subscriptions</span>
+        </div>
+        <div routerLink="/payment" class="nav-item">
+          <fa-icon [icon]="faMoneyBill"></fa-icon>
+          <span>Payments</span>
+        </div>
+        <div routerLink="/observation" class="nav-item">
+          <fa-icon [icon]="faFileEdit"></fa-icon>
+          <span>Observations</span>
+        </div>
+      </div>
+    </ng-template>
+  </p-sidebar>
+  <p-button (click)="sidebarVisible = true" icon="pi pi-arrow-right"></p-button>
+</div> -->
+
+
+<div class="card flex justify-content-center">
+  <button pButton icon="pi pi-bars" (click)="toggleSidebar()" class="sidebar-toggle"></button>
+  <!-- <p-sidebar [(visible)]="sidebarVisible" [style.width]="sidebarWidth"> -->
+    <p-sidebar [(visible)]="sidebarVisible">
+
+      <ng-template pTemplate="header">
+          <img style="width: 90%;" src="assets/images/logo.png" alt="App Logo" >
+      </ng-template>
+      <ng-template pTemplate="content">
+        <div class="sidenav-container">
+
+      <div class="nav-items">
+
+    <div routerLink="/dashboard"  class="nav-item">
+      <fa-icon [icon]="faDashboard"></fa-icon>
+      <span>Dashboard</span>
+    </div>
+    <div class="nav-item" (click)="toggleMenu()">
+      <fa-icon [icon]="faAngleDown" *ngIf="!menuOpen"></fa-icon>
+      <fa-icon [icon]="faAngleUp" *ngIf="menuOpen"></fa-icon>
+      <span>Gestion des utilisateurs</span>
+    </div>
+    <div class="menuOpen" *ngIf="menuOpen" >
+      <div routerLink="/contact" class="nav-item">
+        <fa-icon [icon]="faContactBook"></fa-icon>
+        <span>Contacts</span>
+      </div>
+      <div routerLink="/staff" class="nav-item">
+        <fa-icon [icon]="faUsersGear"></fa-icon>
+        <span>Personnel</span>
+      </div>
+      <div routerLink="/user" class="nav-item">
+        <fa-icon [icon]="faUser"></fa-icon>
+        <span>Utilisateurs</span>
+      </div>
+      <div routerLink="/role" class="nav-item">
+        <fa-icon [icon]="faMasksTheater"></fa-icon>
+        <span>Rôles</span>
+      </div>
+    </div>
+      
+    <div routerLink="/client" class="nav-item">
+      <fa-icon [icon]="faUsers"></fa-icon>
+      <span>Clients</span>
+    </div>
+    <div routerLink="/package" class="nav-item">
+      <fa-icon [icon]="faBox"></fa-icon>
+      <span>Forfaits</span>
+    </div>
+    <div routerLink="/subscription" class="nav-item">
+      <fa-icon [icon]="faIdCard"></fa-icon>
+      <span>Abonnements</span>
+    </div>
+    <div routerLink="/payment" class="nav-item">
+      <fa-icon [icon]="faMoneyBill"></fa-icon>
+      <span>Paiements</span>
+    </div>
+    <div routerLink="/observation" class="nav-item">
+      <fa-icon [icon]="faFileEdit"></fa-icon>
+      <span>Observations</span>
+    </div>
+  </div>
 </div>
+      </ng-template>
+
+      <ng-template pTemplate="footer">
+        <!-- <div *ngIf="userMenuOpen"  class="card flex justify-content-center">
+          <p-menu [model]="items"></p-menu>
+        </div> -->
+        <p-menu #menu [model]="items" [popup]="true"></p-menu>
+        <div  (click)="menu.toggle($event)"  class="user">
+          
+          <div class="user-image">{{userFirstName[0] | uppercase }}{{userLastName[0] | uppercase  }}</div>
+          <div class="user-name">{{userFirstName | uppercase }} {{userLastName | uppercase  }}</div>
+        </div>
+      </ng-template>
+
+      
+  </p-sidebar>
+</div>
+
+

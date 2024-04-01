@@ -9,7 +9,7 @@
         [rowsPerPageOptions]="[5, 10, 20]"
         [loading]="loading"
         [paginator]="true"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        currentPageReportTemplate="Affichage du {first} au {last} des {totalRecords} entrées"
         [globalFilterFields]="['role.rolename','contact.nom','contact.prenom']"
         [resizableColumns]="true" 
         columnResizeMode="expand" 
@@ -84,7 +84,7 @@
         
         <ng-template pTemplate="emptymessage">
             <tr>
-                <td colspan="7">No users found.</td>
+                <td colspan="7">Aucun utilisateur trouvé.</td>
             </tr>
         </ng-template>
 

@@ -6,21 +6,21 @@
         <span class="p-inputgroup-addon">
           <i class="pi pi-user"></i>
         </span>
-        <input pInputText pTooltip="Enter your lastname" [(ngModel)]="newContact.nom" name="nom" placeholder="Nom" />
+        <input pInputText pTooltip="Saisissez votre nom de famille" [(ngModel)]="newContact.nom" name="nom" placeholder="Nom" />
       </div>
   
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-user"></i>
         </span>
-        <input pInputText pTooltip="Enter your firstname" [(ngModel)]="newContact.prenom" name="prenom" placeholder="Prénom" />
+        <input pInputText pTooltip="Saisissez votre prénom" [(ngModel)]="newContact.prenom" name="prenom" placeholder="Prénom" />
       </div>
   
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-calendar"></i>
         </span>
-        <p-calendar pTooltip="Enter your birthday" [(ngModel)]="dateNaissance" name="dateNaissance" [showIcon]="true" placeholder="Date de naissance"></p-calendar>
+        <p-calendar  pTooltip="Saisissez votre date de naissance" [(ngModel)]="dateNaissance" name="dateNaissance" [showIcon]="true" placeholder="Date de naissance"></p-calendar>
       </div>
   
       <div class="p-inputgroup">
@@ -43,38 +43,38 @@
         <span class="p-inputgroup-addon">
           <i class="pi pi-map-marker"></i>
         </span>
-        <input pInputText pTooltip="Enter your address" [(ngModel)]="newContact.adresse" name="adresse" placeholder="Adresse" />
+        <input pInputText pTooltip="Saisissez votre adresse" [(ngModel)]="newContact.adresse" name="adresse" placeholder="Adresse" />
       </div>
   
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-home"></i>
         </span>
-        <input pInputText pTooltip="Enter your zip code" [(ngModel)]="newContact.codePostal" name="codePostal" placeholder="Code Postal" />
+        <input pInputText pTooltip="Saisissez votre code postal" [(ngModel)]="newContact.codePostal" name="codePostal" placeholder="Code Postal" />
       </div>
       
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-building"></i>
         </span>
-        <input pInputText pTooltip="Enter your city" [(ngModel)]="newContact.ville" name="ville" placeholder="Ville" />
+        <input pInputText pTooltip="Saisissez votre ville" [(ngModel)]="newContact.ville" name="ville" placeholder="Ville" />
       </div>
   
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-phone"></i>
         </span>
-        <input pInputText pTooltip="Enter your phone number" [(ngModel)]="newContact.tel" name="tel" placeholder="Tel" />
+        <input pInputText pTooltip="Saisissez votre numéro de téléphone" [(ngModel)]="newContact.tel" name="tel" placeholder="Tel" />
       </div>
   
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-envelope"></i>
         </span>
-        <input pInputText pTooltip="Enter your email" [(ngModel)]="newContact.email" name="email" placeholder="Email" />
+        <input pInputText pTooltip="Saisissez votre e-mail" [(ngModel)]="newContact.email" name="email" placeholder="Email" />
       </div>
   
-      <button pButton type="button" label="Save Contact" (click)=" addNewContact()"></button>
+      <button pButton type="button" label="Sauvegarder" (click)=" addNewContact()"></button>
 
     </form>
 

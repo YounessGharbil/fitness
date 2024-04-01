@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { PaymentTrancheService } from '../payment-tranche.service';
 import { PaymentTranche } from '../payment-tranche';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
+
+
 
 @Component({
   selector: 'app-payment-tranche',
@@ -23,10 +25,16 @@ export class PaymentTrancheComponent implements OnInit {
   
   amounts: number[] = [];
   dueDates: string[] = [];
-  private tranches: PaymentTranche[] = [];
+  tranches: PaymentTranche[] = [];
+
+  areTranchesSet:boolean=false;
+  
+  @Output() eventEmitter = new EventEmitter<boolean>();
+  
 
 
   constructor(private paymentTrancheService:PaymentTrancheService,
+              private confirmationService: ConfirmationService, 
               private messageService: MessageService
               ){}
   
@@ -48,7 +56,9 @@ export class PaymentTrancheComponent implements OnInit {
     }));
 
     this.paymentTrancheService.setTranches(tranches);
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
+    this.areTranchesSet=true
+    this.eventEmitter.emit(this.areTranchesSet)
+    // this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
 
   }
 
@@ -60,6 +70,21 @@ export class PaymentTrancheComponent implements OnInit {
   private formatDate(date: any): string {
     return date ? date.toISOString().split('T')[0] : '';;
   }
+
+  confirm(event: Event) {
+    this.confirmationService.confirm({
+        target: event.target,
+        message: 'Are you sure that you want to proceed?',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+          this.setTranches();
+            this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted' });
+        },
+        reject: () => {
+            this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected' });
+        }
+    });
+}
 
 
 }

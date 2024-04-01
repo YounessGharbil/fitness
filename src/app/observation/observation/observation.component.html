@@ -9,7 +9,7 @@
         [rowsPerPageOptions]="[5, 10, 20]"
         [loading]="loading"
         [paginator]="true"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        currentPageReportTemplate="Affichage du {first} au {last} des {totalRecords} entrées"
         [globalFilterFields]="[]"
         [resizableColumns]="true" 
         columnResizeMode="expand" 
@@ -39,21 +39,21 @@
 
                 <th style="min-width:10rem">
                     <div class="flex align-items-center">
-                        Created By
+                        Créé par
                         <p-columnFilter type="text" field="createdBy" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
                 <th style="min-width:30rem">
                     <div class="flex align-items-center">
-                        Observation Type
+                        Type d'observation
                         <p-columnFilter type="text" field="observationType" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
                 <th style="min-width:50rem">
                     <div class="flex align-items-center">
-                        Content
+                        Contenu
                         <p-columnFilter type="text" field="content" display="menu"></p-columnFilter>
                     </div>
                 </th>
@@ -80,7 +80,7 @@
         
         <ng-template pTemplate="emptymessage">
             <tr>
-                <td colspan="7">No observation found.</td>
+                <td colspan="7">Aucune observation trouvée.</td>
             </tr>
         </ng-template>
         <ng-template pTemplate="paginatorleft">

@@ -9,7 +9,7 @@
         [rowsPerPageOptions]="[5, 10, 20]"
         [loading]="loading"
         [paginator]="true"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        currentPageReportTemplate="Affichage du {first} au {last} des {totalRecords} entrées"
         [globalFilterFields]="['contact.nom','contact.prenom','subscription.status']"
         [resizableColumns]="true" 
         columnResizeMode="expand" 
@@ -39,14 +39,14 @@
 
                 <th style="min-width:20rem">
                     <div class="flex align-items-center">
-                        UserAccount
+                        Compte d'utilisateur
                         <p-columnFilter type="text" field="userAccount" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        Subscription
+                        Abonnement
                         <p-columnFilter type="text" field="subscription" display="menu"></p-columnFilter>
                     </div>
                 </th>
@@ -84,7 +84,7 @@
         
         <ng-template pTemplate="emptymessage">
             <tr>
-                <td colspan="7">No clients found.</td>
+                <td colspan="7">Aucun client trouvé.</td>
             </tr>
         </ng-template>
         

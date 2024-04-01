@@ -45,6 +45,8 @@ export class CreateSubscriptionComponent implements OnInit,OnDestroy {
     }
   };
 
+  saveDisabled=true;
+
   constructor(
     private subscriptionService: SubscriptionService, 
     public ref: DynamicDialogRef,
@@ -121,6 +123,11 @@ export class CreateSubscriptionComponent implements OnInit,OnDestroy {
         .filter(contact => contact.nom.toLowerCase().startsWith(query.toLowerCase()) || contact.prenom.toLowerCase().startsWith(query.toLowerCase()))
         .map(contact => `${contact.nom} ${contact.prenom}`);
 }
+
+enableSaveSubscription($event:any){
+  this.saveDisabled=!$event;
+
+  }
 
 
 }

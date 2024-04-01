@@ -18,7 +18,6 @@ export class RoleComponent implements OnInit,OnDestroy {
   
   roles:Role[];
 
-  loading: boolean = true;
 
   ref: DynamicDialogRef;
 
@@ -40,7 +39,6 @@ export class RoleComponent implements OnInit,OnDestroy {
       this.roleService.loadRoles();
       this.rolesSubscription = this.roleService.roles$.subscribe(roles => {
       this.roles = roles;
-      this.loading = false;
     });
 
     }
@@ -68,7 +66,7 @@ export class RoleComponent implements OnInit,OnDestroy {
 
     show() {
       this.ref = this.dialogService.open(CreateRoleComponent, { 
-          header: 'Create Role',
+          header: 'Créer un rôle',
           width: '70vw',
           height:'50vw',
           modal:true,
@@ -82,7 +80,7 @@ export class RoleComponent implements OnInit,OnDestroy {
       data: {
           Role: Role
       },
-      header: ' Update Role',
+      header: ' Modifier un rôle',
       width: '70vw',
       height:'50vw',
       modal:true,
@@ -108,21 +106,21 @@ export class RoleComponent implements OnInit,OnDestroy {
 
 confirmDelete(id:number) {
   this.confirmationService.confirm({
-      message: 'Do you want to delete this record?',
-      header: 'Delete Confirmation',
+      message: 'Voulez-vous supprimer cet enregistrement ?',
+      header: 'Confirmation de suppression',
       icon: 'pi pi-info-circle',
       accept: () => {
           this.deleteRole(id);
-          this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted' });
+          this.messageService.add({ severity: 'info', summary: 'Confirmé', detail: 'Enregistrement supprimé' });
       },
       reject: (type) => {
           switch (type) {
               case ConfirmEventType.REJECT:
-                  this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected' });
+                  this.messageService.add({ severity: 'error', summary: 'Rejetée', detail: 'Vous avez rejeté' });
       
                   break;
               case ConfirmEventType.CANCEL:
-                  this.messageService.add({ severity: 'warn', summary: 'Cancelled', detail: 'You have cancelled' });
+                  this.messageService.add({ severity: 'warn', summary: 'Annulé', detail: 'Vous avez annulé' });
       
                   break;
           }

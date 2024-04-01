@@ -4,21 +4,21 @@
 
       <div class="input-group">
         <span class="p-fluid">
-          <p-autoComplete pTooltip="Enter Client" [(ngModel)]="selectedClient" name="selectedClient" [suggestions]="clientSuggestions" (completeMethod)="search($event)" placeholder="Select Client"></p-autoComplete>
+          <p-autoComplete pTooltip="Saisissez le nom du client" [(ngModel)]="selectedClient" name="selectedClient" [suggestions]="clientSuggestions" (completeMethod)="search($event)" placeholder="Sélectionnez le client"></p-autoComplete>
         </span>  
       </div>
 
       <div style="margin-top: 1rem;" class="input-group">
         <span class="p-fluid">
-          <p-dropdown [options]="observationTypes" [(ngModel)]="selectedObservationType" name="selectedObservationType" optionLabel="name" placeholder="Select Observation Type"></p-dropdown>
+          <p-dropdown [options]="observationTypes" [(ngModel)]="selectedObservationType" name="selectedObservationType" optionLabel="name" placeholder="Choisir le type d'observation"></p-dropdown>
         </span>
       </div>
 
       <div style="margin-top: 1rem;" class="p-inputgroup">
-        <textarea rows="5" cols="100" pInputTextarea [(ngModel)]="newObservation.content" name="content" placeholder="Content"></textarea>
+        <textarea rows="5" cols="100" pInputTextarea [(ngModel)]="newObservation.content" name="content" placeholder="Contenu"></textarea>
       </div>
 
-      <button pButton type="button" label="Save Observation" (click)=" addNewObservation()"></button>
+      <button pButton type="button" label="Sauvegarder" (click)=" addNewObservation()"></button>
 
     </form>
     

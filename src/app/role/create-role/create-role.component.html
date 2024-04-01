@@ -1,8 +1,7 @@
 <div class="role-card">
-  <h2>Add New Role</h2>
   <form>
     <div class="input-group">
-      <input pInputText [(ngModel)]="newRole.rolename" name="rolename" placeholder="Role Name" />
+      <input pInputText [(ngModel)]="newRole.rolename" name="rolename" placeholder="Nom de rôle" />
     </div>
 
     <div *ngFor="let authority of authorities" class="checkbox">
@@ -10,6 +9,6 @@
       <label [for]="authority.id">{{ authority.label }}</label>
     </div>
 
-    <button pButton type="button" label="Save Role" (click)="addNewRole()"></button>
+    <button pButton type="button" label="Sauvegarder" (click)="addNewRole()"></button>
   </form>
 </div>

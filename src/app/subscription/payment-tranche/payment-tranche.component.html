@@ -7,17 +7,21 @@
           <span class="p-inputgroup-addon">
             <i class="pi pi-calendar"></i>
           </span>
-          <p-calendar [(ngModel)]="dueDates[index]" name="dueDate{{ index }}" [showIcon]="true" placeholder="Due Date"></p-calendar>
+          <p-calendar [appendTo]="'body'" [(ngModel)]="dueDates[index]" name="dueDate{{ index }}" [showIcon]="true" placeholder="Date d'échéance"></p-calendar>
         </div>
   
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon">
             <i class="pi pi-money-bill"></i>
           </span>
-          <input [(ngModel)]="amounts[index]" name="amount{{ index }}" pInputNumber placeholder="Amount" />
+          <input  [(ngModel)]="amounts[index]" name="amount{{ index }}" pInputNumber placeholder="Montant" />
         </div>
       </div>
     </div>
   </div>
-  <p-button (click)="setTranches()" type="button" icon="pi pi-check" styleClass="p-button-text"></p-button>
+  <!-- <p-button (click)="setTranches()" type="button" icon="pi pi-check" styleClass="p-button-text"></p-button> -->
+
+  <div class="card flex justify-content-center gap-2">
+    <p-button (click)="confirm($event)" icon="pi pi-check" label="Confirm"></p-button>
+  </div>
 </ng-container>

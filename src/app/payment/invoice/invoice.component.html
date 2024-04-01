@@ -3,33 +3,31 @@
       <img src="assets/images/logo.png" alt="Company Logo" class="logo">
       <div class="line-break"></div>
       <div class="client-info">
-        <h2>Client Information</h2>
-        <p><strong>Name:</strong> {{contact.nom}} {{contact.prenom}}</p>
+        <h2>Informations client</h2>
+        <p><strong>Nom:</strong> {{contact.nom}} {{contact.prenom}}</p>
         <p><strong>Email:</strong> {{contact.email}}</p>
-        <p><strong>Address:</strong> {{contact.adresse}}  {{contact.ville}}</p>
-        <p><strong>Phone:</strong> {{contact.tel}}</p>
+        <p><strong>Adresse:</strong> {{contact.adresse}}  {{contact.ville}}</p>
+        <p><strong>Téléphone:</strong> {{contact.tel}}</p>
       </div>
     </div>
     <hr>
     <div class="invoice-body">
       <div class="invoice-details">
-        <h2>Invoice Details</h2>
-        <p><strong>Invoice Number:</strong> INV-001</p>
+        <h2>Détails de la facture</h2>
+        <p><strong>Numéro de facture:</strong> FACT-{{payment.paymentTranche.id}}</p>
         <p><strong>Date:</strong> {{payment.paymentDate}}</p>
       </div>
       <table class="invoice-table">
         <thead>
           <tr>
-            <th>Package Name</th>
-            <th>Payment Tranche Id</th>
-            <th>Payment Method</th>
-            <th>Price(DH)</th>
+            <th>Forfait</th>
+            <th>Mode de paiement</th>
+            <th>Prix(DH)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>{{subscription.subscribedPackage.packageName}}</td>
-            <td>{{payment.paymentTranche.id}}</td>
             <td>{{payment.paymentMethod}}</td>
             <td>{{this.payment.amount}}</td>
           </tr>

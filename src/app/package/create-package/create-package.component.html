@@ -6,31 +6,31 @@
         <span class="p-inputgroup-addon">
           <i class="pi pi-inbox"></i>
         </span>
-        <input pInputText pTooltip="Enter package name" [(ngModel)]="newPackage.packageName" name="packageName" placeholder="Nom de package" />
+        <input pInputText pTooltip="Entrez le nom du package" [(ngModel)]="newPackage.packageName" name="packageName" placeholder="Nom de package" />
       </div>
   
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-dollar"></i>
         </span>
-        <input pInputNumber pTooltip="Enter price" [(ngModel)]="newPackage.price" name="price" placeholder="Prix" />
+        <input pInputNumber pTooltip="Saisissez le prix" [(ngModel)]="newPackage.price" name="price" placeholder="Prix" />
       </div>
   
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-book"></i>
         </span>
-        <input pInputText pTooltip="Enter description" [(ngModel)]="newPackage.description" name="description" placeholder="Description" />
+        <input pInputText pTooltip="Entrez la description" [(ngModel)]="newPackage.description" name="description" placeholder="Description" />
       </div>
   
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-stopwatch"></i>
         </span>
-        <input pInputNumber pTooltip="Enter duration In Months"  [(ngModel)]="newPackage.durationInMonths" name="durationInMonths" placeholder="durée en mois" />
+        <input pInputNumber pTooltip="Entrez la durée en mois"  [(ngModel)]="newPackage.durationInMonths" name="durationInMonths" placeholder="Durée en mois" />
       </div>
   
-      <button pButton type="button" label="Save Package" (click)=" addNewPackage()"></button>
+      <button pButton type="button" label="Sauvegarder" (click)=" addNewPackage()"></button>
 
     </form>
   </div>

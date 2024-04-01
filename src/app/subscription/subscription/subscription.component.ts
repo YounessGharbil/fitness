@@ -67,7 +67,7 @@ return event.target.value;
 
 show() {
 this.ref = this.dialogService.open(CreateSubscriptionComponent, { 
-    header: 'Create Subscription',
+    header: 'Créer un abonnement',
     width: '70vw',
     height:'50vw',
     modal:true,
@@ -82,7 +82,7 @@ updateSubscription(sub:Sub){
     data: {
         sub: sub
     },
-    header: ' Update Subscription',
+    header: ' Modifier un abonnement',
     width: '70vw',
     height:'50vw',
     modal:true,
@@ -108,21 +108,21 @@ deleteSubscription(id:number){
 
 confirmDelete(id:number) {
   this.confirmationService.confirm({
-      message: 'Do you want to delete this record?',
-      header: 'Delete Confirmation',
+      message: 'Voulez-vous supprimer cet enregistrement ?',
+      header: 'Confirmation de suppression',
       icon: 'pi pi-info-circle',
       accept: () => {
           this.deleteSubscription(id);
-          this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted' });
+          this.messageService.add({ severity: 'info', summary: 'Confirmé', detail: 'Enregistrement supprimé' });
       },
       reject: (type) => {
           switch (type) {
               case ConfirmEventType.REJECT:
-                  this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected' });
+                  this.messageService.add({ severity: 'error', summary: 'Rejeté', detail: 'Vous avez rejeté' });
       
                   break;
               case ConfirmEventType.CANCEL:
-                  this.messageService.add({ severity: 'warn', summary: 'Cancelled', detail: 'You have cancelled' });
+                  this.messageService.add({ severity: 'warn', summary: 'Annulé', detail: 'Vous avez annulé' });
       
                   break;
           }

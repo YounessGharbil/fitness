@@ -8,7 +8,7 @@
         [rowsPerPageOptions]="[5, 10, 20]"
         [loading]="loading"
         [paginator]="true"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        currentPageReportTemplate="Affichage du {first} au {last} des {totalRecords} entrées"
         [globalFilterFields]="['status','subscribedContact.nom','subscribedContact.prenom','subscribedPackage.packageName']"
         [resizableColumns]="true" 
         columnResizeMode="expand" 
@@ -30,47 +30,47 @@
             <tr>
                 <th style="min-width:25rem">
                     <div class="flex align-items-center">
-                        subscribedPackage
+                        Forfait abonné
                         <p-columnFilter type="text" field="subscribedPackage" display="menu"></p-columnFilter>
                     </div>
                 </th>
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        subscribedContact
+                        Abonné Contact
                         <p-columnFilter type="text" field="subscribedContact" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
                 <th style="min-width:10rem">
                     <div class="flex align-items-center">
-                        startDate
+                        Date de début
                         <p-columnFilter type="text" field="startDate" display="menu"></p-columnFilter>
                     </div>
                 </th>
                 <th style="min-width:10rem">
                     <div class="flex align-items-center">
-                        endDate
+                        Date de fin
                         <p-columnFilter type="text" field="endDate" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
                 <th style="min-width:7rem">
                     <div class="flex align-items-center">
-                        discount
+                        Remise
                         <p-columnFilter type="numeric" field="discount" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
                 <th style="min-width:10rem">
                     <div class="flex align-items-center">
-                        priceAfterDiscount
+                        Prix après remise
                         <p-columnFilter type="numeric" field="priceAfterDiscount" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
                 <th style="min-width:7rem">
                     <div class="flex align-items-center">
-                        status
+                        Statut
                         <p-columnFilter type="text" field="status" display="menu"></p-columnFilter>
                     </div>
                 </th>
@@ -105,10 +105,10 @@
 
                 <td>
                     <ng-container *ngIf="sub.status === 'active'; else blockedTag">
-                        <p-tag severity="success" value="Active"></p-tag>
+                        <p-tag severity="success" value="Actif"></p-tag>
                     </ng-container>
                     <ng-template #blockedTag>
-                        <p-tag severity="danger" value="blocked"></p-tag>
+                        <p-tag severity="danger" value="bloquée"></p-tag>
                     </ng-template>
                 </td>
 
@@ -126,7 +126,7 @@
         
         <ng-template pTemplate="emptymessage">
             <tr>
-                <td colspan="7">No subscriptions found.</td>
+                <td colspan="7">Aucun abonnement trouvé.</td>
             </tr>
         </ng-template>
         <ng-template pTemplate="paginatorleft">

@@ -23,7 +23,12 @@ export class CreateRoleComponent implements OnInit, OnDestroy {
     { value: 'CONTACTS_MANAGEMENT', label: 'Contacts Management', id: 'contacts' },
     { value: 'CLIENTS_MANAGEMENT', label: 'Clients Management', id: 'clients' },
     { value: 'SUBSCRIPTIONS_MANAGEMENT', label: 'Subscriptions Management', id: 'sub' },
-    { value: 'PAYMENTS_MANAGEMENT', label: 'Payments Management', id: 'pay' }
+    { value: 'PAYMENTS_MANAGEMENT', label: 'Payments Management', id: 'pay' },
+    { value: 'STAFFS_MANAGEMENT', label: 'Staffs Management', id: 'staff' },
+    { value: 'ROLES_MANAGEMENT', label: 'Roles Management', id: 'role' },
+    { value: 'OBSERVATIONS_MANAGEMENT', label: 'Observations Management', id: 'observation' },
+    { value: 'PACKAGES_MANAGEMENT', label: 'Packages Management', id: 'package' }
+
   ];
 
   constructor(private roleService: RoleService, public ref: DynamicDialogRef) { }

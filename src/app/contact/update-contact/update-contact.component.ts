@@ -54,20 +54,20 @@ export class UpdateContactComponent implements OnInit,OnDestroy {
 
   confirmUpdate() {
     this.confirmationService.confirm({
-        message: 'Are you sure that you want to proceed?',
+        message: 'Êtes-vous sûr de vouloir continuer ?',
         header: 'Confirmation',
         icon: 'pi pi-exclamation-triangle',
         accept: () => {
-            this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted' });
+            this.messageService.add({ severity: 'info', summary: 'Confirmé', detail: 'Vous avez accepté' });
             this.updateContact();
         },
         reject: (type) => {
             switch (type) {
                 case ConfirmEventType.REJECT:
-                    this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected' });
+                    this.messageService.add({ severity: 'error', summary: 'Rejetée', detail: 'Vous avez rejeté' });
                     break;
                 case ConfirmEventType.CANCEL:
-                    this.messageService.add({ severity: 'warn', summary: 'Cancelled', detail: 'You have cancelled' });
+                    this.messageService.add({ severity: 'warn', summary: 'Annulé', detail: 'Vous avez annulé' });
                     break;
             }
         }

@@ -9,7 +9,7 @@
         [rowsPerPageOptions]="[5, 10, 20]"
         [loading]="loading"
         [paginator]="true"
-        currentPageReportTemplate="Showing {last} to {first} of {totalRecords} entries"
+        currentPageReportTemplate="Affichage du {first} au {last} des {totalRecords} entrées"
         [globalFilterFields]="[]"
         [resizableColumns]="true" 
         columnResizeMode="expand" 
@@ -32,35 +32,35 @@
 
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        client
+                        Client
                         <p-columnFilter type="text" field="subscription.subscribedContact" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        paymentMethod
+                        Méthode de paiement
                         <p-columnFilter type="text" field="paymentMethod" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        paymentDate
+                        Date de paiement
                         <p-columnFilter type="text" field="paymentDate" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        amount
+                        Montant
                         <p-columnFilter type="numeric" field="amount" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
-                        payment handler
+                        Responsable de paiement
                         <p-columnFilter type="text" field="paymentHandler" display="menu"></p-columnFilter>
                     </div>
                 </th>
@@ -107,7 +107,7 @@
         
         <ng-template pTemplate="emptymessage">
             <tr>
-                <td colspan="7">No payments found.</td>
+                <td colspan="7">Aucun paiement trouvé.</td>
             </tr>
         </ng-template>
         <!-- <ng-template pTemplate="paginatorleft">

@@ -19,10 +19,9 @@ import { TooltipModule } from 'primeng/tooltip';
 import { TagModule } from 'primeng/tag';
 import { AccordionModule } from 'primeng/accordion';
 import { InputSwitchModule } from 'primeng/inputswitch';
-
-
-
-
+import { SidebarModule } from 'primeng/sidebar';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { MenuModule } from 'primeng/menu';
 
 
 
@@ -31,7 +30,9 @@ const PRIME_NG_MODULES = [
   InputTextModule,CheckboxModule,RadioButtonModule,
   ProgressSpinnerModule,ConfirmDialogModule,ToastModule,
   CalendarModule,CardModule,AutoCompleteModule,DropdownModule,
-  TabViewModule,ToggleButtonModule,TooltipModule,TagModule,AccordionModule,InputSwitchModule
+  TabViewModule,ToggleButtonModule,TooltipModule,TagModule,
+  AccordionModule,InputSwitchModule,SidebarModule,ConfirmPopupModule,
+  MenuModule
   
 ];
 

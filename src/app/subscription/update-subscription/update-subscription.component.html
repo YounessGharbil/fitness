@@ -2,14 +2,14 @@
   <form>
     <div>
       <span style="width: 80%;" class="p-fluid">
-        <p-dropdown pTooltip="Select Package" [disabled]="isPackageDisabled" [options]="allPackages" [(ngModel)]="selectedPackage" name="selectedPackage" optionLabel="packageName"></p-dropdown>
+        <p-dropdown pTooltip="Sélectionnez le forfait" [disabled]="isPackageDisabled" [options]="allPackages" [(ngModel)]="selectedPackage" name="selectedPackage" optionLabel="packageName"></p-dropdown>
       </span>
       <p-inputSwitch [(ngModel)]="isPackageDisabled" name="isPackageDisabled"></p-inputSwitch>
 
     </div>
 
     <div  class="input-group">
-      <input style="width: 25%;" [disabled]="isDiscountDisabled" pInputNumber pTooltip="Enter Discount" [(ngModel)]="subscriptionToUpdate.discount" name="discount" placeholder="Discount" />
+      <input style="width: 25%;" [disabled]="isDiscountDisabled" pInputNumber pTooltip="Entrez la remise" [(ngModel)]="subscriptionToUpdate.discount" name="discount" placeholder="Discount" />
       <p-inputSwitch [(ngModel)]="isDiscountDisabled" name="isDiscountDisabled"></p-inputSwitch>
 
     </div>
@@ -28,13 +28,13 @@
     </div>
 
     <div  class="input-group">
-      <input style="width: 25%;" [disabled]="isNumberOfTranchesDisabled" pInputNumber pTooltip="Enter number Of Tranches" [(ngModel)]="numberOfTranches" name="numberOfTranches" placeholder="Number of Tranches" />
+      <input style="width: 25%;" [disabled]="isNumberOfTranchesDisabled" pInputNumber pTooltip="Saisissez le nombre de tranches" [(ngModel)]="numberOfTranches" name="numberOfTranches" placeholder="Saisissez le nombre de tranches" />
       <p-inputSwitch [(ngModel)]="isNumberOfTranchesDisabled" name="isNumberOfTranchesDisabled"></p-inputSwitch>
 
     </div>
 
     <app-payment-tranche [numberOfTranches]="numberOfTranches"></app-payment-tranche>
     
-    <button pButton type="button" label="Save" (click)="confirmUpdate()"></button>
+    <button pButton type="button" label="Sauvegarder" (click)="confirmUpdate()"></button>
   </form>
 </div>

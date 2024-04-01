@@ -1,1 +1,15 @@
-<p>update-role works!</p>
+<div class="role-card">
+    <form>
+      <div class="input-group">
+        <input pInputText [(ngModel)]="roleToUpdate.rolename" name="rolename" placeholder="Nom de rôle" />
+      </div>
+  
+      <div *ngFor="let authority of authorities" class="checkbox">
+        <p-checkbox  name="group1" [value]="authority.value" [(ngModel)]="selectedAuthorities" [inputId]="authority.id"></p-checkbox>
+        <label [for]="authority.id">{{ authority.label }}</label>
+      </div>
+  
+      <button pButton type="button" label="Sauvegarder" (click)="updateRole()"></button>
+    </form>
+  </div>
+  

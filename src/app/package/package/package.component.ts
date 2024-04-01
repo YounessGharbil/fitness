@@ -64,7 +64,7 @@ applyFilterGlobal(event: any) {
 
 show() {
   this.ref = this.dialogService.open(CreatePackageComponent, { 
-      header: 'Create Package',
+      header: 'Créer un forfait',
       width: '70vw',
       height:'50vw',
       modal:true,
@@ -78,7 +78,7 @@ updatePackage(pack:Package){
     data: {
         package: pack
     },
-    header: ' Update Package',
+    header: ' Modifier un forfait',
     width: '70vw',
     height:'50vw',
     modal:true,
@@ -104,21 +104,21 @@ deletePackage(id:number){
 
 confirmDelete(id:number) {
   this.confirmationService.confirm({
-      message: 'Do you want to delete this record?',
-      header: 'Delete Confirmation',
+      message: 'Voulez-vous supprimer cet enregistrement ?',
+      header: 'Confirmation de suppression',
       icon: 'pi pi-info-circle',
       accept: () => {
           this.deletePackage(id);
-          this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted' });
+          this.messageService.add({ severity: 'info', summary: 'Confirmé', detail: 'Enregistrement supprimé' });
       },
       reject: (type) => {
           switch (type) {
               case ConfirmEventType.REJECT:
-                  this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected' });
+                  this.messageService.add({ severity: 'error', summary: 'Rejetée', detail: 'Vous avez rejeté' });
       
                   break;
               case ConfirmEventType.CANCEL:
-                  this.messageService.add({ severity: 'warn', summary: 'Cancelled', detail: 'You have cancelled' });
+                  this.messageService.add({ severity: 'warn', summary: 'Annulé', detail: 'Vous avez annulé' });
       
                   break;
           }

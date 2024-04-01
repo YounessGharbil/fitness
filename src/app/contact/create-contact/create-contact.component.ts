@@ -42,7 +42,9 @@ export class CreateContactComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.createContactSubscription.unsubscribe();
+    if(this.createContactSubscription){
+      this.createContactSubscription.unsubscribe();
+    }
   }
 
   private formatDate(date: Date): string {

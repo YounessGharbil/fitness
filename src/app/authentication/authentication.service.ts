@@ -18,7 +18,7 @@ export class AuthenticationService implements OnInit {
 
   private baseURL = `http://localhost:8080/Auth`;
 
-  public authenticatedUser:AuthenticationResponse;
+  private authenticatedUser:AuthenticationResponse;
 
   private readonly TOKEN_KEY = '__auth_token__';
 

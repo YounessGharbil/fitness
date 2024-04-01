@@ -7,9 +7,8 @@
         [rows]="10"
         [showCurrentPageReport]="true"
         [rowsPerPageOptions]="[5, 10, 20]"
-        [loading]="loading"
         [paginator]="true"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        currentPageReportTemplate="Affichage du {first} au {last} des {totalRecords} entrées"
         [globalFilterFields]="['rolename']"
         [resizableColumns]="true" 
         columnResizeMode="expand" 
@@ -31,7 +30,7 @@
             <tr>
                 <th style="min-width:80rem">
                     <div class="flex align-items-center">
-                        Role Name
+                        Nom de rôle
                         <p-columnFilter type="text" field="rolename" display="menu"></p-columnFilter>
                     </div>
                 </th>
@@ -59,7 +58,7 @@
         
         <ng-template pTemplate="emptymessage">
             <tr>
-                <td colspan="7">No roles found.</td>
+                <td colspan="7">Aucun rôle trouvé.</td>
             </tr>
         </ng-template>
         <ng-template pTemplate="paginatorleft">

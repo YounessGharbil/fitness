@@ -51,12 +51,12 @@ export class CreateObservationComponent implements OnInit,OnDestroy {
    this.createdBy= `${localStorage.getItem("Authenticated_User_LastName")} ${localStorage.getItem("Authenticated_User_FirstName")}`
 
     this.observationTypes = [
-      { name: 'Delayed Payment', value: 'Delayed Payment' },
-      { name: 'Violation of Gym Rules', value: 'Violation of Gym Rules' },
-      { name: 'Irregular Attendance', value: 'Irregular Attendance' },
-      { name: 'Lack of Engagement', value: 'Lack of Engagement' },
-      { name: 'Membership Renewal', value: 'Membership Renewal' },
-      { name: 'Membership Cancellation', value: 'Membership Cancellation' }
+      { name: 'Le retard de paiement', value: 'Le retard de paiement' },
+      { name: 'Violation des règles', value: 'Violation des règles' },
+      { name: 'Présence irrégulière', value: 'Présence irrégulière' },
+      { name: 'Manque Dengagement', value: 'Manque Dengagement' },
+      { name: 'Renouvellement d’adhésion', value: 'Renouvellement d’adhésion' },
+      { name: 'Annulation d’adhésion', value: 'Annulation d’adhésion' }
 
   ];
 
@@ -80,6 +80,12 @@ export class CreateObservationComponent implements OnInit,OnDestroy {
     if (this.clientsSubscription) {
       this.clientsSubscription.unsubscribe();
     }
+
+    if (this.createObservationSubscription) {
+      this.createObservationSubscription.unsubscribe();
+    }
+
+
   }
 
   addNewObservation() {

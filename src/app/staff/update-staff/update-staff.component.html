@@ -1,1 +1,10 @@
-<p>update-staff works!</p>
+<div class="card">
+    <form>
+      <div class="input">
+        <span class="p-fluid">
+          <p-dropdown pTooltip="Sélectionnez un rôle" [options]="allRoles" [(ngModel)]="selectedRole" name="selectedRole" optionLabel="rolename" placeholder="Sélectionnez un rôle"></p-dropdown>
+        </span>  
+      </div>
+      <button pButton type="button" label="Sauvegarder" (click)="updateStaff()"></button>
+    </form>
+  </div>

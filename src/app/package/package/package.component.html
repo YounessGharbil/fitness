@@ -8,7 +8,7 @@
         [rowsPerPageOptions]="[5, 10, 20]"
         [loading]="loading"
         [paginator]="true"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        currentPageReportTemplate="Affichage du {first} au {last} des {totalRecords} entrées"
         [globalFilterFields]="['packageName', 'durationInMonths']"
         [resizableColumns]="true" 
         columnResizeMode="expand" 
@@ -30,7 +30,7 @@
             <tr>
                 <th style="min-width:30rem">
                     <div class="flex align-items-center">
-                        Nom de Package
+                        Nom de forfait
                         <p-columnFilter type="text" field="packageName" display="menu"></p-columnFilter>
                     </div>
                 </th>

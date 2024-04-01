@@ -9,7 +9,7 @@
         [rowsPerPageOptions]="[5, 10, 20]"
         [loading]="loading"
         [paginator]="true"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        currentPageReportTemplate="Affichage du {first} au {last} des {totalRecords} entrées"
         [globalFilterFields]="['contact.prenom','contact.nom']"
         [resizableColumns]="true" 
         columnResizeMode="expand" 
@@ -37,7 +37,14 @@
                     </div>
                 </th>
 
-                <th style="min-width:70rem">
+                <!-- <th style="min-width:35rem">
+                    <div class="flex align-items-center">
+                        Role
+                        <p-columnFilter type="text" field="role" display="menu"></p-columnFilter>
+                    </div>
+                </th> -->
+
+                <th style="min-width:35rem">
                     <div class="flex align-items-center">
                         Gym_Id
                         <p-columnFilter type="text" field="gymId" display="menu"></p-columnFilter>
@@ -52,6 +59,10 @@
                     {{ staff.contact.nom }} {{ staff.contact.prenom }}
 
                 </td>
+
+                <!-- <td>
+                    {{ staff.role.rolename?staff.role.rolename:staff.rolename }}
+                </td> -->
 
                 <td>
                     {{ staff.gymId }}
@@ -71,7 +82,7 @@
         
         <ng-template pTemplate="emptymessage">
             <tr>
-                <td colspan="7">No staff found.</td>
+                <td colspan="7">Aucun personnel trouvé.</td>
             </tr>
         </ng-template>
         <ng-template pTemplate="paginatorleft">
