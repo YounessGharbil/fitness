@@ -21,7 +21,7 @@ export class SubscriptionService {
     this.http.get<any>(`${this.baseURL}`).subscribe({
       next:  (response)=>
           {
-            console.log(response);
+            console.log("subbs loaded succesfuly //////////");
             this.subscriptionsSubject.next(response);
           },
           error:(err)=>{

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import {
   faLocation,
@@ -19,5 +19,8 @@ export class TopWidgetsComponent {
   faShop = faShop;
   faBoxes = faBoxes;
   faMoneyBill = faMoneyBill;
+
+  @Input()
+  subsNumber:number;
 
 }

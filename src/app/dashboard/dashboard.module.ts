@@ -9,6 +9,7 @@ import { SalesByCategoryComponent } from './sales-by-category/sales-by-category.
 import { LastTransactionsComponent } from './last-transactions/last-transactions.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartModule } from 'primeng/chart';
+import { SubscriptionByMonthComponent } from './subscription-by-month/subscription-by-month.component';
 
 
 
@@ -22,6 +23,7 @@ import { ChartModule } from 'primeng/chart';
     SalesByMonthComponent,
     SalesByCategoryComponent,
     LastTransactionsComponent,
+    SubscriptionByMonthComponent,
   ],
   imports: [
     CommonModule,

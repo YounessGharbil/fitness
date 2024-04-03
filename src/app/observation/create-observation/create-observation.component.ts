@@ -99,7 +99,7 @@ export class CreateObservationComponent implements OnInit,OnDestroy {
    next:  (response)=>
    {
     console.log(this.selectedObservationType)
-     console.log(response)
+    console.log(response)
      this.ref.close(this.newObservation);
    },
    error:(err)=>{

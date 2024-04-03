@@ -70,7 +70,7 @@ export class ContactComponent implements OnInit,OnDestroy {
       this.ref = this.dialogService.open(CreateContactComponent, { 
           header: 'Créer un contact',
           width: '70vw',
-          height:'50vw',
+          height:'80vw',
           modal:true,
           contentStyle: { overflow: 'auto' },
           maximizable: true

@@ -53,6 +53,11 @@ export class CreateContactComponent implements OnInit,OnDestroy {
 
 
   addNewContact() {
+
+    // if (this.contactForm.invalid) {
+    //   // Form is invalid, do not submit
+    //   return;
+    // }
     
     const formattedDate = this.formatDate(this.dateNaissance);
     this.newContact.dateNaissance = formattedDate;

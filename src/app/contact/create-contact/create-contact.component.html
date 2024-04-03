@@ -1,26 +1,29 @@
 <div class="card">
   
-    <form>
+    <form #contactForm="ngForm">
+      <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="error-message">*Nom est obligatoire.</div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-user"></i>
+        </span>
+        <input pInputText pTooltip="Saisissez votre nom de famille" [(ngModel)]="newContact.nom" name="nom" placeholder="Nom" required #nom="ngModel" />
+      </div>
 
+
+      <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="error-message">*Prénom est obligatoire.</div>
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-user"></i>
         </span>
-        <input pInputText pTooltip="Saisissez votre nom de famille" [(ngModel)]="newContact.nom" name="nom" placeholder="Nom" />
+        <input pInputText pTooltip="Saisissez votre prénom" [(ngModel)]="newContact.prenom" name="prenom" placeholder="Prénom" required #prenom="ngModel" />
       </div>
-  
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
-          <i class="pi pi-user"></i>
-        </span>
-        <input pInputText pTooltip="Saisissez votre prénom" [(ngModel)]="newContact.prenom" name="prenom" placeholder="Prénom" />
-      </div>
-  
+
+      
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-calendar"></i>
         </span>
-        <p-calendar  pTooltip="Saisissez votre date de naissance" [(ngModel)]="dateNaissance" name="dateNaissance" [showIcon]="true" placeholder="Date de naissance"></p-calendar>
+        <p-calendar  pTooltip="Saisissez votre date de naissance" [(ngModel)]="dateNaissance" name="dateNaissance" [showIcon]="true" placeholder="Date de naissance" [required]="true" ></p-calendar>
       </div>
   
       <div class="p-inputgroup">
@@ -39,42 +42,51 @@
         </div>
       </div>
   
+      <div *ngIf="adresse.invalid && (adresse.dirty || adresse.touched)" class="error-message">*Adresse est obligatoire.</div>
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-map-marker"></i>
         </span>
-        <input pInputText pTooltip="Saisissez votre adresse" [(ngModel)]="newContact.adresse" name="adresse" placeholder="Adresse" />
+        <input pInputText pTooltip="Saisissez votre adresse" [(ngModel)]="newContact.adresse" name="adresse" placeholder="Adresse" required #adresse="ngModel" />
       </div>
   
+      <div *ngIf="codePostal.invalid && (codePostal.dirty || codePostal.touched)" class="error-message">*Code Postal est obligatoire.</div>
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-home"></i>
         </span>
-        <input pInputText pTooltip="Saisissez votre code postal" [(ngModel)]="newContact.codePostal" name="codePostal" placeholder="Code Postal" />
+        <input pInputText pTooltip="Saisissez votre code postal" [(ngModel)]="newContact.codePostal" name="codePostal" placeholder="Code Postal" required #codePostal="ngModel" />
       </div>
       
+      <div *ngIf="ville.invalid && (ville.dirty || ville.touched)" class="error-message">*Ville est obligatoire.</div>
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-building"></i>
         </span>
-        <input pInputText pTooltip="Saisissez votre ville" [(ngModel)]="newContact.ville" name="ville" placeholder="Ville" />
+        <input pInputText pTooltip="Saisissez votre ville" [(ngModel)]="newContact.ville" name="ville" placeholder="Ville" required #ville="ngModel" />
       </div>
   
+      <div *ngIf="tel.invalid && (tel.dirty || tel.touched)" class="error-message">*Tel est obligatoire.</div>
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-phone"></i>
         </span>
-        <input pInputText pTooltip="Saisissez votre numéro de téléphone" [(ngModel)]="newContact.tel" name="tel" placeholder="Tel" />
+        <input pInputText pTooltip="Saisissez votre numéro de téléphone" [(ngModel)]="newContact.tel" name="tel" placeholder="Tel" required #tel="ngModel" />
       </div>
+
   
-      <div class="p-inputgroup">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">*Email est obligatoire.</div>
+      <div class="input-container">
+        <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-envelope"></i>
         </span>
-        <input pInputText pTooltip="Saisissez votre e-mail" [(ngModel)]="newContact.email" name="email" placeholder="Email" />
+        <input pInputText pTooltip="Saisissez votre e-mail" [(ngModel)]="newContact.email" name="email" placeholder="Email" required #email="ngModel" />  
+      </div>
+
       </div>
   
-      <button pButton type="button" label="Sauvegarder" (click)=" addNewContact()"></button>
+      <button pButton type="button" label="Sauvegarder"  [disabled]="contactForm.invalid" [disabled]="contactForm.invalid" (click)=" addNewContact()"></button>
 
     </form>
 
