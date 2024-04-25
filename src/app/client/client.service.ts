@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Client } from './client';
+import { BASE_URL } from '../constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService implements OnInit{
 
-  private baseURL = `http://localhost:8080/Client`;
+  private baseURL = `${BASE_URL}/Client`;
 
   private clientsSubject = new BehaviorSubject<any>([]);
 

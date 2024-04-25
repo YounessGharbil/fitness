@@ -14,6 +14,16 @@ import { ObservationModule } from './observation/observation.module';
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { AuthInterceptor } from './authentication/auth.interceptor';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { IconService } from './demo/service/icon.service';
+import { NodeService } from './demo/service/node.service';
+import { EventService } from './demo/service/event.service';
+import { CustomerService } from './demo/service/customer.service';
+import { CountryService } from './demo/service/country.service';
+import { ProductService } from './demo/service/product.service';
+import { PhotoService } from './demo/service/photo.service';
+import { NotfoundComponent } from './demo/components/notfound/notfound.component';
+import { AppLayoutModule } from './layout/app.layout.module';
 
 
 @NgModule({
@@ -21,6 +31,8 @@ import { AuthInterceptor } from './authentication/auth.interceptor';
     AppComponent,
     HeaderComponent,
     SideNavComponent,
+    NotfoundComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -33,6 +45,8 @@ import { AuthInterceptor } from './authentication/auth.interceptor';
     ObservationModule,
     AuthenticationModule,
     PrimeNgModule,
+    AppLayoutModule
+
 
   ],
   providers: [
@@ -40,7 +54,10 @@ import { AuthInterceptor } from './authentication/auth.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    // { provide: LocationStrategy, useClass: HashLocationStrategy },
+    CountryService, CustomerService, EventService, IconService, NodeService,
+    PhotoService, ProductService
   ],
   bootstrap: [AppComponent]
 })

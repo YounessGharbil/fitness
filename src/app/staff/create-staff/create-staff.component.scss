@@ -1,11 +1,11 @@
 .card {
-  max-width: 40rem;
+  max-width: 100%;
   margin: 0 auto;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  // border-radius: 10px;
+  box-shadow: 0 0 100% rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
-  height: 15rem;
+  height: 100%;
 
 }
 

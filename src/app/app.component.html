@@ -1,7 +1,7 @@
-<div *ngIf="isUserAuthenticated" class="container">
-    <!-- <div class="header">
+<!-- <div *ngIf="isUserAuthenticated" class="container">
+    <div class="header">
       <app-header></app-header>
-    </div> -->
+    </div>
     <div class="main-container">
       <div class="side-nav">
         <app-side-nav></app-side-nav>
@@ -13,4 +13,6 @@
   </div>
   <div *ngIf="!isUserAuthenticated">
     <app-login></app-login>
-  </div>
+  </div> -->
+  <router-outlet></router-outlet>
+

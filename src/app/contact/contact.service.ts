@@ -2,6 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Contact } from './contact';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BASE_URL } from '../constants';
 
 
 @Injectable({
@@ -15,7 +16,7 @@ export class ContactService implements OnInit {
     
   }
 
-  private baseURL = `http://localhost:8080/Contact`;
+  private baseURL = `${BASE_URL}/Contact`;
 
   private contactsSubject = new BehaviorSubject<any>([]);
 

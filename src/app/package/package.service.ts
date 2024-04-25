@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Package } from './package';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BASE_URL } from '../constants';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class PackageService  {
 
   constructor(private http: HttpClient) { }
  
-  private baseURL = `http://localhost:8080/Package`;
+  private baseURL = `${BASE_URL}/Package`;
 
   private packagesSubject = new BehaviorSubject<any>([]);
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from './authentication/authentication.service';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +9,10 @@ import { AuthenticationService } from './authentication/authentication.service';
 export class AppComponent implements OnInit {
   title = 'fitness';
 
-  isUserAuthenticated:boolean;
+  constructor(private primengConfig: PrimeNGConfig) { }
 
-  constructor(private authenticationService:AuthenticationService){}
+    ngOnInit() {
+        this.primengConfig.ripple = true;
+    }
 
-  ngOnInit(): void {
-    this.isUserAuthenticated=localStorage.getItem('__auth_token__')!=null
-    console.log("****************")
-    console.log( this.isUserAuthenticated)
-    console.log("****************")
-
-  }
 }

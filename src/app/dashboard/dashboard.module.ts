@@ -10,6 +10,16 @@ import { LastTransactionsComponent } from './last-transactions/last-transactions
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartModule } from 'primeng/chart';
 import { SubscriptionByMonthComponent } from './subscription-by-month/subscription-by-month.component';
+import { FormsModule } from '@angular/forms';
+import { MenuModule } from 'primeng/menu';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { StyleClassModule } from 'primeng/styleclass';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProductService } from '../demo/service/product.service';
+
+
 
 
 
@@ -24,12 +34,21 @@ import { SubscriptionByMonthComponent } from './subscription-by-month/subscripti
     SalesByCategoryComponent,
     LastTransactionsComponent,
     SubscriptionByMonthComponent,
+    DashboardComponent,
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     FontAwesomeModule,
-    ChartModule
-  ]
+    ChartModule,
+    FormsModule,
+    ChartModule,
+    MenuModule,
+    TableModule,
+    StyleClassModule,
+    PanelMenuModule,
+    ButtonModule,
+  ],
+  providers:[ProductService]
 })
 export class DashboardModule { }

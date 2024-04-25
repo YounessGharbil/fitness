@@ -32,7 +32,10 @@ export class UpdateContactComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.updateContactSubscription.unsubscribe();
+    if(this.updateContactSubscription){
+      this.updateContactSubscription.unsubscribe();
+    } 
+    
   }
 
   updateContact(){

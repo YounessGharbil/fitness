@@ -14,7 +14,7 @@
         [resizableColumns]="true" 
         columnResizeMode="expand" 
         styleClass="p-datatable-gridlines" 
-        [tableStyle]="{'min-width': '100rem'}"
+        [tableStyle]="{'min-width': '80 rem'}"
         >
 
         <ng-template pTemplate="caption">
@@ -32,7 +32,7 @@
         <ng-template pTemplate="header">
             <tr>
 
-                <th style="min-width:25rem">
+                <th style="min-width:20rem">
                     <div class="flex align-items-center">
                         Contact
                         <p-columnFilter type="text" field="contact" display="menu"></p-columnFilter>
@@ -46,7 +46,7 @@
                     </div>
                 </th>
 
-                <th style="min-width:35rem">
+                <th style="min-width:20rem">
                     <div class="flex align-items-center">
                         Email
                         <p-columnFilter type="text" field="email" display="menu"></p-columnFilter>

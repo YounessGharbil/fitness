@@ -1,27 +1,27 @@
 .card {
-  max-width: 40rem;
+  max-width: 100%;
   margin: 0 auto;
   padding: 20px;
-  border-radius: 10px;
+  // border-radius: 100%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
-  height: 43rem;
+  height: 100%;
 
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 3px;
 }
 
 .p-inputgroup {
-  margin-bottom: 20px;
+  margin-bottom: 3px;
 }
 
 .p-inputgroup-addon {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 10px;
+  padding: 0px;
 }
 
 input[type='text'] {
@@ -29,7 +29,6 @@ input[type='text'] {
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 16px;
   color: #333333;
 }
 
@@ -37,13 +36,11 @@ button {
   margin-top: 1%;
   width: 25%;
   background-color: #007bff;
-  color: #ffffff;
+  color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 12px;
+  padding: 0.5rem;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
 }
 
 button:hover {

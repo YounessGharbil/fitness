@@ -32,11 +32,17 @@ export class LoginComponent implements OnInit,OnDestroy {
   };
 
   login() {
+    console.log("inside login component login function")
     this.authenticationService.authenticate(this.authenticationRequest).subscribe({
       next: (response) => {
         console.log(response);
-        this.router.navigate(['/dashboard']).then(() => {
+        console.log("inside login component login next")
+
+        this.router.navigate(['/']).then(() => {
+          console.log("inside login component before reload")
           window.location.reload();
+          console.log("inside login component before after")
+
         });
       }
     });

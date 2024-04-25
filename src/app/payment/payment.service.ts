@@ -6,13 +6,14 @@ import { CashPayment } from './cash-payment';
 import { CardPayment } from './card-payment';
 import { PaymentTranche } from '../subscription/payment-tranche';
 import { Payment } from './payment';
+import { BASE_URL } from '../constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaymentService {
 
-  private baseURL = `http://localhost:8080/Payment`;
+  private baseURL = `${BASE_URL}/Payment`;
 
   private paymentTranchesSubject = new BehaviorSubject<PaymentTranche[]>([]);
 

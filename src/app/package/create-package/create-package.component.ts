@@ -31,8 +31,10 @@ export class CreatePackageComponent implements OnInit,OnDestroy {
     
   }
   ngOnDestroy(): void {
-
-    this.createPackageSubscription.unsubscribe();
+    if( this.createPackageSubscription){
+      this.createPackageSubscription.unsubscribe();
+    }
+   
 
   }
 

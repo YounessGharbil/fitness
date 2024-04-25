@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './user';
+import { BASE_URL } from '../constants';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { User } from './user';
 export class UserService implements OnInit {
 
   
-  private baseURL = `http://localhost:8080/User`;
+  private baseURL = `${BASE_URL}/User`;
   
   constructor(private http: HttpClient) { }
   

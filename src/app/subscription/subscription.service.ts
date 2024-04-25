@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Sub } from './subscription';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BASE_URL } from '../constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SubscriptionService {
  
-  private baseURL = `http://localhost:8080/Subscription`;
+  private baseURL = `${BASE_URL}/Subscription`;
   
   constructor(private http: HttpClient) { }
   

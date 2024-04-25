@@ -63,14 +63,6 @@ export class UpdateStaffComponent implements OnInit,OnDestroy  {
 
   updateStaff(){
       this.staffToUpdate.rolename=this.selectedRole.rolename
-      console.log("5555555555555")
-      console.log(this.staffToUpdate.rolename)
-      console.log(this.selectedRole.rolename)
-
-      console.log(this.staffToUpdate)
-
-
-      console.log("5555555555555")
 
       this.updateStaffSubscription= this.staffService.updateStaff(this.staffToUpdate).subscribe({
       next:  (response)=>

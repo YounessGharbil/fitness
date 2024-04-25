@@ -14,7 +14,7 @@ export class UpdatePackageComponent implements OnInit,OnDestroy {
 
   packageToUpdate: Package;
 
-   private updatePackageSubscription: Subscription;
+  private updatePackageSubscription: Subscription;
 
 
   constructor(
@@ -33,9 +33,10 @@ export class UpdatePackageComponent implements OnInit,OnDestroy {
     this.packageToUpdate=this.dialogConfig.data.package;
   }
   ngOnDestroy(): void {
-
-    this.updatePackageSubscription.unsubscribe();
-
+    if(this.updatePackageSubscription){
+      this.updatePackageSubscription.unsubscribe();
+    }
+    
   }
 
   updatePackage(){

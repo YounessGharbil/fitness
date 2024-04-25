@@ -4,6 +4,7 @@ import { AuthenticationRequest } from './authentication-request';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { AuthenticationResponse } from './authentication-response';
+import { BASE_URL } from '../constants';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class AuthenticationService implements OnInit {
     
   }
 
-  private baseURL = `http://localhost:8080/Auth`;
+  private baseURL = `${BASE_URL}/Auth`;
 
   private authenticatedUser:AuthenticationResponse;
 
@@ -29,9 +30,16 @@ export class AuthenticationService implements OnInit {
 
   authenticate(authReq:AuthenticationRequest ):Observable<any>{
 
+    console.log("inside auth service authenticate function ")
+
+    console.log("inside auth service before headers ")
+
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('__auth_token__')}`
     });
+
+    console.log("inside auth service after headers ")
+
 
     return this.http.post(`${this.baseURL}`,authReq).pipe(
       tap(response=>{

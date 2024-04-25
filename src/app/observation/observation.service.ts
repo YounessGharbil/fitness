@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Observation } from './observation';
+import { BASE_URL } from '../constants';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class ObservationService implements OnInit {
     
   }
 
-  private baseURL = `http://localhost:8080/Observation`;
+  private baseURL = `${BASE_URL}/Observation`;
 
   private ObservationsSubject = new BehaviorSubject<any>([]);
 

@@ -14,7 +14,7 @@
         [resizableColumns]="true" 
         columnResizeMode="expand" 
         styleClass="p-datatable-gridlines" 
-        [tableStyle]="{'min-width': '100rem'}"
+        [tableStyle]="{'min-width': '80rem'}"
         >
         <ng-template pTemplate="caption">
             
@@ -30,21 +30,21 @@
         <ng-template pTemplate="header">
             <tr>
 
-                <th style="min-width:10rem">
+                <th style="min-width:8rem">
                     <div class="flex align-items-center">
                         Client
                         <p-columnFilter type="text" field="client" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th style="min-width:10rem">
+                <th style="min-width:8rem">
                     <div class="flex align-items-center">
                         Créé par
                         <p-columnFilter type="text" field="createdBy" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th style="min-width:30rem">
+                <th style="min-width:20rem">
                     <div class="flex align-items-center">
                         Type d'observation
                         <p-columnFilter type="text" field="observationType" display="menu"></p-columnFilter>

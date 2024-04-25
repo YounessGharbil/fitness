@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Role } from './role';
+import { BASE_URL } from '../constants';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class RoleService implements OnInit {
     
   }
 
-  private baseURL = `http://localhost:8080/Role`;
+  private baseURL = `${BASE_URL}/Role`;
 
   private rolesSubject = new BehaviorSubject<any>([]);
 

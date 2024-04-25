@@ -14,7 +14,7 @@
         [resizableColumns]="true" 
         columnResizeMode="expand" 
         styleClass="p-datatable-gridlines" 
-        [tableStyle]="{'min-width': '100rem'}"
+        [tableStyle]="{'min-width': '100%',}"
         >
         <ng-template pTemplate="caption">
             
@@ -42,13 +42,13 @@
                     </div>
                 </th>
 
-                <th style="min-width:10rem">
+                <th style="min-width:5rem">
                     <div class="flex align-items-center">
-                        Date de naissance
+                         Né
                         <p-columnFilter type="text" field="dateNaissance" display="menu"></p-columnFilter>
                     </div>
                 </th>
-                <th style="min-width:7rem">
+                <th style="min-width:5rem">
                     <div class="flex align-items-center">
                         Sexe
                         <p-columnFilter type="text" field="sexe" display="menu"></p-columnFilter>
@@ -61,21 +61,21 @@
                         <p-columnFilter type="text" field="adresse" display="menu"></p-columnFilter>
                     </div>
                 </th>
-                <th style="min-width:6rem">
+                <th style="min-width:5rem">
                     <div class="flex align-items-center">
-                        Code postal
+                        postal
                         <p-columnFilter type="text" field="codePostal" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th style="min-width:7rem">
+                <th style="min-width:6rem">
                     <div class="flex align-items-center">
                         Ville
                         <p-columnFilter type="text" field="ville" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
-                <th style="min-width:9rem">
+                <th style="min-width:5rem">
                     <div class="flex align-items-center">
                         Tel
                         <p-columnFilter type="text" field="tel" display="menu"></p-columnFilter>
@@ -85,6 +85,17 @@
                     <div class="flex align-items-center">
                         Email
                         <p-columnFilter type="text" field="email" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th style="min-width:2rem">
+                    <div class="flex align-items-center">
+                        
+                    </div>
+                </th>
+                <th style="min-width:2rem">
+                    <div class="flex align-items-center">
+                        
                     </div>
                 </th>
 
@@ -129,7 +140,7 @@
                 </td>
 
                 <td>
-                    <button pButton type="button"  icon="pi pi-pencil" (click)="updateContact(contact)"></button>
+                    <button pButton type="button"  icon="pi pi-pencil" (click)="updateContact(contact)" class="button"></button>
                 </td>
 
                 <td>

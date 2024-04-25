@@ -13,7 +13,7 @@
         [resizableColumns]="true" 
         columnResizeMode="expand" 
         styleClass="p-datatable-gridlines" 
-        [tableStyle]="{'min-width': '100rem'}"
+        [tableStyle]="{'min-width': '80rem'}"
         >
         <ng-template pTemplate="caption">
             
@@ -28,13 +28,13 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-                <th style="min-width:25rem">
+                <th style="min-width:20rem">
                     <div class="flex align-items-center">
                         Forfait abonné
                         <p-columnFilter type="text" field="subscribedPackage" display="menu"></p-columnFilter>
                     </div>
                 </th>
-                <th style="min-width:15rem">
+                <th style="min-width:10rem">
                     <div class="flex align-items-center">
                         Abonné Contact
                         <p-columnFilter type="text" field="subscribedContact" display="menu"></p-columnFilter>
